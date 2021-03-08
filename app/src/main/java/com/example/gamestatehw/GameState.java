@@ -22,6 +22,17 @@ public class GameState {
         turnPhase = 1;
     }
 
+    @Override
+    public String toString() {
+        return "GameState{" +
+                "numPlayers=" + numPlayers +
+                ", turnNum=" + turnNum +
+                ", roundPhase=" + roundPhase +
+                ", turnPhase=" + turnPhase +
+                ", players=" + players +
+                '}';
+    }
+
     public void init() {
 
     }
