@@ -10,13 +10,13 @@ public class Player {
     private ArrayList<Card> hand;
     private Card character;
 
-    public Player(String n, Card c) {
+    public Player(String n) {
         name = n;
         gold = 0;
         points = 0;
         numCards = 0;
         hand = null;
-        character = c;
+        character = null;
     }
 
     public int getGold() {

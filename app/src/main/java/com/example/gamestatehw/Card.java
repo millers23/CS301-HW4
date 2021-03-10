@@ -5,7 +5,7 @@ public class Card {
     private String name;
     private int type;
 
-    public Card(int c, String n, int t) {
+    public Card(String n, int c, int t) {
         cost = c;
         name = n;
         type = t;
