@@ -8,6 +8,7 @@ public class Player {
     private int points;
     private int numCards;
     private ArrayList<Card> hand;
+    private ArrayList<Card> districts;
     private Card character;
 
     public Player(String n) {
@@ -17,6 +18,7 @@ public class Player {
         numCards = 0;
         hand = null;
         character = null;
+        districts = null;
     }
 
     public int getGold() {
@@ -51,6 +53,14 @@ public class Player {
         this.hand = hand;
     }
 
+    public ArrayList<Card> getDistricts() {
+        return districts;
+    }
+
+    public void setDistricts(ArrayList<Card> hand) {
+        this.districts = districts;
+    }
+
     public void addToHand(ArrayList<Card> hand, Card card) {
         hand.add(card);
     }
@@ -60,6 +70,18 @@ public class Player {
     }
 
     public void removeFromHand(ArrayList<Card> hand, int index) {
+        hand.remove(index);
+    }
+
+    public void addToDistrict(ArrayList<Card> hand, Card card) {
+        hand.add(card);
+    }
+
+    public void removeFromDistricts(ArrayList<Card> hand, Card card) {
+        hand.remove(card);
+    }
+
+    public void removeFromDistricts(ArrayList<Card> hand, int index) {
         hand.remove(index);
     }
 
