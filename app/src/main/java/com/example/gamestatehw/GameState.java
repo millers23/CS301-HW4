@@ -1,22 +1,20 @@
 package com.example.gamestatehw;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class GameState {
-    int numPlayers;
-    int turnNum;
+    private int numPlayers;
+    private int turnNum;
     //phase 1: picking the character
     //phase 2: player turns
-    int roundPhase;
+    private int roundPhase;
     //phase 1: pick card, get gold
     //phase 2: build, destroy, ability, end turn
     //phase 3: end turn
-    int turnPhase;
-    ArrayList<Player> players;
+    private int turnPhase;
 
-    public GameState(ArrayList<Player> p) {
-        numPlayers = p.size();
-        players = p;
+    public GameState() {
         turnNum = 1;
         roundPhase = 1;
         turnPhase = 1;
@@ -29,23 +27,18 @@ public class GameState {
                 ", turnNum=" + turnNum +
                 ", roundPhase=" + roundPhase +
                 ", turnPhase=" + turnPhase +
-                ", players=" + players +
                 '}';
-    }
-
-    public void init() {
-
     }
 
     public void turn(Player p) {
         if (turnPhase == 1) {
-
+            //enable Draw Card and Gain Gold
         }
         else if (turnPhase == 2) {
-
+            //enable Build, Destroy, Ability, and End Turn
         }
         else if (turnPhase == 3) {
-
+            //enable End Turn
         }
     }
 }
