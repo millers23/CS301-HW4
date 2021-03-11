@@ -15,10 +15,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        GameState gameState = new GameState();
         Player player1 = new Player("player1");
 
 
-        GameState gameState = new GameState();
         TextView editText = (TextView)findViewById(R.id.edittext);
         Button buttonRunTest = (Button)findViewById(R.id.buttonRunTest);
         buttonRunTest.setOnClickListener(new View.OnClickListener() {
@@ -29,20 +29,37 @@ public class MainActivity extends AppCompatActivity {
                 GameState secondInstance = new GameState(firstInstance);
 
                 if(firstInstance.drawGold(player1)){
-                    editText.append("Player one Drew Gold!");
+                    editText.append("Player one Drew Gold! ");
+                }
+                else {
+                    editText.append("You cannot draw gold at this moment. ");
                 }
 
-                //if(firstInstance.removeDistrict(player1,)){
-                  //  editText.append("Player one removed district");
-                //}
-
-                if(firstInstance.useAbility(player1)){
-                    editText.append("Player one used ability");
+                if(firstInstance.drawCard(player1)){
+                    editText.append("Player one drew a card!");
                 }
+                else {
+                    editText.append("You cannot draw a card At this moment. ");
+                }
+
+               /* if(firstInstance.buildDistrict(player1,card1)){
+                    editText.append("Player One built district ");
+                }
+
+                if(firstInstance.removeDistrict(player1,card1)){
+                    editText.append("Player one removed district ");
+                }
+                */
+
+               if(firstInstance.useAbility(player1)){
+                    editText.append("Player one used ability ");
+               }
+
 
                 if(firstInstance.endTurn()){
-                    editText.append("Player one ended turn");
+                    editText.append("Player one ended turn ");
                 }
+
 
             }
         });
