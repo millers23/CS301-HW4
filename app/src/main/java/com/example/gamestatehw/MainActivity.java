@@ -44,6 +44,11 @@ public class MainActivity extends AppCompatActivity {
                     editText.append("Player one ended turn");
                 }
 
+                GameState thirdInstance = new GameState();
+                GameState forthInstance = new GameState(thirdInstance);
+
+                secondInstance.toString();
+
             }
         });
     }
