@@ -9,11 +9,13 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    Player player1 = new Player("player1");
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Player player1 = new Player("player1");
 
         GameState gameState = new GameState();
         TextView editText = (TextView)findViewById(R.id.edittext);
@@ -25,9 +27,10 @@ public class MainActivity extends AppCompatActivity {
                 GameState firstInstance = new GameState();
                 GameState secondInstance = new GameState(firstInstance);
 
+                if(firstInstance.drawGold(player1)){
+                    editText.append("Player one Drew Gold!");
+                }
 
-                firstInstance.drawGold(player1);
-                //editText.
             }
         });
     }
