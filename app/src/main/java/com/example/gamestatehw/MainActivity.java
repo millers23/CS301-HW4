@@ -8,7 +8,6 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-
     Player player1 = new Player("player1");
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +25,8 @@ public class MainActivity extends AppCompatActivity {
                 GameState secondInstance = new GameState(firstInstance);
 
 
-                firstInstance.drawGold(player1);
+
+
                 //editText.
             }
         });
