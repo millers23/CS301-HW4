@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
 
         Player player1 = new Player("player1");
 
+
         GameState gameState = new GameState();
         TextView editText = (TextView)findViewById(R.id.edittext);
         Button buttonRunTest = (Button)findViewById(R.id.buttonRunTest);
@@ -29,6 +30,18 @@ public class MainActivity extends AppCompatActivity {
 
                 if(firstInstance.drawGold(player1)){
                     editText.append("Player one Drew Gold!");
+                }
+
+                //if(firstInstance.removeDistrict(player1,)){
+                  //  editText.append("Player one removed district");
+                //}
+
+                if(firstInstance.useAbility(player1)){
+                    editText.append("Player one used ability");
+                }
+
+                if(firstInstance.endTurn()){
+                    editText.append("Player one ended turn");
                 }
 
             }
