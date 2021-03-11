@@ -66,7 +66,8 @@ public class MainActivity extends AppCompatActivity {
                 GameState thirdInstance = new GameState();
                 GameState forthInstance = new GameState(thirdInstance);
 
-                secondInstance.toString();
+                editText.append(secondInstance.toString());
+                editText.append(forthInstance.toString());
 
             }
         });
