@@ -32,9 +32,9 @@ public class MainActivity extends AppCompatActivity {
                     editText.append("Player one Drew Gold!");
                 }
 
-                if(firstInstance.removeDistrict(player1,)){
-                    editText.append("Player one removed district");
-                }
+                //if(firstInstance.removeDistrict(player1,)){
+                  //  editText.append("Player one removed district");
+                //}
 
                 if(firstInstance.useAbility(player1)){
                     editText.append("Player one used ability");
