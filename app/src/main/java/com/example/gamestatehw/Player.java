@@ -1,8 +1,14 @@
+/**
+ * Player class for the game, will be split into subclasses later
+ *
+ * @author Sebastian Miller, Kyle Mayhead, Daniel Lee, Axl Martinez-Ibarra
+ */
 package com.example.gamestatehw;
 
 import java.util.ArrayList;
 
 public class Player {
+    //instance variables
     private String name;
     private int gold;
     private int points;
@@ -11,6 +17,7 @@ public class Player {
     private ArrayList<Card> districts;
     private Card character;
 
+    //constructor
     public Player(String n) {
         name = n;
         gold = 0;
@@ -21,6 +28,9 @@ public class Player {
         districts = null;
     }
 
+    /**
+     * The methods in this class are almost exclusively Getters and Setters
+     */
     public int getGold() {
         return gold;
     }

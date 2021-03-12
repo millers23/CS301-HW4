@@ -1,3 +1,8 @@
+/**
+ * Main Activity for the game, currently runs tests and is tied to an OnClickListener
+ *
+ * @author Sebastian Miller, Kyle Mayhead, Daniel Lee, Axl Martinez-Ibarra
+ */
 package com.example.gamestatehw;
 
 import androidx.appcompat.app.AppCompatActivity;

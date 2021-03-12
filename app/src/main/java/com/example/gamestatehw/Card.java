@@ -1,16 +1,26 @@
+/**
+ * Card class for the game, will be split into subclasses later
+ *
+ * @author Sebastian Miller, Kyle Mayhead, Daniel Lee, Axl Martinez-Ibarra
+ */
 package com.example.gamestatehw;
 
 public class Card {
+    //instance variables
     private int cost;
     private String name;
     private int type;
 
+    //constructor
     public Card(String n, int c, int t) {
         cost = c;
         name = n;
         type = t;
     }
 
+    /**
+     * The methods in this class are almost exclusively Getters and Setters
+     */
     public int getCost() {
         return cost;
     }
