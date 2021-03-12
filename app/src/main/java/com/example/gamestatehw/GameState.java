@@ -15,34 +15,34 @@ public class GameState {
     //phase 0: picking the character
     //phase 1: player turns
     //phase 2: get points
-    private int gamePhase;
+    private int gamePhase;//make an enum
     //who's turn it is
     private int playerTurn;
     //phase 0: pick card, get gold
     //phase 1: build, destroy, ability, end turn
     //phase 2: end turn
-    private int turnPhase;
+    private int turnPhase;//make an enum
 
-    private Card[] characterDeck;
-    private Card[] districtDeck;
+    private Card[] characterDeck;//change to arraylist
+    private Card[] districtDeck;//change to arraylist
 
     //player 1 data
     private int p1Gold;
     private Card p1Char;
     private ArrayList<Card> p1Deck;
-    private ArrayList<Integer> p1Districts;
+    private ArrayList<Card> p1Districts;
     private int p1Score;
     //player 2 data
     private int p2Gold;
     private Card p2Char;
     private ArrayList<Card> p2Deck;
-    private ArrayList<Integer> p2Districts;
+    private ArrayList<Card> p2Districts;
     private int p2Score;
     //player 3 data
     private int p3Gold;
     private Card p3Char;
     private ArrayList<Card> p3Deck;
-    private ArrayList<Integer> p3Districts;
+    private ArrayList<Card> p3Districts;
     private int p3Score;
     //player 4 data
     private int p4Gold;
@@ -62,6 +62,7 @@ public class GameState {
         for (int i = 0; i < 80; i++) {
             districtDeck[i] = new Card("NULL DISTRICT CARD", 0, 1);
         }
+        //leave special ability district cards for later
         gamePhase = 0;
         playerTurn = 0;
         turnPhase = 0;
