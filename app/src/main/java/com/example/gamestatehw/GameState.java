@@ -1,7 +1,14 @@
-       package com.example.gamestatehw;
+/**
+ * GameState class. Used to store all the major information of the game and calculate
+ * changes to player points and decks.
+ *
+ * @author Sebastian Miller, Kyle Mayhead, Daniel Lee, Axl Martinez-Ibarra
+ */
+package com.example.gamestatehw;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class GameState {
     private int numPlayers;
@@ -45,6 +52,7 @@ public class GameState {
     private int p4Score;
     //current max players: 4
 
+    //constructor
     public GameState() {
         characterDeck = new Card[18];
         for (int i = 0; i < 10; i++) {
@@ -59,6 +67,7 @@ public class GameState {
         turnPhase = 0;
     }
 
+    //copy constructor
     public GameState(GameState original) {
         characterDeck = new Card[18];
         for (int i = 0; i < 10; i++) {
@@ -73,6 +82,9 @@ public class GameState {
         turnPhase = original.turnPhase;
     }
 
+   /**
+    * Getters and Setters
+    */
     public int getGamePhase() {
         return gamePhase;
     }
@@ -97,11 +109,13 @@ public class GameState {
         this.turnPhase = turnPhase;
     }
 
+    //draws a random card from the deck
     public Card randomCard() {
         Card card = new Card("NULL DISTRICT CARD", 0, 1);
         return card;
     }
 
+    //tallies the score of a given player with the needed extra parameters
     public int getScore(Player p, boolean firstToEight, boolean tiebreaker,
                         boolean doubleTiebreaker) {
         int score = 0;
@@ -112,6 +126,7 @@ public class GameState {
         return score;
     }
 
+    //adds gold to the player's inventory
     public boolean drawGold(Player p) {
         if (turnPhase == 0) {
             p.setGold(p.getGold() + 2);
@@ -123,6 +138,7 @@ public class GameState {
         }
     }
 
+    //adds two random cards to the player's inventory
     public boolean drawCard(Player p) {
         if (turnPhase == 0) {
             p.addToHand(p.getHand(), randomCard());
@@ -135,6 +151,7 @@ public class GameState {
         }
     }
 
+    //builds a district if the player is able to
     public boolean buildDistrict(Player p, Card c) {
         if (turnPhase == 1) {
             if (p.getGold() >= c.getCost()) {
@@ -153,6 +170,7 @@ public class GameState {
         }
     }
 
+    //removes a district if the player is able to
     public boolean removeDistrict(Player p, Card c) {
         if (turnPhase == 1) {
             p.removeFromDistricts(p.getDistricts(), c);
@@ -164,6 +182,7 @@ public class GameState {
         }
     }
 
+    //uses player character's ability
     public boolean useAbility(Player p) {
         if (turnPhase == 1) {
             //placeholder for when we input the deck
@@ -181,6 +200,8 @@ public class GameState {
             return false;
         }
     }
+
+    //ends the player's turn
     public boolean endTurn() {
         if (turnPhase == 1 || turnPhase == 2) {
             turnPhase = 0;
@@ -195,5 +216,38 @@ public class GameState {
         else {
             return false;
         }
+    }
+
+    //toString method
+   @Override
+    public String toString() {
+        return "GameState{" +
+               "numPlayers=" + numPlayers +
+               ", gamePhase=" + gamePhase +
+               ", playerTurn=" + playerTurn +
+               ", turnPhase=" + turnPhase +
+               ", characterDeck=" + Arrays.toString(characterDeck) +
+               ", districtDeck=" + Arrays.toString(districtDeck) +
+               ", p1Gold=" + p1Gold +
+               ", p1Char=" + p1Char +
+               ", p1Deck=" + p1Deck +
+               ", p1Districts=" + p1Districts +
+               ", p1Score=" + p1Score +
+               ", p2Gold=" + p2Gold +
+               ", p2Char=" + p2Char +
+               ", p2Deck=" + p2Deck +
+               ", p2Districts=" + p2Districts +
+               ", p2Score=" + p2Score +
+               ", p3Gold=" + p3Gold +
+               ", p3Char=" + p3Char +
+               ", p3Deck=" + p3Deck +
+               ", p3Districts=" + p3Districts +
+               ", p3Score=" + p3Score +
+               ", p4Gold=" + p4Gold +
+               ", p4Char=" + p4Char +
+               ", p4Deck=" + p4Deck +
+               ", p4Districts=" + p4Districts +
+               ", p4Score=" + p4Score +
+               '}';
     }
 }
