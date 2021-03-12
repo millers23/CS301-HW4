@@ -2,8 +2,9 @@
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
 
-public class GameState {
+       public class GameState {
     private int numPlayers;
     //phase 0: picking the character
     //phase 1: player turns
@@ -195,5 +196,37 @@ public class GameState {
         else {
             return false;
         }
+    }
+
+   @Override
+    public String toString() {
+        return "GameState{" +
+               "numPlayers=" + numPlayers +
+               ", gamePhase=" + gamePhase +
+               ", playerTurn=" + playerTurn +
+               ", turnPhase=" + turnPhase +
+               ", characterDeck=" + Arrays.toString(characterDeck) +
+               ", districtDeck=" + Arrays.toString(districtDeck) +
+               ", p1Gold=" + p1Gold +
+               ", p1Char=" + p1Char +
+               ", p1Deck=" + p1Deck +
+               ", p1Districts=" + p1Districts +
+               ", p1Score=" + p1Score +
+               ", p2Gold=" + p2Gold +
+               ", p2Char=" + p2Char +
+               ", p2Deck=" + p2Deck +
+               ", p2Districts=" + p2Districts +
+               ", p2Score=" + p2Score +
+               ", p3Gold=" + p3Gold +
+               ", p3Char=" + p3Char +
+               ", p3Deck=" + p3Deck +
+               ", p3Districts=" + p3Districts +
+               ", p3Score=" + p3Score +
+               ", p4Gold=" + p4Gold +
+               ", p4Char=" + p4Char +
+               ", p4Deck=" + p4Deck +
+               ", p4Districts=" + p4Districts +
+               ", p4Score=" + p4Score +
+               '}';
     }
 }
