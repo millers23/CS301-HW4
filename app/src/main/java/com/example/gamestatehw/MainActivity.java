@@ -15,19 +15,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-
-
-        GameState gameState = new GameState();
-        Player player1 = new Player("player1");
-
-
         TextView editText = (TextView)findViewById(R.id.edittext);
         Button buttonRunTest = (Button)findViewById(R.id.buttonRunTest);
         buttonRunTest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 editText.setText("");
+                Player player1 = new Player("player1");
+                Card card1 = new Card("NULL DISTRICT CARD", 0, 1);
                 GameState firstInstance = new GameState();
                 GameState secondInstance = new GameState(firstInstance);
 
@@ -45,14 +40,13 @@ public class MainActivity extends AppCompatActivity {
                     editText.append("You cannot draw a card At this moment. ");
                 }
 
-               /* if(firstInstance.buildDistrict(player1,card1)){
+               if(firstInstance.buildDistrict(player1,card1)){
                     editText.append("Player One built district ");
                 }
 
                 if(firstInstance.removeDistrict(player1,card1)){
                     editText.append("Player one removed district ");
                 }
-                */
 
                if(firstInstance.useAbility(player1)){
                     editText.append("Player one used ability ");
