@@ -21,7 +21,6 @@ public class MainActivity extends AppCompatActivity {
         GameState gameState = new GameState();
         Player player1 = new Player("player1");
 
-
         TextView editText = (TextView)findViewById(R.id.edittext);
         Button buttonRunTest = (Button)findViewById(R.id.buttonRunTest);
         buttonRunTest.setOnClickListener(new View.OnClickListener() {
@@ -45,14 +44,14 @@ public class MainActivity extends AppCompatActivity {
                     editText.append("You cannot draw a card At this moment. ");
                 }
 
-               /* if(firstInstance.buildDistrict(player1,card1)){
+                /*if(firstInstance.buildDistrict(player1,card1)){
                     editText.append("Player One built district ");
                 }
 
                 if(firstInstance.removeDistrict(player1,card1)){
                     editText.append("Player one removed district ");
-                }
-                */
+                }*/
+
 
                if(firstInstance.useAbility(player1)){
                     editText.append("Player one used ability ");
@@ -65,6 +64,7 @@ public class MainActivity extends AppCompatActivity {
 
                 GameState thirdInstance = new GameState();
                 GameState forthInstance = new GameState(thirdInstance);
+
 
                 editText.append(secondInstance.toString());
                 editText.append(forthInstance.toString());
