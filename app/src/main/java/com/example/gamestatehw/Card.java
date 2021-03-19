@@ -4,7 +4,10 @@
  * @author Sebastian Miller, Kyle Mayhead, Daniel Lee, Axl Martinez-Ibarra
  */
 package com.example.gamestatehw;
-
+//subclasses are go-to
+//behaviours: don't do all on the first pass, only change turn order
+//            check base functionality
+//            add behaviours
 public class Card {
     //instance variables
     private int cost;
