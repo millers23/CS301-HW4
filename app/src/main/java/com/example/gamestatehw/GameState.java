@@ -26,6 +26,8 @@ public class GameState {
     private Card[] characterDeck;//change to arraylist
     private Card[] districtDeck;//change to arraylist
 
+    private ArrayList<Player> players;
+    /*
     //player 1 data
     private int p1Gold;
     private Card p1Char;
@@ -51,6 +53,7 @@ public class GameState {
     private ArrayList<Card> p4Districts;
     private int p4Score;
     //current max players: 4
+     */
 
     //constructor
     public GameState() {
@@ -229,26 +232,6 @@ public class GameState {
                ", turnPhase=" + turnPhase +
                ", characterDeck=" + Arrays.toString(characterDeck) +
                ", districtDeck=" + Arrays.toString(districtDeck) +
-               ", p1Gold=" + p1Gold +
-               ", p1Char=" + p1Char +
-               ", p1Deck=" + p1Deck +
-               ", p1Districts=" + p1Districts +
-               ", p1Score=" + p1Score +
-               ", p2Gold=" + p2Gold +
-               ", p2Char=" + p2Char +
-               ", p2Deck=" + p2Deck +
-               ", p2Districts=" + p2Districts +
-               ", p2Score=" + p2Score +
-               ", p3Gold=" + p3Gold +
-               ", p3Char=" + p3Char +
-               ", p3Deck=" + p3Deck +
-               ", p3Districts=" + p3Districts +
-               ", p3Score=" + p3Score +
-               ", p4Gold=" + p4Gold +
-               ", p4Char=" + p4Char +
-               ", p4Deck=" + p4Deck +
-               ", p4Districts=" + p4Districts +
-               ", p4Score=" + p4Score +
                '}';
     }
 }
