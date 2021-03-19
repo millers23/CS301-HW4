@@ -1,7 +1,8 @@
 package com.example.gamestatehw.players;
 
-import edu.up.cs301.game.GameFramework.GameMainActivity;
-import edu.up.cs301.game.GameFramework.infoMessage.GameInfo;
+import com.example.gamestatehw.game.GameMainActivity;
+import com.example.gamestatehw.infoMessage.GameInfo;
+
 
 /**
  * A player who plays a (generic) game. Each class that implements a player for
