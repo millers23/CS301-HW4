@@ -1,5 +1,7 @@
 package com.example.gamestatehw.actionMessage;
 
+import com.example.gamestatehw.players.GamePlayer;
+
 import java.io.Serializable;
 
 import edu.up.cs301.game.GameFramework.players.GamePlayer;

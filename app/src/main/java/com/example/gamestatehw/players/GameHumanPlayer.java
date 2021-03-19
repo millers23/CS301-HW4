@@ -23,6 +23,8 @@ import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 
+import com.example.gamestatehw.game.Game;
+
 /**
  * class GameHumanPlayer
  *

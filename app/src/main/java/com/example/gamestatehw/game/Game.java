@@ -1,10 +1,9 @@
 package com.example.gamestatehw.game;
 
 import com.example.gamestatehw.GameState;
+import com.example.gamestatehw.actionMessage.GameAction;
+import com.example.gamestatehw.players.GamePlayer;
 
-import edu.up.cs301.game.GameFramework.actionMessage.GameAction;
-import edu.up.cs301.game.GameFramework.infoMessage.GameState;
-import edu.up.cs301.game.GameFramework.players.GamePlayer;
 
 /**
  * To support remote play, this game framework has two types of Games: local

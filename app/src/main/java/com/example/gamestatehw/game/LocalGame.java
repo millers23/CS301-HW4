@@ -22,6 +22,7 @@ import android.os.Looper;
 import android.os.Message;
 
 import com.example.gamestatehw.GameState;
+import com.example.gamestatehw.players.GamePlayer;
 
 /**
  * A class that knows how to play the game. The data in this class represent the
