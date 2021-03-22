@@ -1,15 +1,10 @@
 package com.example.gamestatehw.players;
 
-
-
-import android.os.Handler;
-import android.os.Looper;
-
+import com.example.gamestatehw.game.Game;
+import com.example.gamestatehw.game.GameMainActivity;
 import com.example.gamestatehw.actionMessage.GameOverAckAction;
 import com.example.gamestatehw.actionMessage.MyNameIsAction;
 import com.example.gamestatehw.actionMessage.ReadyAction;
-import com.example.gamestatehw.game.Game;
-import com.example.gamestatehw.game.GameMainActivity;
 import com.example.gamestatehw.infoMessage.BindGameInfo;
 import com.example.gamestatehw.infoMessage.GameInfo;
 import com.example.gamestatehw.infoMessage.GameOverInfo;
@@ -17,7 +12,11 @@ import com.example.gamestatehw.infoMessage.StartGameInfo;
 import com.example.gamestatehw.infoMessage.TimerInfo;
 import com.example.gamestatehw.utilities.GameTimer;
 import com.example.gamestatehw.utilities.Logger;
+import com.example.gamestatehw.utilities.MessageBox;
 import com.example.gamestatehw.utilities.Tickable;
+
+import android.os.Handler;
+import android.os.Looper;
 
 /**
  * An abstract computerized game player player. This is an abstract class, that

@@ -9,8 +9,8 @@ import android.widget.EditText;
 import java.io.File;
 import java.util.ArrayList;
 
-import edu.up.cs301.game.GameFramework.GameMainActivity;
-import edu.up.cs301.game.R;
+import com.example.gamestatehw.game.GameMainActivity;
+import com.example.gamestatehw.R;
 
 /**
  * Helper-class for showing dialog boxes
