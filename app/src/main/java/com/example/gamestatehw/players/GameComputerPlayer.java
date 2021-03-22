@@ -1,19 +1,19 @@
 package com.example.gamestatehw.players;
 
-import edu.up.cs301.game.GameFramework.Game;
-import edu.up.cs301.game.GameFramework.GameMainActivity;
-import edu.up.cs301.game.GameFramework.actionMessage.GameOverAckAction;
-import edu.up.cs301.game.GameFramework.actionMessage.MyNameIsAction;
-import edu.up.cs301.game.GameFramework.actionMessage.ReadyAction;
-import edu.up.cs301.game.GameFramework.infoMessage.BindGameInfo;
-import edu.up.cs301.game.GameFramework.infoMessage.GameInfo;
-import edu.up.cs301.game.GameFramework.infoMessage.GameOverInfo;
-import edu.up.cs301.game.GameFramework.infoMessage.StartGameInfo;
-import edu.up.cs301.game.GameFramework.infoMessage.TimerInfo;
-import edu.up.cs301.game.GameFramework.utilities.GameTimer;
-import edu.up.cs301.game.GameFramework.utilities.Logger;
-import edu.up.cs301.game.GameFramework.utilities.MessageBox;
-import edu.up.cs301.game.GameFramework.utilities.Tickable;
+import com.example.gamestatehw.game.Game;
+import com.example.gamestatehw.game.GameMainActivity;
+import com.example.gamestatehw.actionMessage.GameOverAckAction;
+import com.example.gamestatehw.actionMessage.MyNameIsAction;
+import com.example.gamestatehw.actionMessage.ReadyAction;
+import com.example.gamestatehw.infoMessage.BindGameInfo;
+import com.example.gamestatehw.infoMessage.GameInfo;
+import com.example.gamestatehw.infoMessage.GameOverInfo;
+import com.example.gamestatehw.infoMessage.StartGameInfo;
+import com.example.gamestatehw.infoMessage.TimerInfo;
+import com.example.gamestatehw.utilities.GameTimer;
+import com.example.gamestatehw.utilities.Logger;
+import com.example.gamestatehw.utilities.MessageBox;
+import com.example.gamestatehw.utilities.Tickable;
 
 import android.os.Handler;
 import android.os.Looper;

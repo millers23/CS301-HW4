@@ -27,18 +27,16 @@ import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.TabHost.TabSpec;
 
-import com.example.gamestatehw.GameState;
-import com.example.gamestatehw.R;
 
-import edu.up.cs301.game.GameFramework.gameConfiguration.GameConfig;
-import edu.up.cs301.game.GameFramework.gameConfiguration.GamePlayerType;
-import edu.up.cs301.game.GameFramework.infoMessage.GameState;
-import edu.up.cs301.game.GameFramework.players.GamePlayer;
-import edu.up.cs301.game.GameFramework.utilities.IPCoder;
-import edu.up.cs301.game.GameFramework.utilities.Logger;
-import edu.up.cs301.game.GameFramework.utilities.MessageBox;
-import edu.up.cs301.game.GameFramework.utilities.Saving;
-import edu.up.cs301.game.R;
+import com.example.gamestatehw.gameConfiguration.GameConfig;
+import com.example.gamestatehw.gameConfiguration.GamePlayerType;
+import com.example.gamestatehw.GameState;
+import com.example.gamestatehw.players.GamePlayer;
+import com.example.gamestatehw.utilities.IPCoder;
+import com.example.gamestatehw.utilities.Logger;
+import com.example.gamestatehw.utilities.MessageBox;
+import com.example.gamestatehw.utilities.Saving;
+import com.example.gamestatehw.R;
 
 /**
  * class GameMainActivity

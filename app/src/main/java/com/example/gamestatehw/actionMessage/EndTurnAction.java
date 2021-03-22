@@ -2,7 +2,7 @@ package com.example.gamestatehw.actionMessage;
 
 import java.io.Serializable;
 
-import edu.up.cs301.game.GameFramework.players.GamePlayer;
+import com.example.gamestatehw.players.GamePlayer;
 
 //Let's the Game know the player is done with the turn
 public class EndTurnAction extends GameAction implements Serializable {
