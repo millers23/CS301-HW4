@@ -1,7 +1,7 @@
 package com.example.gamestatehw.game;
 
-import com.example.gamestatehw.GameState;
 import com.example.gamestatehw.actionMessage.GameAction;
+import com.example.gamestatehw.infoMessage.GameState;
 import com.example.gamestatehw.players.GamePlayer;
 
 
