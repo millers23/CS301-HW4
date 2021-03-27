@@ -6,7 +6,8 @@
  */
 package com.example.gamestatehw;
 
-import java.lang.reflect.Array;
+import com.example.gamestatehw.cards.Card;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 

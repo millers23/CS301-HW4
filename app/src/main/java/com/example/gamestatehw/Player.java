@@ -5,6 +5,8 @@
  */
 package com.example.gamestatehw;
 
+import com.example.gamestatehw.cards.Card;
+
 import java.util.ArrayList;
 
 public class Player {

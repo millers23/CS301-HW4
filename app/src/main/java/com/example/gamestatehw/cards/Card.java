@@ -3,35 +3,28 @@
  *
  * @author Sebastian Miller, Kyle Mayhead, Daniel Lee, Axl Martinez-Ibarra
  */
-package com.example.gamestatehw;
+package com.example.gamestatehw.cards;
 //subclasses are go-to
 //behaviours: don't do all on the first pass, only change turn order
 //            check base functionality
 //            add behaviours
 public class Card {
     //instance variables
-    private int cost;
     private String name;
     private int type;
+    private String description;
+    //image goes here
 
     //constructor
-    public Card(String n, int c, int t) {
-        cost = c;
+    public Card(String n, int t, String d) {
         name = n;
         type = t;
+        description = d;
     }
 
     /**
      * The methods in this class are almost exclusively Getters and Setters
      */
-    public int getCost() {
-        return cost;
-    }
-
-    public void setCost(int cost) {
-        this.cost = cost;
-    }
-
     public String getName() {
         return name;
     }
