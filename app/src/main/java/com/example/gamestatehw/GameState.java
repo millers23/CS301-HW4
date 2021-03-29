@@ -7,6 +7,13 @@
 package com.example.gamestatehw;
 
 import com.example.gamestatehw.cards.Card;
+import com.example.gamestatehw.cards.CharacterCard;
+import com.example.gamestatehw.cards.DistrictCard;
+import com.example.gamestatehw.cards.characterCards.Assassin;
+import com.example.gamestatehw.cards.districtCards.BlueDistrict;
+import com.example.gamestatehw.cards.districtCards.GreenDistrict;
+import com.example.gamestatehw.cards.districtCards.RedDistrict;
+import com.example.gamestatehw.cards.districtCards.YellowDistrict;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -24,48 +31,14 @@ public class GameState {
     //phase 2: end turn
     private int turnPhase;//make an enum
 
-    private Card[] characterDeck;//change to arraylist
-    private Card[] districtDeck;//change to arraylist
+    private ArrayList<Card> characterDeck;
+    private ArrayList<Card> districtDeck;
 
     private ArrayList<Player> players;
-    /*
-    //player 1 data
-    private int p1Gold;
-    private Card p1Char;
-    private ArrayList<Card> p1Deck;
-    private ArrayList<Card> p1Districts;
-    private int p1Score;
-    //player 2 data
-    private int p2Gold;
-    private Card p2Char;
-    private ArrayList<Card> p2Deck;
-    private ArrayList<Card> p2Districts;
-    private int p2Score;
-    //player 3 data
-    private int p3Gold;
-    private Card p3Char;
-    private ArrayList<Card> p3Deck;
-    private ArrayList<Card> p3Districts;
-    private int p3Score;
-    //player 4 data
-    private int p4Gold;
-    private Card p4Char;
-    private ArrayList<Card> p4Deck;
-    private ArrayList<Card> p4Districts;
-    private int p4Score;
-    //current max players: 4
-     */
 
     //constructor
     public GameState() {
-        characterDeck = new Card[18];
-        for (int i = 0; i < 10; i++) {
-            characterDeck[i] = new Card("NULL CHARACTER CARD", 0, 0);
-        }
-        districtDeck = new Card[80];
-        for (int i = 0; i < 80; i++) {
-            districtDeck[i] = new Card("NULL DISTRICT CARD", 0, 1);
-        }
+        //make init()
         //leave special ability district cards for later
         gamePhase = 0;
         playerTurn = 0;
@@ -74,13 +47,11 @@ public class GameState {
 
     //copy constructor
     public GameState(GameState original) {
-        characterDeck = new Card[18];
         for (int i = 0; i < 10; i++) {
-            characterDeck[i] = original.characterDeck[i];
+            characterDeck.add(original.characterDeck.get(i));
         }
-        districtDeck = new Card[80];
         for (int i = 0; i < 80; i++) {
-            districtDeck[i] = original.districtDeck[i];
+            districtDeck.add(original.districtDeck.get(i));
         }
         gamePhase = original.gamePhase;
         playerTurn = original.playerTurn;
@@ -114,9 +85,32 @@ public class GameState {
         this.turnPhase = turnPhase;
     }
 
+    public void init() {
+        //add character cards to deck
+        Assassin assassin = new Assassin();
+        characterDeck.add(assassin);
+
+        //add districts to deck
+        for (int i = 0; i < 11; i++) {
+            BlueDistrict blueDistrict = new BlueDistrict();
+            districtDeck.add(blueDistrict);
+            RedDistrict redDistrict = new RedDistrict();
+            districtDeck.add(redDistrict);
+        }
+        for (int i = 0; i < 12; i++) {
+            YellowDistrict yellowDistrict = new YellowDistrict();
+            districtDeck.add(yellowDistrict);
+        }
+        for (int i = 0; i < 20; i++) {
+            GreenDistrict greenDistrict = new GreenDistrict();
+            districtDeck.add(greenDistrict);
+        }
+        //unique districts go here
+    }
+
     //draws a random card from the deck
     public Card randomCard() {
-        Card card = new Card("NULL DISTRICT CARD", 0, 1);
+        Card card = new Card("NULL DISTRICT CARD", 0, "NULL");
         return card;
     }
 
@@ -157,7 +151,7 @@ public class GameState {
     }
 
     //builds a district if the player is able to
-    public boolean buildDistrict(Player p, Card c) {
+    public boolean buildDistrict(Player p, DistrictCard c) {
         if (turnPhase == 1) {
             if (p.getGold() >= c.getCost()) {
                 p.removeFromHand(p.getHand(), c);
@@ -176,7 +170,7 @@ public class GameState {
     }
 
     //removes a district if the player is able to
-    public boolean removeDistrict(Player p, Card c) {
+    public boolean removeDistrict(Player p, DistrictCard c) {
         if (turnPhase == 1) {
             p.removeFromDistricts(p.getDistricts(), c);
             turnPhase++;
@@ -189,11 +183,33 @@ public class GameState {
 
     //uses player character's ability
     public boolean useAbility(Player p) {
-        if (turnPhase == 1) {
-            //placeholder for when we input the deck
-            //each character has their own ability
-            //oh boy
-            if (p.getCharacter() == null) {
+        //each character has their own ability
+        //there are 18 of them
+        //oh boy
+        CharacterCard character = p.getCharacter();
+        if (turnPhase == 0) {
+            if (character instanceof Assassin) {
+                character.ability();
+                turnPhase++;
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+        else if (turnPhase == 1) {
+            if (character instanceof Assassin) {
+                character.ability();
+                turnPhase++;
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+        else if(turnPhase == 2) {
+            if (character instanceof Assassin) {
+                character.ability();
                 turnPhase++;
                 return true;
             }
@@ -231,8 +247,8 @@ public class GameState {
                ", gamePhase=" + gamePhase +
                ", playerTurn=" + playerTurn +
                ", turnPhase=" + turnPhase +
-               ", characterDeck=" + Arrays.toString(characterDeck) +
-               ", districtDeck=" + Arrays.toString(districtDeck) +
+               ", characterDeck=" + characterDeck.toString() +
+               ", districtDeck=" + districtDeck.toString() +
                '}';
     }
 }

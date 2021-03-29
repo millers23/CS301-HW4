@@ -10,7 +10,23 @@ public class CharacterCard extends Card {
         number = nu;
     }
 
-    public void abilitiy() {
+    public int getUsablePhase() {
+        return usablePhase;
+    }
+
+    public void setUsablePhase(int usablePhase) {
+        this.usablePhase = usablePhase;
+    }
+
+    public int getNumber() {
+        return number;
+    }
+
+    public void setNumber(int number) {
+        this.number = number;
+    }
+
+    public void ability() {
         return;
     }
 }

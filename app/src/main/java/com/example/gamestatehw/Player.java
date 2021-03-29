@@ -6,6 +6,7 @@
 package com.example.gamestatehw;
 
 import com.example.gamestatehw.cards.Card;
+import com.example.gamestatehw.cards.CharacterCard;
 
 import java.util.ArrayList;
 
@@ -17,7 +18,7 @@ public class Player {
     private int numCards;
     private ArrayList<Card> hand;
     private ArrayList<Card> districts;
-    private Card character;
+    private CharacterCard character;
 
     //constructor
     public Player(String n) {
@@ -101,11 +102,11 @@ public class Player {
         hand.clear();
     }
 
-    public Card getCharacter() {
+    public CharacterCard getCharacter() {
         return character;
     }
 
-    public void setCharacter(Card character) {
+    public void setCharacter(CharacterCard character) {
         this.character = character;
     }
 }

@@ -2,4 +2,38 @@
     <!--These are strings unique to Tic-Tac-Toe-->
     <string name="app_name">Citadels</string>
     <string name="hello_world">coffee is just bean soup</string>
+
+    <string name="ASSASSIN_NAME" formatted="true" translatable="false">Assassin</string>
+    <string name="ASSASSIN_DESC" formatted="true" translatable="false">Call the name of another character whom you wish to kill.
+        When the killed character is called to take his turn, he must
+        remain silent and skip his entire turn for this round without
+        revealing his character card.</string>
+
+    <string name="WITCH_NAME" formatted="true" translatable="false">Witch</string>
+    <string name="WITCH_DESC" formatted="true" translatable="false">First you must gather resources, then you must call the name
+        of another character whom you wish to bewitch, and then your
+        turn is put on hold. You cannot build at this time, and the only
+        district effects you can use are those that occur when gathering
+        resources (Gold Mine, Library, or Observatory).
+        When the bewitched character is called to take his turn, he
+        gathers resources and his turn immediately ends. He cannot
+        build a district or use any of his character’s abilities—not even
+        those that provide “extra” resources (like the Merchant’s extra
+        gold). The only district effects that the bewitched player can
+        use are those that occur when gathering resources.
+        Now you resume your turn as if you were playing the bewitched
+        character; you use that character’s abilities, including those that
+        provide extra resources, passive abilities (such as the Bishop’s
+        protection against rank 8 characters or the Architect’s increased
+        building limit), and restrictions (such as the Navigator’s inability
+        to build districts). You play with the cards in your hand, pay with
+        the gold in your stash, gain resources from districts in your city,
+        and build new districts in your city. You cannot use effects from
+        unique districts owned by the bewitched player.
+        If the Blackmailer is bewitched, you assign threat markers,
+        receive bribes from threatened players, and choose to reveal the
+        threat marker if the targeted player does not pay.
+        If the King or Patrician is bewitched, he still takes the crown. If
+        the Emperor is bewitched, you choose whom to give the crown
+        to and take the resource from that player.</string>
 </resources>
