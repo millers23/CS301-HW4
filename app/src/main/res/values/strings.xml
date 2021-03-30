@@ -5,35 +5,306 @@
 
     <string name="ASSASSIN_NAME" formatted="true" translatable="false">Assassin</string>
     <string name="ASSASSIN_DESC" formatted="true" translatable="false">Call the name of another character whom you wish to kill.
-        When the killed character is called to take his turn, he must
-        remain silent and skip his entire turn for this round without
-        revealing his character card.</string>
+When the killed character is called to take his turn, he must
+remain silent and skip his entire turn for this round without
+revealing his character card.</string>
 
     <string name="WITCH_NAME" formatted="true" translatable="false">Witch</string>
     <string name="WITCH_DESC" formatted="true" translatable="false">First you must gather resources, then you must call the name
-        of another character whom you wish to bewitch, and then your
-        turn is put on hold. You cannot build at this time, and the only
-        district effects you can use are those that occur when gathering
-        resources (Gold Mine, Library, or Observatory).
-        When the bewitched character is called to take his turn, he
-        gathers resources and his turn immediately ends. He cannot
-        build a district or use any of his character’s abilities—not even
-        those that provide “extra” resources (like the Merchant’s extra
-        gold). The only district effects that the bewitched player can
-        use are those that occur when gathering resources.
-        Now you resume your turn as if you were playing the bewitched
-        character; you use that character’s abilities, including those that
-        provide extra resources, passive abilities (such as the Bishop’s
-        protection against rank 8 characters or the Architect’s increased
-        building limit), and restrictions (such as the Navigator’s inability
-        to build districts). You play with the cards in your hand, pay with
-        the gold in your stash, gain resources from districts in your city,
-        and build new districts in your city. You cannot use effects from
-        unique districts owned by the bewitched player.
-        If the Blackmailer is bewitched, you assign threat markers,
-        receive bribes from threatened players, and choose to reveal the
-        threat marker if the targeted player does not pay.
-        If the King or Patrician is bewitched, he still takes the crown. If
-        the Emperor is bewitched, you choose whom to give the crown
-        to and take the resource from that player.</string>
+of another character whom you wish to bewitch, and then your
+turn is put on hold. You cannot build at this time, and the only
+district effects you can use are those that occur when gathering
+resources (Gold Mine, Library, or Observatory).
+When the bewitched character is called to take his turn, he
+gathers resources and his turn immediately ends. He cannot
+build a district or use any of his character’s abilities—not even
+those that provide “extra” resources (like the Merchant’s extra
+gold). The only district effects that the bewitched player can
+use are those that occur when gathering resources.
+Now you resume your turn as if you were playing the bewitched
+character; you use that character’s abilities, including those that
+provide extra resources, passive abilities (such as the Bishop’s
+protection against rank 8 characters or the Architect’s increased
+building limit), and restrictions (such as the Navigator’s inability
+to build districts). You play with the cards in your hand, pay with
+the gold in your stash, gain resources from districts in your city,
+and build new districts in your city. You cannot use effects from
+unique districts owned by the bewitched player.
+If the Blackmailer is bewitched, you assign threat markers,
+receive bribes from threatened players, and choose to reveal the
+threat marker if the targeted player does not pay.
+If the King or Patrician is bewitched, he still takes the crown. If
+the Emperor is bewitched, you choose whom to give the crown
+to and take the resource from that player.</string>
+
+    <string name="MAGISTRATE_NAME" formatted="true" translatable="false">Magistrate</string>
+    <string name="MAGISTRATE_DESC" formatted="true" translatable="false">Take the three warrant markers and assign them facedown
+to three different character tokens of your choice. One of the
+markers shows the signed warrant on its face; only the player
+marked with the signed warrant is targeted.
+If the targeted player pays to build a district during his turn,
+you may reveal his warrant marker by flipping it faceup. If you
+do, you confiscate that district from him and build it in your
+city instead for free.
+The confiscated district never enters the targeted player’s city,
+but it does count toward the targeted player’s building limit for
+the turn. The targeted player receives back all gold paid for that
+district. If he is able to build more than one district during his
+turn, you can confiscate only the first district he pays to build.
+Note: You cannot confiscate a district if you have an identical
+district (with the same name) already in your city.</string>
+
+    <string name="THIEF_NAME" formatted="true" translatable="false">Thief</string>
+    <string name="THIEF_DESC" formatted="true" translatable="false">Call the name of another character whom you wish to rob.
+When a player reveals that character to take his turn, you
+immediately take all of his gold.
+You cannot rob the rank 1 character (Assassin, Witch, or
+Magistrate), the killed character, or the bewitched character.</string>
+
+    <string name="SPY_NAME" formatted="true" translatable="false">Spy</string>
+    <string name="SPY_DESC" formatted="true" translatable="false">Choose another player and name a district type (noble,
+religious, trade, military, or unique). Then look at the
+cards in that player’s hand. For each card in his hand that
+matches the named district type, take one gold from that
+player’s stash and gain one card from the deck.
+If the player whose hand you looked at has more cards of
+matching districts than gold in his stash, you take all the gold
+in his stash, and you still gain cards for each of the matching.
+districts.</string>
+
+    <string name="BLACKMAILER_NAME" formatted="true" translatable="false">Blackmailer</string>
+    <string name="BLACKMAILER_DESC" formatted="true" translatable="false">Take the two threat markers and assign them facedown to two
+different character tokens of your choice. One of the markers
+shows the flowered lace on its face; both players are threatened,
+but only the player marked with the flowered lace is targeted.
+When a threatened player is called to take his turn, he must
+immediately gather resources and then resolve the threat:
+he can bribe you by giving you half his gold (rounded down),
+which removes his threat marker without revealing it. A
+threatened player with only one gold in his stash can bribe
+you by giving you zero gold. If he does not bribe you, you may
+reveal his threat marker by flipping it faceup. If you reveal the
+flowered lace, you immediately take all his gold.
+A threatened player must resolve the threat before he is able to use
+any of his character abilities or build districts, and the only district
+effects he can use before resolving the threat are those that occur
+when gathering resources (Gold Mine, Library, or Observatory).
+You cannot assign threat markers to the rank 1 character
+(Assassin, Witch, or Magistrate), the killed character, or
+the bewitched character. You can assign threat markers to
+characters who have been assigned warrant markers.</string>
+
+    <string name="MAGICIAN_NAME" formatted="true" translatable="false">Magician</string>
+    <string name="MAGICIAN_DESC" formatted="true" translatable="false">You can do one of the following:
+1. Exchange your entire hand of cards with another player’s
+hand of cards; if you have zero cards in your hand, you
+simply take the other player’s cards.
+2. Discard any number of cards from your hand facedown
+to the bottom of the district deck to gain an equal
+number of cards from the district deck.</string>
+
+    <string name="WIZARD_NAME" formatted="true" translatable="false">Wizard</string>
+    <string name="WIZARD_DESC" formatted="true" translatable="false">Look at another player’s hand of cards and choose one of those
+cards. Then either pay to immediately build the chosen card in
+your city or add it to your hand. If you immediately build it,
+it does not count toward your building limit, which means you
+can build another district this turn.
+During this turn, you can build districts that are identical to any
+other district already in your city.</string>
+
+    <string name="SEER_NAME" formatted="true" translatable="false">Seer</string>
+    <string name="SEER_DESC" formatted="true" translatable="false">Take a card at random from each other player’s hand and add
+those cards to your hand. Then give one card from your hand
+to each player you took a card from. If a player has no cards in
+hand, you neither take a card from him nor give him a card.
+Taken cards can be kept and given back in several different
+combinations: you can give a player the exact same card back,
+you can give a card taken from one player to another, or you can
+keep a card taken and give back a card from your original hand.
+Your building limit this turn is two.</string>
+
+    <string name="KING_NAME" formatted="true" translatable="false">King</string>
+    <string name="KING_DESC" formatted="true" translatable="false">You gain one gold for each noble district in your city.
+At some point during your turn, you must take the crown. You
+are now the crowned player, so you call characters for the rest
+of the round, and you will be the first to choose a character
+during the next round (until another player chooses the King).
+If you are killed, you skip your turn like any other character.
+At the end of the round, reveal the King’s character card and
+take the crown as the King’s heir.
+If you are bewitched, you still take the crown.
+Note: If the King is discarded faceup at the start of the selection
+phase, randomly discard another character card faceup to
+replace it and shuffle the King into the character deck.</string>
+
+    <string name="EMPEROR_NAME" formatted="true" translatable="false">Emperor</string>
+    <string name="EMPEROR_DESC" formatted="true" translatable="false">You gain one gold for each noble district in your city.
+At some point during your turn, you must take the crown from
+the player who has it and give it to a different player, but not
+yourself. You take either one gold from his stash or one card at
+random from his hand. If he has neither gold in his stash nor
+cards in hand, you do not take anything.
+If you are killed, you skip your turn like any other character.
+At the end of the round, reveal the Emperor’s character card
+and, as the Emperor’s advisor, take the crown from the player
+who has it and give it to a different player, but not yourself.
+You do not take a resource from the new crowned player.
+Note: If the Emperor is discarded faceup at the start of the
+selection phase, randomly discard another character card faceup
+to replace it and shuffle the Emperor into the character deck.
+Note: The Emperor cannot be used in a 2-player game.</string>
+
+    <string name="PATRICIAN_NAME" formatted="true" translatable="false">Patrician</string>
+    <string name="PATRICIAN_DESC" formatted="true" translatable="false">You gain one card for each noble district in your city.
+At some point during your turn, you must take the crown. You
+are now the crowned player, so you call characters for the rest of
+the round, and you will be the first to choose a character during
+the next round (until another player chooses the Patrician).
+If you are killed, you skip your turn like any other character.
+At the end of the round, reveal the Patrician’s character card
+and take the crown as the Patrician’s heir.
+If you are bewitched, you still take the crown.
+Note: If the Patrician is discarded faceup at the start of the
+selection phase, randomly discard another character card faceup
+to replace it and shuffle the Patrician into the character deck.</string>
+
+    <string name="BISHOP_NAME" formatted="true" translatable="false">Bishop</string>
+    <string name="BISHOP_DESC" formatted="true" translatable="false">You gain one gold for each religious district in your city.
+During this round, the rank 8 character (Warlord, Diplomat, or
+Marshal) cannot use its ability on your districts.
+If you are killed, the rank 8 character can use its ability on your
+districts. Similarly, if you are bewitched, the rank 8 character
+cannot use its ability on the Witch’s districts, but it can use its
+ability on the Bishop’s districts.</string>
+
+    <string name="ABBOT_NAME" formatted="true" translatable="false">Abbot</string>
+    <string name="ABBOT_DESC" formatted="true" translatable="false">You gain either one gold or one card for each religious
+district in your city. You can choose any combination of the two
+resources; for example, if you have three religious districts,
+you can use this ability to gain three gold and zero cards, two
+gold and one card, one gold and two cards, or zero gold and
+three cards. You must declare the combination of resources you
+wish to take before taking them.
+If at any point during your turn you are not the player with the
+most gold, the richest player must give you one gold from his
+stash. If there is a tie for the richest player, choose which of
+the tied players must give you one of his gold. If you are among
+those tied for the richest player, you do not receive any gold.</string>
+
+    <string name="CARDINAL_NAME" formatted="true" translatable="false">Cardinal</string>
+    <string name="CARDINAL_DESC" formatted="true" translatable="false">You gain one card for each religious district in your city.
+If you want to build a district, but you do not have enough gold to
+do so, you can take the remaining gold needed from one player.
+For each gold you take, you must give that player one card from
+your hand. Then you must pay to build that district in your city.
+A player cannot deny you his gold, and you cannot take more
+gold than is needed to build the intended district.</string>
+
+    <string name="MERCHANT_NAME" formatted="true" translatable="false">Merchant</string>
+    <string name="MERCHANT_DESC" formatted="true" translatable="false">You gain one gold for each trade district in your city.
+You gain one extra gold. You can use this ability regardless of
+which resource you gathered this turn.</string>
+
+    <string name="ALCHEMIST_NAME" formatted="true" translatable="false">Alchemist</string>
+    <string name="ALCHEMIST_DESC" formatted="true" translatable="false">At the end of your turn, you receive back all the gold you paid to
+build districts this turn, but not gold you paid for other reasons
+(such as the Smithy’s effect or the Tax Collector’s tax). This
+effectively means that you can build districts “for free,” but only
+if you would have had enough gold to build them.</string>
+
+    <string name="TRADER_NAME" formatted="true" translatable="false">Trader</string>
+    <string name="TRADER_DESC" formatted="true" translatable="false">You gain one gold for each trade district in your city.
+Trade districts do not count toward your building limit this
+turn. This effectively means that you can build any number of
+trade districts in addition to your building limit.</string>
+
+    <string name="ARCHITECT_NAME" formatted="true" translatable="false">Architect</string>
+    <string name="ARCHITECT_DESC" formatted="true" translatable="false">Gain two extra cards. You can use this ability regardless of
+which resource you gathered this turn.
+Your building limit this turn is three.</string>
+
+    <string name="NAVIGATOR_NAME" formatted="true" translatable="false">Navigator</string>
+    <string name="NAVIGATOR_DESC" formatted="true" translatable="false">You gain either four gold or four cards. You can use this ability
+regardless of which resource you gathered this turn.
+You cannot build any districts during your turn—not even
+districts that do not count toward your building limit.</string>
+
+    <string name="SCHOLAR_NAME" formatted="true" translatable="false">Scholar</string>
+    <string name="SCHOLAR_DESC" formatted="true" translatable="false">Draw seven cards from the deck and choose one to add to your
+hand. Shuffle the other six cards back into the district deck and
+place it facedown in the center of the table.
+Your building limit this turn is two.</string>
+
+    <string name="WARLORD_NAME" formatted="true" translatable="false">Warlord</string>
+    <string name="WARLORD_DESC" formatted="true" translatable="false">You gain one gold for each military district in your city.
+You can destroy one district of your choice by paying one fewer
+gold than its building cost. So, you can destroy a one-cost
+district for free, a two-cost district for one gold, a three-cost
+district for two gold, and so on.
+You cannot destroy a district in a completed city, but you
+can destroy one of your own districts. Destroyed districts are
+discarded facedown to the bottom of the district deck.</string>
+
+    <string name="DIPLOMAT_NAME" formatted="true" translatable="false">Diplomat</string>
+    <string name="DIPLOMAT_DESC" formatted="true" translatable="false">You gain one gold for each military district in your city.
+You can exchange one district in another player’s city for one
+district in your city. If the other player’s district has a higher
+cost than your district, you must give that player the difference
+in gold from your stash. If your district has a higher cost than
+the other player’s district, that player does not owe you any gold
+in return.
+You cannot exchange for a district in a completed city nor for
+a district identical to a district already in your city, but you can
+exchange one of your districts if you have a completed city.
+Also, the district coming from your city cannot be identical to a
+district already in the other player’s city.</string>
+
+    <string name="MARSHAL_NAME" formatted="true" translatable="false">Marshal</string>
+    <string name="MARSHAL_DESC" formatted="true" translatable="false">You gain one gold for each military district in your city.
+You can seize one district with a building cost of three or less
+in another player’s city by giving the owner gold equal to its
+building cost. The seized district is added to your city.
+You cannot seize a district in a completed city nor a district
+identical to a district already in your city.</string>
+
+    <string name="QUEEN_NAME" formatted="true" translatable="false">Queen</string>
+    <string name="QUEEN_DESC" formatted="true" translatable="false">If you are sitting next to the player who revealed the rank 4
+character (King, Emperor, or Patrician), gain three gold. If
+this character is sitting next to you, but has been killed by the
+Assassin, you gain three gold when that card is revealed at the
+end of the round.
+Note: The Queen cannot be used in games with fewer than five
+players.</string>
+
+    <string name="ARTIST_NAME" formatted="true" translatable="false">Artist</string>
+    <string name="ARTIST_DESC" formatted="true" translatable="false">You can beautify up to two of your districts by assigning them
+each one gold from your stash. The cost of a beautified district
+is permanently increased by one, so a beautified district scores
+one more point at the end of the game, the Warlord must pay
+one more gold to destroy a beautified district, etc. (keep the
+gold on the card as a reminder). A district can be beautified
+only once.</string>
+
+    <string name="TAXCOLLECTOR_NAME" formatted="true" translatable="false">Tax Collector</string>
+    <string name="TAXCOLLECTOR_DESC" formatted="true" translatable="false">When the Tax Collector is one of the characters in the game,
+players are charged a property tax for building districts.
+Immediately after a player builds a district, he places one gold
+from his stash on the Tax Collector’s character token. This
+applies even when a player builds a district that he has not paid
+to build. If a player builds more than one district, he is charged
+the property tax for each district built. If a player has no gold
+remaining in his stash after building a district, he is not charged
+a tax. The Tax Collector himself is not charged a tax.
+At any time during your turn, you can take all gold from the Tax
+Collector’s character token into your stash.
+Even if the Tax Collector does not appear during a round
+(because it was not chosen, it was discarded at the start of the
+selection phase, or it was killed by the Assassin), players are
+always charged a tax, and any gold left on the Tax Collector’s
+token carries over to the next round.
+In 2- and 3-player games, a player who chooses the Tax
+Collector as one of his characters is still charged a tax for his
+other character.
+If the Magistrate confiscates a district from a player, the
+Magistrate is charged the tax, not his target.</string>
 </resources>
