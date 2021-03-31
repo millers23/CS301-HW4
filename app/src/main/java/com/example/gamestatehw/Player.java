@@ -106,7 +106,5 @@ public class Player {
         return character;
     }
 
-    public void setCharacter(CharacterCard character) {
-        this.character = character;
-    }
+    public void setCharacter(CharacterCard character) { this.character = character; }
 }
