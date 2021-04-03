@@ -14,11 +14,12 @@ import com.example.gamestatehw.cards.districtCards.BlueDistrict;
 import com.example.gamestatehw.cards.districtCards.GreenDistrict;
 import com.example.gamestatehw.cards.districtCards.RedDistrict;
 import com.example.gamestatehw.cards.districtCards.YellowDistrict;
+import com.example.gamestatehw.infoMessage.GameState;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class GameState {
+public class CGameState extends GameState {
     private int numPlayers;
     //phase 0: picking the character
     //phase 1: player turns
@@ -37,7 +38,7 @@ public class GameState {
     private ArrayList<Player> players;
 
     //constructor
-    public GameState() {
+    public CGameState() {
         //make init()
         //leave special ability district cards for later
         gamePhase = 0;
@@ -46,7 +47,7 @@ public class GameState {
     }
 
     //copy constructor
-    public GameState(GameState original) {
+    public CGameState(CGameState original) {
         for (int i = 0; i < 10; i++) {
             characterDeck.add(original.characterDeck.get(i));
         }
@@ -61,6 +62,7 @@ public class GameState {
    /**
     * Getters and Setters
     */
+
     public int getGamePhase() {
         return gamePhase;
     }
@@ -251,4 +253,6 @@ public class GameState {
                ", districtDeck=" + districtDeck.toString() +
                '}';
     }
+
+
 }

@@ -8,10 +8,24 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.gamestatehw.cards.Card;
+import com.example.gamestatehw.game.GameMainActivity;
+import com.example.gamestatehw.game.LocalGame;
+import com.example.gamestatehw.gameConfiguration.GameConfig;
+import com.example.gamestatehw.infoMessage.GameState;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends GameMainActivity {
 
 
+    @Override
+    public GameConfig createDefaultConfig() {
+        return null;
+    }
+
+    @Override
+    public LocalGame createLocalGame(GameState gameState) {
+        return null;
+    }
+    /*
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,8 +39,8 @@ public class MainActivity extends AppCompatActivity {
                 editText.setText("");
                 Player player1 = new Player("player1");
                 Card card1 = new Card("NULL DISTRICT CARD", 0, 1);
-                GameState firstInstance = new GameState();
-                GameState secondInstance = new GameState(firstInstance);
+                CGameState firstInstance = new CGameState();
+                CGameState secondInstance = new CGameState(firstInstance);
 
                 if(firstInstance.drawGold(player1)){
                     editText.append("Player one Drew Gold! ");
@@ -59,15 +73,15 @@ public class MainActivity extends AppCompatActivity {
                     editText.append("Player one ended turn ");
                 }
 
-                GameState thirdInstance = new GameState();
-                GameState forthInstance = new GameState(thirdInstance);
+                CGameState thirdInstance = new CGameState();
+                CGameState forthInstance = new CGameState(thirdInstance);
 
                 editText.append(secondInstance.toString());
                 editText.append(forthInstance.toString());
 
             }
         });
-    }
+    }*/
 
 
 

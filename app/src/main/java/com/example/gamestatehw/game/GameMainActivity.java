@@ -30,7 +30,8 @@ import android.widget.TabHost.TabSpec;
 
 import com.example.gamestatehw.gameConfiguration.GameConfig;
 import com.example.gamestatehw.gameConfiguration.GamePlayerType;
-import com.example.gamestatehw.GameState;
+import com.example.gamestatehw.CGameState;
+import com.example.gamestatehw.infoMessage.GameState;
 import com.example.gamestatehw.players.GamePlayer;
 import com.example.gamestatehw.utilities.IPCoder;
 import com.example.gamestatehw.utilities.Logger;

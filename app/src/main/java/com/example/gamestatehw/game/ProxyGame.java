@@ -1,6 +1,6 @@
 package com.example.gamestatehw.game;
 
-import com.example.gamestatehw.GameState;
+import com.example.gamestatehw.CGameState;
 import com.example.gamestatehw.actionMessage.GameAction;
 import com.example.gamestatehw.infoMessage.GameInfo;
 import com.example.gamestatehw.players.GamePlayer;
@@ -191,7 +191,7 @@ public class ProxyGame implements Game {
      * @return GameState
      */
     @Override
-    public GameState getGameState(){
+    public CGameState getGameState(){
         return null;
     }
 }
