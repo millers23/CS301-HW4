@@ -7,6 +7,8 @@
 package com.example.gamestatehw.citadels.infoMessage;
 
 import com.example.gamestatehw.GameFramework.infoMessage.GameState;
+import com.example.gamestatehw.citadels.cards.characterCards.Seer;
+import com.example.gamestatehw.citadels.cards.characterCards.Thief;
 import com.example.gamestatehw.citadels.players.Player;
 import com.example.gamestatehw.citadels.cards.Card;
 import com.example.gamestatehw.citadels.cards.CharacterCard;
@@ -40,7 +42,7 @@ public class CitadelsState extends GameState implements Serializable {
 
     //constructor
     public CitadelsState() {
-        //make init()
+        init();
         //leave special ability district cards for later
         gamePhase = 0;
         playerTurn = 0;
@@ -91,6 +93,10 @@ public class CitadelsState extends GameState implements Serializable {
         //add character cards to deck
         Assassin assassin = new Assassin();
         characterDeck.add(assassin);
+        Thief thief = new Thief();
+        characterDeck.add(thief);
+        Seer seer = new Seer();
+        characterDeck.add(seer);
 
         //add districts to deck
         for (int i = 0; i < 11; i++) {
@@ -112,7 +118,8 @@ public class CitadelsState extends GameState implements Serializable {
 
     //draws a random card from the deck
     public Card randomCard() {
-        Card card = new Card("NULL DISTRICT CARD", 0, "NULL");
+        int i = (int)((Math.random() * 55) + 1);
+        Card card = districtDeck.get(i);
         return card;
     }
 
@@ -145,6 +152,18 @@ public class CitadelsState extends GameState implements Serializable {
             p.addToHand(p.getHand(), randomCard());
             p.addToHand(p.getHand(), randomCard());
             turnPhase++;
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    //removes a card from the player's deck
+    public boolean removeCard(Player p, Card c) {
+        ArrayList<Card> d = p.getHand();
+        if (d.contains(c)) {
+            d.remove(c);
             return true;
         }
         else {

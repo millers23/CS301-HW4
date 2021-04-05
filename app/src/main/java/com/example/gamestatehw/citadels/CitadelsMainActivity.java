@@ -4,6 +4,7 @@ import com.example.gamestatehw.GameFramework.game.GameMainActivity;
 import com.example.gamestatehw.GameFramework.game.LocalGame;
 import com.example.gamestatehw.GameFramework.gameConfiguration.GameConfig;
 import com.example.gamestatehw.GameFramework.gameConfiguration.GamePlayerType;
+import com.example.gamestatehw.GameFramework.infoMessage.GameState;
 import com.example.gamestatehw.GameFramework.players.GamePlayer;
 import com.example.gamestatehw.GameFramework.utilities.Logger;
 import com.example.gamestatehw.GameFramework.utilities.Saving;
@@ -30,7 +31,7 @@ public class CitadelsMainActivity extends GameMainActivity {
         // yellow-on-blue GUI
         playerTypes.add(new GamePlayerType("Local Human Player (blue-yellow)") {
             public GamePlayer createPlayer(String name) {
-                return new CitadelsHumanPlayer(name, R.layout.citadels_human_player);
+                return new CitadelsHumanPlayer(name);
             }
         });
 
@@ -64,7 +65,6 @@ public class CitadelsMainActivity extends GameMainActivity {
         return defaultConfig;
 
     }//createDefaultConfig
-
 
     /**
      * createLocalGame

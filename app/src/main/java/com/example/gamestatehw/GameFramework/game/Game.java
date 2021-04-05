@@ -1,5 +1,6 @@
 package com.example.gamestatehw.GameFramework.game;
 
+import com.example.gamestatehw.GameFramework.infoMessage.GameState;
 import com.example.gamestatehw.GameFramework.players.GamePlayer;
 import com.example.gamestatehw.GameFramework.actionMessage.GameAction;
 

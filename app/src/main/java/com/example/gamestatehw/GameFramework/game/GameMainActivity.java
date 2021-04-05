@@ -28,6 +28,7 @@ import android.widget.TextView;
 import android.widget.TabHost.TabSpec;
 
 
+import com.example.gamestatehw.GameFramework.infoMessage.GameState;
 import com.example.gamestatehw.GameFramework.players.GamePlayer;
 import com.example.gamestatehw.GameFramework.utilities.IPCoder;
 import com.example.gamestatehw.GameFramework.utilities.Logger;

@@ -5,12 +5,6 @@
  */
 package com.example.gamestatehw.citadels.players;
 
-import android.view.View;
-
-import com.example.gamestatehw.GameFramework.game.GameMainActivity;
-import com.example.gamestatehw.GameFramework.infoMessage.GameInfo;
-import com.example.gamestatehw.GameFramework.players.GameHumanPlayer;
-import com.example.gamestatehw.GameFramework.players.GamePlayer;
 import com.example.gamestatehw.citadels.cards.Card;
 import com.example.gamestatehw.citadels.cards.CharacterCard;
 
