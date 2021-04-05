@@ -5,12 +5,15 @@
  */
 package com.example.gamestatehw.citadels.players;
 
+import com.example.gamestatehw.GameFramework.game.GameMainActivity;
+import com.example.gamestatehw.GameFramework.infoMessage.GameInfo;
+import com.example.gamestatehw.GameFramework.players.GamePlayer;
 import com.example.gamestatehw.citadels.cards.Card;
 import com.example.gamestatehw.citadels.cards.CharacterCard;
 
 import java.util.ArrayList;
 
-public class Player {
+public class CitadelsPlayer implements GamePlayer {
     //instance variables
     private String name;
     private int gold;
@@ -21,7 +24,7 @@ public class Player {
     private CharacterCard character;
 
     //constructor
-    public Player(String n) {
+    public CitadelsPlayer(String n) {
         name = n;
         gold = 0;
         points = 0;
@@ -107,4 +110,39 @@ public class Player {
     }
 
     public void setCharacter(CharacterCard character) { this.character = character; }
+
+    @Override
+    public void gameSetAsGui(GameMainActivity activity) {
+
+    }
+
+    @Override
+    public void setAsGui(GameMainActivity activity) {
+
+    }
+
+    @Override
+    public void sendInfo(GameInfo info) {
+
+    }
+
+    @Override
+    public void start() {
+
+    }
+
+    @Override
+    public boolean requiresGui() {
+        return false;
+    }
+
+    @Override
+    public boolean supportsGui() {
+        return false;
+    }
+
+    @Override
+    public GameMainActivity getActivity() {
+        return null;
+    }
 }

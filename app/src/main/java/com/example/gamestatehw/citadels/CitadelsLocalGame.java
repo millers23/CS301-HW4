@@ -1,24 +1,23 @@
+package com.example.gamestatehw.citadels;
+
 import com.example.gamestatehw.GameFramework.actionMessage.GameAction;
 import com.example.gamestatehw.GameFramework.game.LocalGame;
 import com.example.gamestatehw.GameFramework.players.GamePlayer;
 import com.example.gamestatehw.citadels.infoMessage.CitadelsState;
-import com.example.gamestatehw.citadels.players.Player;
+import com.example.gamestatehw.citadels.players.CitadelsPlayer;
 
 import java.util.ArrayList;
 
 public class CitadelsLocalGame extends LocalGame {
     //Tag for logging
-    private static final String TAG = "TTTLocalGame";
-
-    // the marks for player 0 and player 1, respectively
-    private final static char[] mark = {'X','O'};
+    private static final String TAG = "CitadelsLocalGame";
 
     // the number of moves that have been played so far, used to
     // determine whether the game is over
     protected int moveCount;
 
     /**
-     * Constructor for the TTTLocalGame.
+     * Constructor for the CitadelsLocalGame.
      */
     public CitadelsLocalGame() {
 
@@ -30,7 +29,7 @@ public class CitadelsLocalGame extends LocalGame {
     }
 
     /**
-     * Constructor for the TTTLocalGame with loaded tttState
+     * Constructor for the CitadelsLocalGame with loaded citadelsState
      * @param citadelsState
      */
     public CitadelsLocalGame(CitadelsState citadelsState){
@@ -49,48 +48,17 @@ public class CitadelsLocalGame extends LocalGame {
     @Override
     protected String checkIfGameOver() {
         /*
-        ArrayList<Player> players = getPlayers();
-        for (int i = 0; i < players.size()) {
-            Player p = players.get(i);
-            int red = 0;
-            int blue = 0;
-            int green = 0;
-            int yellow = 0;
-            int unique = 0;
-            for (int j = 0; j < p.getDistricts().size(); j++) {
-                ArrayList<Card> district = p.getDistricts();
-                Card districtCard = district.get(j);
-                if (districtCard instanceof RedDistrict) {
-                    red++;
-                }
-                if (districtCard instanceof BlueDistrict) {
-                    blue++;
-                }
-                if (districtCard instanceof GreenDistrict) {
-                    green++;
-                }
-                if (districtCard instanceof YellowDistrict) {
-                    yellow++;
-                }
-                if (districtCard instanceof UniqueDistrictCard) {
-                    unique++;
-                }
-            }
-        }
+
          */
-        ArrayList<Player> players = getPlayers();
+        CitadelsState state = (CitadelsState)super.getGameState();
+        ArrayList<CitadelsPlayer> players = state.getPlayers();
         for (int i = 0; i < players.size(); i++) {
-            Player p = players.get(i);
+            CitadelsPlayer p = players.get(i);
             if (p.getDistricts().size() >= 8) {
                 return "Game Over";
             }
         }
         return null;
-    }
-
-    @Override
-    protected boolean makeMove(GameAction action) {
-        return false;
     }
 
     /**
@@ -106,11 +74,6 @@ public class CitadelsLocalGame extends LocalGame {
     protected void sendUpdatedStateTo(GamePlayer p) {
         // make a copy of the state, and send it to the player
         p.sendInfo(new CitadelsState(((CitadelsState) state)));
-
-    }
-
-    @Override
-    protected void sendUpdatedStateTo(GamePlayer p) {
 
     }
 

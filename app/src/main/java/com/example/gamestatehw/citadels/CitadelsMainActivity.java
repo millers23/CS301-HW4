@@ -8,7 +8,6 @@ import com.example.gamestatehw.GameFramework.infoMessage.GameState;
 import com.example.gamestatehw.GameFramework.players.GamePlayer;
 import com.example.gamestatehw.GameFramework.utilities.Logger;
 import com.example.gamestatehw.GameFramework.utilities.Saving;
-import com.example.gamestatehw.R;
 import com.example.gamestatehw.citadels.infoMessage.CitadelsState;
 import com.example.gamestatehw.citadels.players.CitadelsHumanPlayer;
 
@@ -77,7 +76,7 @@ public class CitadelsMainActivity extends GameMainActivity {
      *         class.
      */
     @Override
-    public LocalGame createLocalGame(CitadelsState gameState){
+    public LocalGame createLocalGame(GameState gameState) {
         if(gameState == null)
             return new CitadelsLocalGame();
         return new CitadelsLocalGame((CitadelsState) gameState);
@@ -91,7 +90,7 @@ public class CitadelsMainActivity extends GameMainActivity {
      * @return String representation of the save
      */
     @Override
-    public CitadelsState saveGame(String gameName) {
+    public GameState saveGame(String gameName) {
         return super.saveGame(getGameString(gameName));
     }
 

@@ -7,9 +7,10 @@
 package com.example.gamestatehw.citadels.infoMessage;
 
 import com.example.gamestatehw.GameFramework.infoMessage.GameState;
+import com.example.gamestatehw.citadels.cards.UniqueDistrictCard;
 import com.example.gamestatehw.citadels.cards.characterCards.Seer;
 import com.example.gamestatehw.citadels.cards.characterCards.Thief;
-import com.example.gamestatehw.citadels.players.Player;
+import com.example.gamestatehw.citadels.players.CitadelsPlayer;
 import com.example.gamestatehw.citadels.cards.Card;
 import com.example.gamestatehw.citadels.cards.CharacterCard;
 import com.example.gamestatehw.citadels.cards.DistrictCard;
@@ -38,7 +39,7 @@ public class CitadelsState extends GameState implements Serializable {
     private ArrayList<Card> characterDeck;
     private ArrayList<Card> districtDeck;
 
-    private ArrayList<Player> players;
+    private ArrayList<CitadelsPlayer> players;
 
     //constructor
     public CitadelsState() {
@@ -62,9 +63,13 @@ public class CitadelsState extends GameState implements Serializable {
         turnPhase = original.turnPhase;
     }
 
-   /**
-    * Getters and Setters
-    */
+    /**
+     * Getters and Setters
+     */
+    public ArrayList<CitadelsPlayer> getPlayers() { return players; }
+
+    public void setPlayers(ArrayList<CitadelsPlayer> players) { this.players = players; }
+
     public int getGamePhase() {
         return gamePhase;
     }
@@ -73,11 +78,9 @@ public class CitadelsState extends GameState implements Serializable {
         this.gamePhase = gamePhase;
     }
 
-    public int getPlayerTurn() {
-        return playerTurn;
-    }
+    public int getWhoseMove() { return playerTurn; }
 
-    public void setPlayerTurn(int playerTurn) {
+    public void setWhoseMove(int playerTurn) {
         this.playerTurn = playerTurn;
     }
 
@@ -118,61 +121,98 @@ public class CitadelsState extends GameState implements Serializable {
 
     //draws a random card from the deck
     public Card randomCard() {
-        int i = (int)((Math.random() * 55) + 1);
+        int i = (int) ((Math.random() * 55) + 1);
         Card card = districtDeck.get(i);
         return card;
     }
 
     //tallies the score of a given player with the needed extra parameters
-    public int getScore(Player p, boolean firstToEight, boolean tiebreaker,
-                        boolean doubleTiebreaker) {
-        int score = 0;
-        //get total cost of districts
-        //add 3 if one district in each color
-        //add 4 for first to eight bonus
-        //add 2 if eight districts built and not first
-        return score;
+    public void calcScore(ArrayList<CitadelsPlayer> players) {
+        for (int i = 0; i < players.size(); i++) {
+            int score = 0;
+            int red = 0;
+            int blue = 0;
+            int green = 0;
+            int yellow = 0;
+            int unique = 0;
+            CitadelsPlayer p = players.get(i);
+            for (int j = 0; j < p.getDistricts().size(); j++) {
+                ArrayList<Card> district = p.getDistricts();
+                Card districtCard = district.get(j);
+                if (districtCard instanceof RedDistrict) {
+                    red++;
+                }
+                if (districtCard instanceof BlueDistrict) {
+                    blue++;
+                }
+                if (districtCard instanceof GreenDistrict) {
+                    green++;
+                }
+                if (districtCard instanceof YellowDistrict) {
+                    yellow++;
+                }
+                if (districtCard instanceof UniqueDistrictCard) {
+                    unique++;
+                }
+            }
+            for (int j = 0; j < p.getDistricts().size(); j++) {
+                DistrictCard c = (DistrictCard)p.getDistricts().get(j);
+                score += c.getCost();
+            }
+            if (red > 0 && blue > 0 && green > 0 && yellow > 0 && unique > 0) {
+                score += 3;
+            }
+            if (firstToFull) {
+                score += 4;
+            }
+            if (!firstToFull && red > 0 && blue > 0 && green > 0 && yellow > 0 && unique > 0) {
+                score += 2;
+            }
+            for (int j = 0; j < p.getDistricts().size(); j++) {
+                if (p.getDistricts().get(j) instanceof UniqueDistrictCard) {
+                    UniqueDistrictCard card = (UniqueDistrictCard).getDistricts().get(j);
+                    score += card.getCost();
+                }
+            }
+        }
     }
 
     //adds gold to the player's inventory
-    public boolean drawGold(Player p) {
+    public boolean drawGold(CitadelsPlayer p) {
         if (turnPhase == 0) {
             p.setGold(p.getGold() + 2);
             turnPhase++;
             return true;
-        }
-        else {
+        } else {
             return false;
         }
     }
 
     //adds two random cards to the player's inventory
-    public boolean drawCard(Player p) {
+    public boolean drawCard(CitadelsPlayer p) {
         if (turnPhase == 0) {
             p.addToHand(p.getHand(), randomCard());
             p.addToHand(p.getHand(), randomCard());
             turnPhase++;
             return true;
-        }
-        else {
+        } else {
             return false;
         }
     }
 
     //removes a card from the player's deck
-    public boolean removeCard(Player p, Card c) {
+    public boolean removeCard(CitadelsPlayer p, Card c) {
         ArrayList<Card> d = p.getHand();
         if (d.contains(c)) {
             d.remove(c);
             return true;
-        }
-        else {
+        } else {
             return false;
         }
     }
 
     //builds a district if the player is able to
-    public boolean buildDistrict(Player p, DistrictCard c) {
+    public boolean buildDistrict(CitadelsPlayer p, DistrictCard c) {
         if (turnPhase == 1) {
             if (p.getGold() >= c.getCost()) {
                 p.removeFromHand(p.getHand(), c);
@@ -180,30 +220,27 @@ public class CitadelsState extends GameState implements Serializable {
                 p.setGold(p.getGold() - c.getCost());
                 turnPhase++;
                 return true;
-            }
-            else {
+            } else {
                 return false;
             }
-        }
-        else {
+        } else {
             return false;
         }
     }
 
     //removes a district if the player is able to
-    public boolean removeDistrict(Player p, DistrictCard c) {
+    public boolean removeDistrict(CitadelsPlayer p, DistrictCard c) {
         if (turnPhase == 1) {
             p.removeFromDistricts(p.getDistricts(), c);
             turnPhase++;
             return true;
-        }
-        else {
+        } else {
             return false;
         }
     }
 
     //uses player character's ability
-    public boolean useAbility(Player p) {
+    public boolean useAbility(CitadelsPlayer p) {
         //each character has their own ability
         //there are 18 of them
         //oh boy
@@ -213,32 +250,26 @@ public class CitadelsState extends GameState implements Serializable {
                 character.ability();
                 turnPhase++;
                 return true;
-            }
-            else {
+            } else {
                 return false;
             }
-        }
-        else if (turnPhase == 1) {
+        } else if (turnPhase == 1) {
             if (character instanceof Assassin) {
                 character.ability();
                 turnPhase++;
                 return true;
-            }
-            else {
+            } else {
                 return false;
             }
-        }
-        else if(turnPhase == 2) {
+        } else if (turnPhase == 2) {
             if (character instanceof Assassin) {
                 character.ability();
                 turnPhase++;
                 return true;
-            }
-            else {
+            } else {
                 return false;
             }
-        }
-        else {
+        } else {
             return false;
         }
     }
@@ -249,27 +280,25 @@ public class CitadelsState extends GameState implements Serializable {
             turnPhase = 0;
             if (playerTurn < numPlayers) {
                 playerTurn++;
-            }
-            else {
+            } else {
                 playerTurn = 1;
             }
             return true;
-        }
-        else {
+        } else {
             return false;
         }
     }
 
     //toString method
-   @Override
+    @Override
     public String toString() {
         return "GameState{" +
-               "numPlayers=" + numPlayers +
-               ", gamePhase=" + gamePhase +
-               ", playerTurn=" + playerTurn +
-               ", turnPhase=" + turnPhase +
-               ", characterDeck=" + characterDeck.toString() +
-               ", districtDeck=" + districtDeck.toString() +
-               '}';
+                "numPlayers=" + numPlayers +
+                ", gamePhase=" + gamePhase +
+                ", playerTurn=" + playerTurn +
+                ", turnPhase=" + turnPhase +
+                ", characterDeck=" + characterDeck.toString() +
+                ", districtDeck=" + districtDeck.toString() +
+                '}';
     }
 }
