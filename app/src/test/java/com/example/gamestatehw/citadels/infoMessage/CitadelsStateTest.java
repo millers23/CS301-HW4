@@ -13,14 +13,23 @@ public class CitadelsStateTest {
     @Test
     public void getPlayers() {
         CitadelsState state = new CitadelsState();
-
-        state.addPlayer();
+        CitadelsPlayer p = new CitadelsPlayer("TEST");
+        state.addPlayer(p);
         ArrayList<CitadelsPlayer> players = state.getPlayers();
-        assertNull(players);
+        assertNull(players.get(0).getName(), p.getName());
     }
 
     @Test
     public void setPlayers() {
+        CitadelsState state = new CitadelsState();
+        CitadelsPlayer p1 = new CitadelsPlayer("TEST1");
+        CitadelsPlayer p2 = new CitadelsPlayer("TEST2");
+        state.addPlayer(p1);
+
+        ArrayList<CitadelsPlayer> players = state.getPlayers();
+        players.add(p2);
+        state.setPlayers(players);
+        assertEquals(state.getPlayers(), players);
     }
 
     @Test

@@ -37,6 +37,10 @@ public class CitadelsPlayer implements GamePlayer {
     /**
      * The methods in this class are almost exclusively Getters and Setters
      */
+    public String getName() { return name; }
+
+    public void setName(String name) { this.name = name; }
+
     public int getGold() {
         return gold;
     }
