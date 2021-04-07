@@ -105,6 +105,7 @@ public class CitadelsMainActivity extends GameMainActivity {
         String appName = getGameString(gameName);
         super.loadGame(appName);
         Logger.log(TAG, "Loading: " + gameName);
-        return (GameState) new CitadelsState((CitadelsState) Saving.readFromFile(appName, this.getApplicationContext()));
+        //return (GameState) new CitadelsState((CitadelsState) Saving.readFromFile(appName, this.getApplicationContext()));
+        return null;
     }
 }

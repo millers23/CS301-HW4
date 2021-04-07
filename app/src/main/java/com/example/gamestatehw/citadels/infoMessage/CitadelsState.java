@@ -70,6 +70,26 @@ public class CitadelsState extends GameState implements Serializable {
 
     public void setPlayers(ArrayList<CitadelsPlayer> players) { this.players = players; }
 
+    public boolean addPlayer(CitadelsPlayer p) {
+        if (players.contains(p) == true) {
+            return false;
+        }
+        else {
+            players.add(p);
+            return true;
+        }
+    }
+
+    public boolean removePlayer(CitadelsPlayer p) {
+        if (players.contains(p) == true) {
+            players.remove(p);
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
     public int getGamePhase() {
         return gamePhase;
     }
@@ -162,15 +182,15 @@ public class CitadelsState extends GameState implements Serializable {
             if (red > 0 && blue > 0 && green > 0 && yellow > 0 && unique > 0) {
                 score += 3;
             }
-            if (firstToFull) {
+            /*if (firstToFull) {
                 score += 4;
             }
             if (!firstToFull && red > 0 && blue > 0 && green > 0 && yellow > 0 && unique > 0) {
                 score += 2;
-            }
+            }*/
             for (int j = 0; j < p.getDistricts().size(); j++) {
                 if (p.getDistricts().get(j) instanceof UniqueDistrictCard) {
-                    UniqueDistrictCard card = (UniqueDistrictCard).getDistricts().get(j);
+                    UniqueDistrictCard card = (UniqueDistrictCard)p.getDistricts().get(j);
                     score += card.getCost();
                 }
             }

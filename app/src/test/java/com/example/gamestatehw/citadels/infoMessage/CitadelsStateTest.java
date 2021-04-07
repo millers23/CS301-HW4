@@ -1,6 +1,10 @@
 package com.example.gamestatehw.citadels.infoMessage;
 
+import com.example.gamestatehw.citadels.players.CitadelsPlayer;
+
 import org.junit.Test;
+
+import java.util.ArrayList;
 
 import static org.junit.Assert.*;
 
@@ -8,6 +12,11 @@ public class CitadelsStateTest {
 
     @Test
     public void getPlayers() {
+        CitadelsState state = new CitadelsState();
+
+        state.addPlayer();
+        ArrayList<CitadelsPlayer> players = state.getPlayers();
+        assertNull(players);
     }
 
     @Test
