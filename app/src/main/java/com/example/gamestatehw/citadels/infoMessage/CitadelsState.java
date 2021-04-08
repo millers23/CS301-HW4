@@ -52,15 +52,16 @@ public class CitadelsState extends GameState implements Serializable {
 
     //copy constructor
     public CitadelsState(CitadelsState original) {
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < original.characterDeck.size(); i++) {
             characterDeck.add(original.characterDeck.get(i));
         }
-        for (int i = 0; i < 80; i++) {
+        for (int i = 0; i < original.districtDeck.size(); i++) {
             districtDeck.add(original.districtDeck.get(i));
         }
         gamePhase = original.gamePhase;
         playerTurn = original.playerTurn;
         turnPhase = original.turnPhase;
+        players = original.getPlayers();
     }
 
     /**
@@ -194,6 +195,7 @@ public class CitadelsState extends GameState implements Serializable {
                     score += card.getCost();
                 }
             }
+            p.setPoints(score);
         }
     }
 

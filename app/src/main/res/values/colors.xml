@@ -7,4 +7,5 @@
     <color name="colorSecondary">#1F65DE</color>
     <color name="colorSecondaryVariant">#1FA8DE</color>
     <color name="colorOnSecondary">#000000</color>
+    <color name="Purple">#800080</color>
 </resources>
