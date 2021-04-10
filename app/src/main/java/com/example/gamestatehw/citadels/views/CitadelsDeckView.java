@@ -53,19 +53,20 @@ public class CitadelsDeckView extends View implements View.OnClickListener {
             if (i < deck.size()) {
                 Card c = deck.get(i);
                 if (c instanceof RedDistrict) {
-                    cards[i].setImageResource(R.id.redDistrict);
+                    cards[i].setImageResource(R.drawable.card_3);
                 } else if (c instanceof BlueDistrict) {
-                    cards[i].setImageResource(R.id.blueDistrict);
+                    cards[i].setImageResource(R.drawable.card_1);
                 } else if (c instanceof GreenDistrict) {
-                    cards[i].setImageResource(R.id.greenDistrict);
+                    cards[i].setImageResource(R.drawable.card_2);
                 } else if (c instanceof YellowDistrict) {
-                    cards[i].setImageResource(R.id.yellowDistrict);
+                    cards[i].setImageResource(R.drawable.card_0);
                 }
             }
             else {
-                cards[i].setImageResource(R.id.noDistrict);
+                cards[i].setImageResource(android.R.color.transparent);
             }
         }
+        invalidate();
     }
 
     @Override
