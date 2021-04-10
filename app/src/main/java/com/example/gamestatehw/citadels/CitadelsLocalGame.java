@@ -48,14 +48,42 @@ public class CitadelsLocalGame extends LocalGame {
     @Override
     protected String checkIfGameOver() {
         /*
-
-         */
-        CitadelsState state = (CitadelsState)super.getGameState();
-        ArrayList<CitadelsPlayer> players = state.getPlayers();
         for (int i = 0; i < players.size(); i++) {
             CitadelsPlayer p = players.get(i);
             if (p.getDistricts().size() >= 8) {
                 return "Game Over";
+                }
+            }
+         */
+        CitadelsState state = (CitadelsState)super.getGameState();
+        ArrayList<CitadelsPlayer> players = state.getPlayers();
+        boolean isGameOver = false;
+        for (int i = 0; i < players.size(); i++) {
+            CitadelsPlayer p = players.get(i);
+            if (p.getDistricts().size() >= 8) {
+                isGameOver = true;
+                }
+            }
+        if(isGameOver){
+            String winner = "";
+            int points = 0;
+            int gold = 0;
+            for (int i = 0; i < players.size(); i++) {
+                CitadelsPlayer p = players.get(i);
+                if (p.getPoints() > points) {
+                    if (p.getPoints() == points) {
+                        if(p.getGold() > gold){
+                            gold = p.getGold();
+                            points = p.getPoints();
+                            winner = p.getName();
+                            continue;
+                        }
+                        gold = p.getGold();
+                        points = p.getPoints();
+                        winner = p.getName();
+                    }
+                }
+                return "Winner is " + winner;
             }
         }
         return null;
