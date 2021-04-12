@@ -1,5 +1,7 @@
 package com.example.gamestatehw.citadels;
 
+import android.content.pm.ActivityInfo;
+
 import com.example.gamestatehw.GameFramework.game.GameMainActivity;
 import com.example.gamestatehw.GameFramework.game.LocalGame;
 import com.example.gamestatehw.GameFramework.gameConfiguration.GameConfig;
@@ -27,6 +29,8 @@ public class CitadelsMainActivity extends GameMainActivity {
 
         // Define the allowed player types
         ArrayList<GamePlayerType> playerTypes = new ArrayList<GamePlayerType>();
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+
 
         // yellow-on-blue GUI
         playerTypes.add(new GamePlayerType("Local Human Player (blue-yellow)") {
