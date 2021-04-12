@@ -1,11 +1,15 @@
 package com.example.gamestatehw.citadels.views;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.util.AttributeSet;
 
+import com.example.gamestatehw.GameFramework.game.Game;
+import com.example.gamestatehw.GameFramework.game.LocalGame;
+import com.example.gamestatehw.GameFramework.utilities.FlashSurfaceView;
 import com.example.gamestatehw.citadels.infoMessage.CitadelsState;
 
-public class CitadelsGameView {
+public class CitadelsGameView extends FlashSurfaceView {
     //Tag for logging
     private static final String TAG = "CitadelsGameView";
 
@@ -38,11 +42,19 @@ public class CitadelsGameView {
      * Helper-method for the constructors
      */
     private void init() {
-        setBackgroundColor(backgroundColor());
+        setBackgroundColor(Color.WHITE);
     }// init
 
 
     public void setState(CitadelsState state) {
         this.state = state;
+    }
+
+    public void invalidate() {
+        invalidate();
+    }
+
+    public void flash(int red, int i) {
+        flash(red,i);
     }
 }

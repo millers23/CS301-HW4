@@ -4,6 +4,7 @@ import android.util.Log;
 
 import com.example.gamestatehw.citadels.cards.CharacterCard;
 
+
 public class Bishop extends CharacterCard {
     public Bishop() {
         super("Bishop",
@@ -26,6 +27,7 @@ public class Bishop extends CharacterCard {
 
     @Override
     public void ability() {
+
         Log.d("Bishop","Override works");
     }
 }

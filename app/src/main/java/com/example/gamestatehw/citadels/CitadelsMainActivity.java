@@ -7,7 +7,8 @@ import com.example.gamestatehw.GameFramework.gameConfiguration.GamePlayerType;
 import com.example.gamestatehw.GameFramework.infoMessage.GameState;
 import com.example.gamestatehw.GameFramework.players.GamePlayer;
 import com.example.gamestatehw.GameFramework.utilities.Logger;
-import com.example.gamestatehw.GameFramework.utilities.Saving;
+//import com.example.gamestatehw.GameFramework.utilities.Saving;
+import com.example.gamestatehw.R;
 import com.example.gamestatehw.citadels.infoMessage.CitadelsState;
 import com.example.gamestatehw.citadels.players.CitadelsHumanPlayer;
 
@@ -15,7 +16,7 @@ import java.util.ArrayList;
 
 public class CitadelsMainActivity extends GameMainActivity {
     //Tag for logging
-    private static final String TAG = "TTTMainActivity";
+    private static final String TAG = "CitadelsMainActivity";
     public static final int PORT_NUMBER = 5213;
 
     /**
@@ -30,7 +31,7 @@ public class CitadelsMainActivity extends GameMainActivity {
         // yellow-on-blue GUI
         playerTypes.add(new GamePlayerType("Local Human Player (blue-yellow)") {
             public GamePlayer createPlayer(String name) {
-                return new CitadelsHumanPlayer(name);
+                return new CitadelsHumanPlayer(name, R.layout.cit_human_player);
             }
         });
 

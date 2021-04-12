@@ -2,9 +2,17 @@ package com.example.gamestatehw.citadels.cards.characterCards;
 
 import android.util.Log;
 
+import com.example.gamestatehw.citadels.cards.Card;
 import com.example.gamestatehw.citadels.cards.CharacterCard;
+import com.example.gamestatehw.citadels.cards.UniqueDistrictCard;
+import com.example.gamestatehw.citadels.cards.districtCards.BlueDistrict;
+import com.example.gamestatehw.citadels.cards.districtCards.GreenDistrict;
+import com.example.gamestatehw.citadels.cards.districtCards.RedDistrict;
+import com.example.gamestatehw.citadels.cards.districtCards.YellowDistrict;
 
-public class Merchant extends CharacterCard {
+import java.util.ArrayList;
+
+public class Merchant extends CharacterCard /* Implements CitadelsState*/ {
     public Merchant() {
         super("Merchant",
                 0,
@@ -17,6 +25,14 @@ public class Merchant extends CharacterCard {
 
     @Override
     public void ability() {
+       /* for (int j = 0; j < p.getDistricts().size(); j++) {
+            ArrayList<Card> district = p.getDistricts();
+            Card districtCard = district.get(j);
+            if (districtCard instanceof GreenDistrict) {
+                p.setGold(p.getGold() + 1);
+            }
+        }
+        */
         Log.d("Merchant","Override works");
     }
 }

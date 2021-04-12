@@ -19,6 +19,7 @@ public class Thief extends CharacterCard {
 
     @Override
     public void ability() {
+
         Log.d("Thief","Override works");
     }
 }

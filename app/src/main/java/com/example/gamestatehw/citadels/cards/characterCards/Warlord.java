@@ -22,6 +22,9 @@ public class Warlord extends CharacterCard {
 
     @Override
     public void ability() {
+
         Log.d("Warlord","Override works");
+
+
     }
 }

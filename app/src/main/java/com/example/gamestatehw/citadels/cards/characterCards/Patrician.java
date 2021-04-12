@@ -2,7 +2,15 @@ package com.example.gamestatehw.citadels.cards.characterCards;
 
 import android.util.Log;
 
+import com.example.gamestatehw.citadels.cards.Card;
 import com.example.gamestatehw.citadels.cards.CharacterCard;
+import com.example.gamestatehw.citadels.cards.UniqueDistrictCard;
+import com.example.gamestatehw.citadels.cards.districtCards.BlueDistrict;
+import com.example.gamestatehw.citadels.cards.districtCards.GreenDistrict;
+import com.example.gamestatehw.citadels.cards.districtCards.RedDistrict;
+import com.example.gamestatehw.citadels.cards.districtCards.YellowDistrict;
+
+import java.util.ArrayList;
 
 public class Patrician extends CharacterCard {
     public Patrician() {
@@ -21,6 +29,16 @@ public class Patrician extends CharacterCard {
 
     @Override
     public void ability() {
+       /*
+        for (int j = 0; j < p.getDistricts().size(); j++) {
+            ArrayList<Card> district = p.getDistricts();
+            Card districtCard = district.get(j);
+            if (districtCard instanceof BlueDistrict) {
+                p.setGold(p.getGold + 1);
+            }
+        }
+
+        */
         Log.d("Patrician","Override works");
     }
 }
