@@ -12,7 +12,7 @@ import com.example.gamestatehw.GameFramework.utilities.Logger;
 import com.example.gamestatehw.citadels.infoMessage.CitadelsState;
 import com.example.gamestatehw.citadels.views.CitadelsGameView;
 
-public class CitadelsHumanPlayer extends GameHumanPlayer implements View.OnClickListener  {
+public class CitadelsHumanPlayer extends GameHumanPlayer implements View.OnClickListener {
     //Tag for logging
     private static final String TAG = "CitadelsHumanPlayer";
 
