@@ -1,5 +1,11 @@
 package com.example.gamestatehw.citadels.infoMessage;
 
+import android.content.pm.ActivityInfo;
+
+import com.example.gamestatehw.citadels.cards.Card;
+import com.example.gamestatehw.citadels.cards.characterCards.Architect;
+import com.example.gamestatehw.citadels.cards.characterCards.Merchant;
+import com.example.gamestatehw.citadels.cards.characterCards.Patrician;
 import com.example.gamestatehw.citadels.players.CitadelsPlayer;
 
 import org.junit.Test;
@@ -90,9 +96,30 @@ public class CitadelsStateTest {
 
     @Test
     public void useAbility() {
+
     }
 
     @Test
     public void endTurn() {
+    }
+
+    @Test
+    public void ability() {
+        CitadelsState state = new CitadelsState();
+        CitadelsPlayer p1 = new CitadelsPlayer("TEST1");
+        ArrayList<Card> characterDeck = new ArrayList<>();
+
+        Architect architect = new Architect();
+        characterDeck.add(architect);
+        Merchant merchant = new Merchant();
+        characterDeck.add(merchant);
+        Patrician patrician = new Patrician();
+
+        p1.setGold(100);
+        p1.setCharacter(merchant);
+        //p1.
+
+        //ability();
+
     }
 }

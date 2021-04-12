@@ -25,13 +25,7 @@ public class Merchant extends CharacterCard /* Implements CitadelsState*/ {
 
     @Override
     public void ability() {
-       /* for (int j = 0; j < p.getDistricts().size(); j++) {
-            ArrayList<Card> district = p.getDistricts();
-            Card districtCard = district.get(j);
-            if (districtCard instanceof GreenDistrict) {
-                p.setGold(p.getGold() + 1);
-            }
-        }
+       /*
         */
         Log.d("Merchant","Override works");
     }

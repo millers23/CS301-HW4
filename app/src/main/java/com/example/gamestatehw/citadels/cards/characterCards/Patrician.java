@@ -30,15 +30,9 @@ public class Patrician extends CharacterCard {
     @Override
     public void ability() {
        /*
-        for (int j = 0; j < p.getDistricts().size(); j++) {
-            ArrayList<Card> district = p.getDistricts();
-            Card districtCard = district.get(j);
-            if (districtCard instanceof BlueDistrict) {
-                p.setGold(p.getGold + 1);
-            }
-        }
+
 
         */
-        Log.d("Patrician","Override works");
+        Log.d("Patrician ","Override works");
     }
 }

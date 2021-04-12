@@ -8,6 +8,9 @@ package com.example.gamestatehw.citadels.infoMessage;
 
 import com.example.gamestatehw.GameFramework.infoMessage.GameState;
 import com.example.gamestatehw.citadels.cards.UniqueDistrictCard;
+import com.example.gamestatehw.citadels.cards.characterCards.Architect;
+import com.example.gamestatehw.citadels.cards.characterCards.Merchant;
+import com.example.gamestatehw.citadels.cards.characterCards.Patrician;
 import com.example.gamestatehw.citadels.cards.characterCards.Seer;
 import com.example.gamestatehw.citadels.cards.characterCards.Thief;
 import com.example.gamestatehw.citadels.players.CitadelsPlayer;
@@ -115,12 +118,11 @@ public class CitadelsState extends GameState implements Serializable {
 
     public void init() {
         //add character cards to deck
-        Assassin assassin = new Assassin();
-        characterDeck.add(assassin);
-        Thief thief = new Thief();
-        characterDeck.add(thief);
-        Seer seer = new Seer();
-        characterDeck.add(seer);
+        Architect architect = new Architect();
+        characterDeck.add(architect);
+        Merchant merchant = new Merchant();
+        characterDeck.add(merchant);
+        Patrician patrician = new Patrician();
 
         //add districts to deck
         for (int i = 0; i < 11; i++) {
@@ -322,5 +324,35 @@ public class CitadelsState extends GameState implements Serializable {
                 ", characterDeck=" + characterDeck.toString() +
                 ", districtDeck=" + districtDeck.toString() +
                 '}';
+    }
+
+    public void Ability(CitadelsPlayer p) {
+        CharacterCard character = p.getCharacter();
+
+        if (character instanceof Architect) {
+            int X;
+            for(X = 0; X != 2 ; X++){ // loop twice to add 2 random cards
+                setTurnPhase(0); // This is to make sure it does not skip the drawing
+                drawCard(p);  //the actual drawing action like if he chose to draw
+            }
+        }
+        if (character instanceof Merchant){
+            for (int j = 0; j < p.getDistricts().size(); j++) {
+                ArrayList<Card> district = p.getDistricts();
+                Card districtCard = district.get(j);
+                if (districtCard instanceof GreenDistrict) {  // for every instance of trade districts
+                    p.setGold(p.getGold() + 1);
+                }
+            }
+        }
+        if ( character instanceof Patrician){
+            for (int j = 0; j < p.getDistricts().size(); j++) {
+                ArrayList<Card> district = p.getDistricts();
+                Card districtCard = district.get(j);
+                if (districtCard instanceof BlueDistrict) {   // for every instance of religion districts
+                    p.setGold(p.getGold() + 1);
+                }
+            }
+        }
     }
 }
