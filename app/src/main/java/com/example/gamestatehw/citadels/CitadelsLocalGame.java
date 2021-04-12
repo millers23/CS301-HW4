@@ -1,6 +1,12 @@
 package com.example.gamestatehw.citadels;
 
+import com.example.gamestatehw.GameFramework.actionMessage.BuildDistrictAction;
+import com.example.gamestatehw.GameFramework.actionMessage.DrawCardAction;
+import com.example.gamestatehw.GameFramework.actionMessage.DrawGoldAction;
+import com.example.gamestatehw.GameFramework.actionMessage.EndTurnAction;
 import com.example.gamestatehw.GameFramework.actionMessage.GameAction;
+import com.example.gamestatehw.GameFramework.actionMessage.RemoveDIstrictAction;
+import com.example.gamestatehw.GameFramework.actionMessage.UseAbilityAction;
 import com.example.gamestatehw.GameFramework.game.LocalGame;
 import com.example.gamestatehw.GameFramework.players.GamePlayer;
 import com.example.gamestatehw.citadels.infoMessage.CitadelsState;
@@ -11,10 +17,6 @@ import java.util.ArrayList;
 public class CitadelsLocalGame extends LocalGame {
     //Tag for logging
     private static final String TAG = "CitadelsLocalGame";
-
-    // the number of moves that have been played so far, used to
-    // determine whether the game is over
-    protected int moveCount;
 
     /**
      * Constructor for the CitadelsLocalGame.
@@ -128,7 +130,29 @@ public class CitadelsLocalGame extends LocalGame {
      */
     @Override
     protected boolean makeMove(GameAction action) {
-        return false;
+        CitadelsState state = (CitadelsState)super.getGameState();
+        CitadelsPlayer p = state.getPlayers().get(state.getWhoseMove());
+        if (action instanceof BuildDistrictAction) {
+            return state.buildDistrict(p);
+        }
+        else if (action instanceof RemoveDIstrictAction) {
+            return state.removeDistrict(p);
+        }
+        else if (action instanceof DrawCardAction) {
+            return state.drawCard(p);
+        }
+        else if (action instanceof DrawGoldAction) {
+            return state.drawCard(p);
+        }
+        else if (action instanceof UseAbilityAction) {
+            return state.useAbility(p);
+        }
+        else if (action instanceof EndTurnAction) {
+            return state.endTurn();
+        }
+        else {
+            return false;
+        }
     }
 
     //TESTING
