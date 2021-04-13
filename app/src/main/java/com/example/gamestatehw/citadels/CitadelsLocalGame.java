@@ -1,5 +1,8 @@
 package com.example.gamestatehw.citadels;
 
+import android.media.Image;
+import android.widget.ImageView;
+
 import com.example.gamestatehw.GameFramework.actionMessage.BuildDistrictAction;
 import com.example.gamestatehw.GameFramework.actionMessage.DrawCardAction;
 import com.example.gamestatehw.GameFramework.actionMessage.DrawGoldAction;
@@ -133,6 +136,7 @@ public class CitadelsLocalGame extends LocalGame {
         CitadelsState state = (CitadelsState)super.getGameState();
         CitadelsPlayer p = (CitadelsPlayer)action.getPlayer();
         //need to get highlighted card for buildDistrict/removeDistrict
+
         if (action instanceof BuildDistrictAction) {
             return state.buildDistrict(p);
         }
