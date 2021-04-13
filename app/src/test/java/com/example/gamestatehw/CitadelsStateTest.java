@@ -1,4 +1,4 @@
-package com.example.gamestatehw.citadels.infoMessage;
+package com.example.gamestatehw;
 
 import android.content.pm.ActivityInfo;
 
@@ -6,6 +6,7 @@ import com.example.gamestatehw.citadels.cards.Card;
 import com.example.gamestatehw.citadels.cards.characterCards.Architect;
 import com.example.gamestatehw.citadels.cards.characterCards.Merchant;
 import com.example.gamestatehw.citadels.cards.characterCards.Patrician;
+import com.example.gamestatehw.citadels.infoMessage.CitadelsState;
 import com.example.gamestatehw.citadels.players.CitadelsPlayer;
 
 import org.junit.Test;
@@ -37,14 +38,20 @@ public class CitadelsStateTest {
         state.setPlayers(players);
         assertEquals(state.getPlayers(), players);
     }
-
+    //Kyle tests
     @Test
-    public void getGamePhase() {
+    public void testGamePhase() {
+        CitadelsState state = new CitadelsState();
+        //testing default value of one
+        assertEquals(1,state.getGamePhase());
+        state.setGamePhase(43);
+        //testing invalid phase
+        assertEquals(1,state.getGamePhase());
+        state.setGamePhase(3);
+        //testing valid phase
+        assertEquals(3,state.getGamePhase());
     }
 
-    @Test
-    public void setGamePhase() {
-    }
 
     @Test
     public void getWhoseMove() {
