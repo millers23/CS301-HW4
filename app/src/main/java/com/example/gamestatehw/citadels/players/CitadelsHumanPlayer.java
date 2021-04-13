@@ -35,7 +35,7 @@ public class CitadelsHumanPlayer extends GameHumanPlayer implements View.OnClick
     // the ID for the layout to use
     private int layoutId;
 
-    private CitadelsState gameState;
+    private CitadelsState state;
     /**
      * constructor
      *
@@ -76,11 +76,11 @@ public class CitadelsHumanPlayer extends GameHumanPlayer implements View.OnClick
             game.sendAction(action);
         }
         else if (v.getId() == R.id.buildButton) {
-            Card cardToPlay = gameState.getPlayers().get(0).getHand().get(selectedCard);
+            Card cardToPlay = state.getPlayers().get(state.getWhoseMove()).getHand().get(selectedCard);
             game.sendAction(new BuildDistrictAction(this, cardToPlay));
         }
         else if (v.getId() == R.id.removeButton) {
-            Card cardToPlay = gameState.getPlayers().get(0).getHand().get(selectedCard);
+            Card cardToPlay = state.getPlayers().get(state.getWhoseMove()).getHand().get(selectedCard);
             game.sendAction(new RemoveDistrictAction(this, cardToPlay));
         }
         //selects a card from the deck that is available
@@ -164,8 +164,8 @@ public class CitadelsHumanPlayer extends GameHumanPlayer implements View.OnClick
             // if we do not have a TTTState, ignore
             return;
         else {
-            gameState = (CitadelsState)info;
-            //right here need to update the user interface to show everything that is in the gameState
+            state = (CitadelsState)info;
+            //right here need to update the user interface to show everything that is in the state
             //things like imageview or anything drawing
 
             view.setState((CitadelsState)info);

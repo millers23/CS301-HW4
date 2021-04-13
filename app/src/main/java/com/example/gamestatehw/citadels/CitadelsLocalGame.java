@@ -12,6 +12,7 @@ import com.example.gamestatehw.GameFramework.actionMessage.RemoveDistrictAction;
 import com.example.gamestatehw.GameFramework.actionMessage.UseAbilityAction;
 import com.example.gamestatehw.GameFramework.game.LocalGame;
 import com.example.gamestatehw.GameFramework.players.GamePlayer;
+import com.example.gamestatehw.citadels.cards.Card;
 import com.example.gamestatehw.citadels.infoMessage.CitadelsState;
 import com.example.gamestatehw.citadels.players.CitadelsPlayer;
 
@@ -136,7 +137,7 @@ public class CitadelsLocalGame extends LocalGame {
         CitadelsState state = (CitadelsState)super.getGameState();
         CitadelsPlayer p = (CitadelsPlayer)action.getPlayer();
         //need to get highlighted card for buildDistrict/removeDistrict
-
+        Card cardToPlay = state.getPlayers().get(0).getHand().get(selectedCard);
         if (action instanceof BuildDistrictAction) {
             return state.buildDistrict(p);
         }
