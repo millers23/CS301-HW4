@@ -28,7 +28,7 @@ import com.example.gamestatehw.citadels.players.CitadelsPlayer;
 
 import java.util.ArrayList;
 
-public class CitadelsDeckView extends FlashSurfaceView implements View.OnClickListener {
+public class CitadelsDeckView extends FlashSurfaceView {
 
     protected CitadelsState state;
 
@@ -75,29 +75,5 @@ public class CitadelsDeckView extends FlashSurfaceView implements View.OnClickLi
 
     public void setState(CitadelsState state) {
         this.state = state;
-    }
-
-    @Override
-    public void onClick(View v) {
-        CitadelsPlayer p = state.getPlayers().get(state.getWhoseMove());
-        GameAction action;
-        if (v.getId() == R.id.cardButton) {
-            action = new DrawCardAction(p);
-        }
-        else if (v.getId() == R.id.goldButton) {
-            action = new DrawGoldAction(p);
-        }
-        else if (v.getId() == R.id.buildButton) {
-            action = new BuildDistrictAction(p);
-        }
-        else if (v.getId() == R.id.removeButton) {
-            action = new RemoveDistrictAction(p);
-        }
-        else if (v.getId() == R.id.abilityButton) {
-            action = new UseAbilityAction(p);
-        }
-        else if (v.getId() == R.id.endButton) {
-            action = new EndTurnAction(p);
-        }
     }
 }
