@@ -5,7 +5,7 @@ import com.example.gamestatehw.GameFramework.actionMessage.DrawCardAction;
 import com.example.gamestatehw.GameFramework.actionMessage.DrawGoldAction;
 import com.example.gamestatehw.GameFramework.actionMessage.EndTurnAction;
 import com.example.gamestatehw.GameFramework.actionMessage.GameAction;
-import com.example.gamestatehw.GameFramework.actionMessage.RemoveDIstrictAction;
+import com.example.gamestatehw.GameFramework.actionMessage.RemoveDistrictAction;
 import com.example.gamestatehw.GameFramework.actionMessage.UseAbilityAction;
 import com.example.gamestatehw.GameFramework.game.LocalGame;
 import com.example.gamestatehw.GameFramework.players.GamePlayer;
@@ -132,10 +132,11 @@ public class CitadelsLocalGame extends LocalGame {
     protected boolean makeMove(GameAction action) {
         CitadelsState state = (CitadelsState)super.getGameState();
         CitadelsPlayer p = state.getPlayers().get(state.getWhoseMove());
+        //need to get highlighted card for buildDistrict/removeDistrict
         if (action instanceof BuildDistrictAction) {
             return state.buildDistrict(p);
         }
-        else if (action instanceof RemoveDIstrictAction) {
+        else if (action instanceof RemoveDistrictAction) {
             return state.removeDistrict(p);
         }
         else if (action instanceof DrawCardAction) {
