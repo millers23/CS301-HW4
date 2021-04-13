@@ -67,82 +67,82 @@ public class CitadelsHumanPlayer extends GameHumanPlayer implements View.OnClick
             GameAction action = new DrawGoldAction(this);
             game.sendAction(action);
         }
-        else if (v.getId() == R.id.buildButton) {
-            Card cardToPlay = gameState.getPlayers().get(0).getHand().get(selectedCard);
-            GameAction action = new BuildDistrictAction(this, cardToPlay);
-
+        else if (v.getId() == R.id.cardButton) {
+            GameAction action = new DrawCardAction(this);
             game.sendAction(action);
         }
-        //selects a card from the deck that is available
-        ImageView imageView = searchImageView(v);
-        if (imageView.getVisibility() == View.VISIBLE &&
-                imageView != null) {
-            selectedCard = imageView;
+        else if (v.getId() == R.id.abilityButton) {
+            GameAction action = new UseAbilityAction(this);
+            game.sendAction(action);
         }
+        else if (v.getId() == R.id.buildButton) {
+            Card cardToPlay = gameState.getPlayers().get(0).getHand().get(selectedCard);
+            game.sendAction(new BuildDistrictAction(this, cardToPlay));
+        }
+        else if (v.getId() == R.id.removeButton) {
+            Card cardToPlay = gameState.getPlayers().get(0).getHand().get(selectedCard);
+            game.sendAction(new RemoveDistrictAction(this, cardToPlay));
+        }
+        //selects a card from the deck that is available
+        //selectedCard = searchImageView(v);
 
         //returns the correct game action for what button is pressed
-        game.sendAction(searchGameAction(v));
+        //game.sendAction(searchGameAction(v));
 
         //resets the view
         v.invalidate();
-    }
-
-    private GameAction searchGameAction(View v) {
-        GameAction action = null;
-        if (v.getId() == R.id.cardButton) {
-            action = new DrawCardAction(this);
-        }
-        else if (v.getId() == R.id.goldButton) {
-            action = new DrawGoldAction(this);
-        }
-        else if (v.getId() == R.id.buildButton) {
-            action = new BuildDistrictAction(this);
-        }
-        else if (v.getId() == R.id.removeButton) {
-            action = new RemoveDistrictAction(this);
-        }
-        else if (v.getId() == R.id.abilityButton) {
-            action = new UseAbilityAction(this);
-        }
-        else if (v.getId() == R.id.endButton) {
-            action = new EndTurnAction(this);
-        }
-        return action;
     }
 
     private int searchImageView(View v) {
         ImageView imageView = null;
         if (v.getId() == R.id.hand1) {
             imageView = v.findViewById(R.id.hand1);
-            return 0;
+            if (imageView.getVisibility() == View.VISIBLE) {
+                return 0;
+            }
+            return -1;
         }
         else if (v.getId() == R.id.hand2) {
-            imageView = v.findViewById(R.id.hand2);
-            return 1;
+            if (imageView.getVisibility() == View.VISIBLE) {
+                return 1;
+            }
+            return -1;
         }
         else if (v.getId() == R.id.hand3) {
-            imageView = v.findViewById(R.id.hand3);
-            return 2;
+            if (imageView.getVisibility() == View.VISIBLE) {
+                return 2;
+            }
+            return -1;
         }
         else if (v.getId() == R.id.hand4) {
-            imageView = v.findViewById(R.id.hand4);
-            return 3;
+            if (imageView.getVisibility() == View.VISIBLE) {
+                return 3;
+            }
+            return -1;
         }
         else if (v.getId() == R.id.hand5) {
-            imageView = v.findViewById(R.id.hand5);
-            return 4;
+            if (imageView.getVisibility() == View.VISIBLE) {
+                return 4;
+            }
+            return -1;
         }
         else if (v.getId() == R.id.hand6) {
-            imageView = v.findViewById(R.id.hand6);
-            return 5;
+            if (imageView.getVisibility() == View.VISIBLE) {
+                return 5;
+            }
+            return -1;
         }
         else if (v.getId() == R.id.hand7) {
-            imageView = v.findViewById(R.id.hand7);
-            return 6;
+            if (imageView.getVisibility() == View.VISIBLE) {
+                return 6;
+            }
+            return -1;
         }
         else if (v.getId() == R.id.hand8) {
-            imageView = v.findViewById(R.id.hand8);
-            return  7;
+            if (imageView.getVisibility() == View.VISIBLE) {
+                return 7;
+            }
+            return -1;
         }
         return -1;
     }
