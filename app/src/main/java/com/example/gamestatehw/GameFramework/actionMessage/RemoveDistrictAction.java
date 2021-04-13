@@ -9,6 +9,7 @@ public class RemoveDistrictAction extends GameAction {
      * constructor for GameAction
      *
      * @param player the player who created the action
+     * @param cardToPlay
      */
     public RemoveDistrictAction(GamePlayer player, Card cardToPlay) {
         super(player);
