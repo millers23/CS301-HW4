@@ -2,6 +2,7 @@ package com.example.gamestatehw.citadels.players;
 
 import android.graphics.Color;
 import android.view.View;
+import android.widget.ImageView;
 
 import com.example.gamestatehw.GameFramework.actionMessage.BuildDistrictAction;
 import com.example.gamestatehw.GameFramework.actionMessage.DrawCardAction;
@@ -27,6 +28,8 @@ public class CitadelsHumanPlayer extends GameHumanPlayer implements View.OnClick
     // the surface view
     private CitadelsGameView view;
 
+    private ImageView selectedCard;
+
     // the ID for the layout to use
     private int layoutId;
 
@@ -40,8 +43,31 @@ public class CitadelsHumanPlayer extends GameHumanPlayer implements View.OnClick
         this.layoutId = layoutID;
     }
 
+    public ImageView getSelectedCard() {
+        return selectedCard;
+    }
+
+    public void setSelectedCard(ImageView selectedCard) {
+        this.selectedCard = selectedCard;
+    }
+
     @Override
     public void onClick(View v) {
+        //selects a card from the deck that is available
+        ImageView imageView = searchImageView(v);
+        if (imageView.getVisibility() == View.VISIBLE &&
+                imageView != null) {
+            selectedCard = imageView;
+        }
+
+        //returns the correct game action for what button is pressed
+        game.sendAction(searchGameAction(v));
+
+        //resets the view
+        v.invalidate();
+    }
+
+    private GameAction searchGameAction(View v) {
         GameAction action = null;
         if (v.getId() == R.id.cardButton) {
             action = new DrawCardAction(this);
@@ -61,8 +87,36 @@ public class CitadelsHumanPlayer extends GameHumanPlayer implements View.OnClick
         else if (v.getId() == R.id.endButton) {
             action = new EndTurnAction(this);
         }
-        game.sendAction(action);
-        v.invalidate();
+        return action;
+    }
+
+    private ImageView searchImageView(View v) {
+        ImageView imageView = null;
+        if (v.getId() == R.id.hand1) {
+            imageView = v.findViewById(R.id.hand1);
+        }
+        else if (v.getId() == R.id.hand2) {
+            imageView = v.findViewById(R.id.hand2);
+        }
+        else if (v.getId() == R.id.hand3) {
+            imageView = v.findViewById(R.id.hand3);
+        }
+        else if (v.getId() == R.id.hand4) {
+            imageView = v.findViewById(R.id.hand4);
+        }
+        else if (v.getId() == R.id.hand5) {
+            imageView = v.findViewById(R.id.hand5);
+        }
+        else if (v.getId() == R.id.hand6) {
+            imageView = v.findViewById(R.id.hand6);
+        }
+        else if (v.getId() == R.id.hand6) {
+            imageView = v.findViewById(R.id.hand7);
+        }
+        else if (v.getId() == R.id.hand8) {
+            imageView = v.findViewById(R.id.hand8);
+        }
+        return imageView;
     }
 
     @Override

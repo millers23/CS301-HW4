@@ -57,17 +57,21 @@ public class CitadelsDeckView extends FlashSurfaceView {
             if (i < deck.size()) {
                 Card c = deck.get(i);
                 if (c instanceof RedDistrict) {
+                    cards[i].setVisibility(View.VISIBLE);
                     cards[i].setImageResource(R.drawable.card_3);
                 } else if (c instanceof BlueDistrict) {
+                    cards[i].setVisibility(View.VISIBLE);
                     cards[i].setImageResource(R.drawable.card_1);
                 } else if (c instanceof GreenDistrict) {
+                    cards[i].setVisibility(View.VISIBLE);
                     cards[i].setImageResource(R.drawable.card_2);
                 } else if (c instanceof YellowDistrict) {
+                    cards[i].setVisibility(View.VISIBLE);
                     cards[i].setImageResource(R.drawable.card_0);
                 }
             }
             else {
-                cards[i].setImageResource(android.R.color.transparent);
+                cards[i].setVisibility(View.INVISIBLE);
             }
         }
         invalidate();

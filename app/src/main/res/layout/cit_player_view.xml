@@ -79,13 +79,15 @@
                         android:id="@+id/hand1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        app:srcCompat="@drawable/purple_delete_button"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:onClick="onClick"
+                        app:srcCompat="@drawable/purple_delete_button" />
 
                     <ImageView
                         android:id="@+id/hand2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:onClick="onClick"
                         app:srcCompat="@drawable/purple_delete_button"
                         android:layout_weight="1"/>
 
@@ -93,6 +95,7 @@
                         android:id="@+id/hand3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:onClick="onClick"
                         app:srcCompat="@drawable/purple_delete_button"
                         android:layout_weight="1"/>
 
@@ -100,6 +103,7 @@
                         android:id="@+id/hand4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:onClick="onClick"
                         app:srcCompat="@drawable/purple_delete_button"
                         android:layout_weight="1"/>
                 </TableRow>
@@ -113,6 +117,7 @@
                         android:id="@+id/hand5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:onClick="onClick"
                         app:srcCompat="@drawable/purple_delete_button"
                         android:layout_weight="1"/>
 
@@ -120,6 +125,7 @@
                         android:id="@+id/hand6"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:onClick="onClick"
                         app:srcCompat="@drawable/purple_delete_button"
                         android:layout_weight="1"/>
 
@@ -127,6 +133,7 @@
                         android:id="@+id/hand7"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:onClick="onClick"
                         app:srcCompat="@drawable/purple_delete_button"
                         android:layout_weight="1"/>
 
@@ -134,6 +141,7 @@
                         android:id="@+id/hand8"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:onClick="onClick"
                         app:srcCompat="@drawable/purple_delete_button"
                         android:layout_weight="1"/>
                 </TableRow>
