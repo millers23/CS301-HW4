@@ -131,7 +131,7 @@ public class CitadelsLocalGame extends LocalGame {
     @Override
     protected boolean makeMove(GameAction action) {
         CitadelsState state = (CitadelsState)super.getGameState();
-        CitadelsPlayer p = state.getPlayers().get(state.getWhoseMove());
+        CitadelsPlayer p = (CitadelsPlayer)action.getPlayer();
         //need to get highlighted card for buildDistrict/removeDistrict
         if (action instanceof BuildDistrictAction) {
             return state.buildDistrict(p);

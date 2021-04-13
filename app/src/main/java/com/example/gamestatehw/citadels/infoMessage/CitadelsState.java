@@ -41,6 +41,7 @@ public class CitadelsState extends GameState implements Serializable {
 
     private ArrayList<Card> characterDeck;
     private ArrayList<Card> districtDeck;
+    public Card highlightedCard;
 
     private ArrayList<CitadelsPlayer> players;
 

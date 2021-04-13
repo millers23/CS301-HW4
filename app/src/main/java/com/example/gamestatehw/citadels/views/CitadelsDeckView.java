@@ -7,6 +7,15 @@ import android.widget.ImageView;
 
 import androidx.annotation.Nullable;
 
+import com.example.gamestatehw.GameFramework.actionMessage.BuildDistrictAction;
+import com.example.gamestatehw.GameFramework.actionMessage.DrawCardAction;
+import com.example.gamestatehw.GameFramework.actionMessage.DrawGoldAction;
+import com.example.gamestatehw.GameFramework.actionMessage.EndTurnAction;
+import com.example.gamestatehw.GameFramework.actionMessage.GameAction;
+import com.example.gamestatehw.GameFramework.actionMessage.RemoveDistrictAction;
+import com.example.gamestatehw.GameFramework.actionMessage.UseAbilityAction;
+import com.example.gamestatehw.GameFramework.infoMessage.GameState;
+import com.example.gamestatehw.GameFramework.utilities.FlashSurfaceView;
 import com.example.gamestatehw.R;
 import com.example.gamestatehw.citadels.cards.Card;
 import com.example.gamestatehw.citadels.cards.DistrictCard;
@@ -14,11 +23,14 @@ import com.example.gamestatehw.citadels.cards.districtCards.BlueDistrict;
 import com.example.gamestatehw.citadels.cards.districtCards.GreenDistrict;
 import com.example.gamestatehw.citadels.cards.districtCards.RedDistrict;
 import com.example.gamestatehw.citadels.cards.districtCards.YellowDistrict;
+import com.example.gamestatehw.citadels.infoMessage.CitadelsState;
 import com.example.gamestatehw.citadels.players.CitadelsPlayer;
 
 import java.util.ArrayList;
 
-public class CitadelsDeckView extends View implements View.OnClickListener {
+public class CitadelsDeckView extends FlashSurfaceView implements View.OnClickListener {
+
+    protected CitadelsState state;
 
     public CitadelsDeckView(Context context) {
         super(context);
@@ -26,14 +38,6 @@ public class CitadelsDeckView extends View implements View.OnClickListener {
 
     public CitadelsDeckView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
-    }
-
-    public CitadelsDeckView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
-    }
-
-    public CitadelsDeckView(Context context, @Nullable AttributeSet attrs, int defStyleAttr, int defStyleRes) {
-        super(context, attrs, defStyleAttr, defStyleRes);
     }
 
     public void drawDeck(CitadelsPlayer p) {
@@ -69,8 +73,31 @@ public class CitadelsDeckView extends View implements View.OnClickListener {
         invalidate();
     }
 
+    public void setState(CitadelsState state) {
+        this.state = state;
+    }
+
     @Override
     public void onClick(View v) {
-
+        CitadelsPlayer p = state.getPlayers().get(state.getWhoseMove());
+        GameAction action;
+        if (v.getId() == R.id.cardButton) {
+            action = new DrawCardAction(p);
+        }
+        else if (v.getId() == R.id.goldButton) {
+            action = new DrawGoldAction(p);
+        }
+        else if (v.getId() == R.id.buildButton) {
+            action = new BuildDistrictAction(p);
+        }
+        else if (v.getId() == R.id.removeButton) {
+            action = new RemoveDistrictAction(p);
+        }
+        else if (v.getId() == R.id.abilityButton) {
+            action = new UseAbilityAction(p);
+        }
+        else if (v.getId() == R.id.endButton) {
+            action = new EndTurnAction(p);
+        }
     }
 }
