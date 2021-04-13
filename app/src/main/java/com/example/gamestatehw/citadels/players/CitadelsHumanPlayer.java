@@ -70,9 +70,14 @@ public class CitadelsHumanPlayer extends GameHumanPlayer implements View.OnClick
         else if (v.getId() == R.id.buildButton) {
             Card cardToPlay = gameState.getPlayers().get(0).getHand().get(selectedCard);
             GameAction action = new BuildDistrictAction(this, cardToPlay);
-
             game.sendAction(action);
         }
+        /*else if (v.getId() == R.id.removeButton) {
+            Card cardToPlay = gameState.getPlayers().get(0).getHand().get(selectedCard);
+            GameAction action = new RemoveDistrictAction(this, cardToPlay);
+            game.sendAction(action);
+        }*/
+
         //selects a card from the deck that is available
         ImageView imageView = searchImageView(v);
         if (imageView.getVisibility() == View.VISIBLE &&
@@ -96,10 +101,10 @@ public class CitadelsHumanPlayer extends GameHumanPlayer implements View.OnClick
             action = new DrawGoldAction(this);
         }
         else if (v.getId() == R.id.buildButton) {
-            action = new BuildDistrictAction(this);
+            //action = new BuildDistrictAction(this);
         }
         else if (v.getId() == R.id.removeButton) {
-            action = new RemoveDistrictAction(this);
+            //action = new RemoveDistrictAction(this);
         }
         else if (v.getId() == R.id.abilityButton) {
             action = new UseAbilityAction(this);

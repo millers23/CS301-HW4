@@ -38,7 +38,7 @@ public class CitadelsStateTest {
         state.setPlayers(players);
         assertEquals(state.getPlayers(), players);
     }
-    //Kyle tests
+    //Kyle created test
     @Test
     public void testGamePhase() {
         CitadelsState state = new CitadelsState();
@@ -51,14 +51,23 @@ public class CitadelsStateTest {
         //testing valid phase
         assertEquals(3,state.getGamePhase());
     }
-
-
+    //Kyle created test
     @Test
     public void getWhoseMove() {
+        CitadelsState state = new CitadelsState();
+        //testing default value
+        assertEquals(1,state.getWhoseMove());
+        state.setWhoseMove(100);
+        //testing invalid number
+        assertEquals(1,state.getWhoseMove());
+        state.setWhoseMove(3);
+        //testing valid number
+        assertEquals(3,state.getGamePhase());
     }
 
     @Test
     public void setWhoseMove() {
+
     }
 
     @Test
