@@ -166,6 +166,7 @@ public class CitadelsStateTest {
 
         p1.Ability();
 
+
       //  assertNotEquals(100, p1.getGold());
 
     }
