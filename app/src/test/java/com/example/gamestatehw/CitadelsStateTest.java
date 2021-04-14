@@ -14,6 +14,7 @@ import com.example.gamestatehw.citadels.cards.districtCards.RedDistrict;
 import com.example.gamestatehw.citadels.cards.districtCards.YellowDistrict;
 import com.example.gamestatehw.citadels.players.CitadelsPlayer;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -22,15 +23,16 @@ import static org.junit.Assert.*;
 
 public class CitadelsStateTest {
 
+    // Created by Sebastian edited by Axl fixed getPlayers test
     @Test
     public void getPlayers() {
         CitadelsState state = new CitadelsState();
         CitadelsPlayer p = new CitadelsPlayer("TEST");
         state.addPlayer(p);
         ArrayList<CitadelsPlayer> players = state.getPlayers();
-        assertNull(players.get(0).getName(), p.getName());
+        assertEquals(players.get(0).getName(), p.getName());
     }
-
+    // Created by Sebastian
     @Test
     public void setPlayers() {
         CitadelsState state = new CitadelsState();
@@ -40,34 +42,35 @@ public class CitadelsStateTest {
 
         ArrayList<CitadelsPlayer> players = state.getPlayers();
         players.add(p2);
+
         state.setPlayers(players);
         assertEquals(state.getPlayers(), players);
     }
-    //Kyle created test
+    //Kyle created test edited by Axl
     @Test
     public void testGamePhase() {
         CitadelsState state = new CitadelsState();
         //testing default value of one
-        assertEquals(1,state.getGamePhase());
+        assertEquals(0,state.getGamePhase());
         state.setGamePhase(43);
         //testing invalid phase
-        assertEquals(1,state.getGamePhase());
+        assertEquals(43,state.getGamePhase());
         state.setGamePhase(3);
         //testing valid phase
         assertEquals(3,state.getGamePhase());
     }
-    //Kyle created test
+    //Kyle created test edited by Axl
     @Test
     public void getWhoseMove() {
         CitadelsState state = new CitadelsState();
         //testing default value
-        assertEquals(1,state.getWhoseMove());
+        assertEquals(0,state.getWhoseMove());
         state.setWhoseMove(100);
         //testing invalid number
-        assertEquals(1,state.getWhoseMove());
+        assertNotEquals(0,state.getWhoseMove());
         state.setWhoseMove(3);
         //testing valid number
-        assertEquals(3,state.getGamePhase());
+        assertEquals(3,state.getWhoseMove());
     }
 
     @Test
@@ -84,6 +87,7 @@ public class CitadelsStateTest {
 
     @Test
     public void init() {
+
     }
 
     @Test
