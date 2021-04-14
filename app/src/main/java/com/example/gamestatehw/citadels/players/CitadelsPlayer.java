@@ -50,6 +50,10 @@ public class CitadelsPlayer {
         this.gold = gold;
     }
 
+    public int getSelectedCard() { return selectedCard; }
+
+    public void setSelectedCard(int selectedCard) { this.selectedCard = selectedCard; }
+
     public int getPoints() {
         return points;
     }
