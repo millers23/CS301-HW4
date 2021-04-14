@@ -24,7 +24,7 @@ import static org.junit.Assert.*;
 
 public class CitadelsStateTest {
 
-    // Created by Sebastian edited by Axl fixed getPlayers test
+    // Created by Sebastian edited by Axl
     @Test
     public void getPlayers() {
         CitadelsState state = new CitadelsState();

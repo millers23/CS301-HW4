@@ -28,6 +28,7 @@ import android.widget.TextView;
 import android.widget.TabHost.TabSpec;
 
 
+import com.example.gamestatehw.GameFramework.actionMessage.GameAction;
 import com.example.gamestatehw.GameFramework.infoMessage.GameState;
 import com.example.gamestatehw.GameFramework.players.GamePlayer;
 import com.example.gamestatehw.GameFramework.utilities.IPCoder;
@@ -62,6 +63,7 @@ public abstract class GameMainActivity extends Activity implements
     // object that knows the rules of the game. This variable is initialized in
     // launchGame.
     private Game game = null;
+
 
     // an array containing references to all the players that are playing the game
     private GamePlayer[] players = null;
@@ -632,7 +634,7 @@ public abstract class GameMainActivity extends Activity implements
         GameConfig finalConfig = scrapeData();
         //Saving the user's inputs in case they want to restart the game later
         this.restartConfig = finalConfig;
-        return launchGame(finalConfig, null);
+        return launchGame(finalConfig, getGameState());
     }
 
     /**
