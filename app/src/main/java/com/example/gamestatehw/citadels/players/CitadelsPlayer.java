@@ -169,7 +169,7 @@ public class CitadelsPlayer {
             for (int j = 0; j < getDistricts().size(); j++) {
                 ArrayList<Card> district = getDistricts();
                 Card districtCard = district.get(j);
-                if (districtCard instanceof RedDistrict) {   // for every instance of religion districts
+                if (districtCard instanceof RedDistrict) {   // for every instance of military districts
                     setGold(getGold() + 1);
                 }
             }
@@ -179,7 +179,7 @@ public class CitadelsPlayer {
             for (int j = 0; j < getDistricts().size(); j++) {
                 ArrayList<Card> district = getDistricts();
                 Card districtCard = district.get(j);
-                if (districtCard instanceof YellowDistrict) {   // for every instance of religion districts
+                if (districtCard instanceof YellowDistrict) {   // for every instance of noble districts
                     setGold(getGold() + 1);
                 }
             }

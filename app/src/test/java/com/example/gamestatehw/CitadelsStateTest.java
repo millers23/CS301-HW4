@@ -127,7 +127,7 @@ public class CitadelsStateTest {
     // Test By Axl Martinez
     @Test
     public void ability() {
-       // CitadelsState state = new CitadelsState();
+       // CitadelsState state = new CitadelsState(); // not working since init() is broken
 
         // create everything since init() is broken
         CitadelsPlayer p1 = new CitadelsPlayer("TEST1");

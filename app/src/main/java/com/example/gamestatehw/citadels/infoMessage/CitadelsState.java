@@ -42,8 +42,8 @@ public class CitadelsState extends GameState implements Serializable {
     //phase 2: end turn
     private int turnPhase;//make an enum
 
-    private ArrayList<Card> characterDeck;
-    private ArrayList<Card> districtDeck;
+    private ArrayList<Card> characterDeck = new ArrayList<>();
+    private ArrayList<Card> districtDeck = new ArrayList<>();
     public DistrictCard highlightedCard;
 
     private ArrayList<CitadelsPlayer> players;
