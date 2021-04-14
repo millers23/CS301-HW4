@@ -341,38 +341,5 @@ public class CitadelsState extends GameState implements Serializable {
                 '}';
     }
 
-    public void Ability(CitadelsPlayer p) {
-        CharacterCard character = p.getCharacter();
 
-        if (character instanceof Architect) {
-                setTurnPhase(0); // This is to make sure it does not skip the drawing
-                drawCard(p);  //the actual drawing action like if he chose to draw gives him 2 cards
-
-        }
-        if (character instanceof Merchant){
-            for (int j = 0; j < p.getDistricts().size(); j++) {
-                ArrayList<Card> district = p.getDistricts();
-                Card districtCard = district.get(j);
-                if (districtCard instanceof GreenDistrict) {  // for every instance of trade districts
-                    p.setGold(p.getGold() + 1);
-                }
-            }
-        }
-        if ( character instanceof Bishop){
-            for (int j = 0; j < p.getDistricts().size(); j++) {
-                ArrayList<Card> district = p.getDistricts();
-                Card districtCard = district.get(j);
-                if (districtCard instanceof BlueDistrict) {   // for every instance of religion districts
-                    p.setGold(p.getGold() + 1);
-                }
-            }
-        }
-        if (character instanceof Assassin){
-
-
-        }
-        if (character instanceof Thief){
-
-        }
-    }
 }
