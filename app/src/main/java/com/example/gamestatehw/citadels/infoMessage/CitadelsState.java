@@ -10,10 +10,12 @@ import com.example.gamestatehw.GameFramework.infoMessage.GameState;
 import com.example.gamestatehw.citadels.cards.UniqueDistrictCard;
 import com.example.gamestatehw.citadels.cards.characterCards.Architect;
 import com.example.gamestatehw.citadels.cards.characterCards.Bishop;
+import com.example.gamestatehw.citadels.cards.characterCards.King;
 import com.example.gamestatehw.citadels.cards.characterCards.Merchant;
 import com.example.gamestatehw.citadels.cards.characterCards.Patrician;
 import com.example.gamestatehw.citadels.cards.characterCards.Seer;
 import com.example.gamestatehw.citadels.cards.characterCards.Thief;
+import com.example.gamestatehw.citadels.cards.characterCards.Warlord;
 import com.example.gamestatehw.citadels.players.CitadelsPlayer;
 import com.example.gamestatehw.citadels.cards.Card;
 import com.example.gamestatehw.citadels.cards.CharacterCard;
@@ -124,8 +126,10 @@ public class CitadelsState extends GameState implements Serializable {
 
     public void init() {
         //add character cards to deck
-        Architect architect = new Architect();
-        characterDeck.add(architect);
+
+        // under development
+       // Architect architect = new Architect();
+      //  characterDeck.add(architect);
 
         Merchant merchant = new Merchant();
         characterDeck.add(merchant);
@@ -133,11 +137,11 @@ public class CitadelsState extends GameState implements Serializable {
         Bishop bishop = new Bishop();
         characterDeck.add(bishop);
 
-        Assassin assassin = new Assassin();
-        characterDeck.add(assassin);
+        Warlord warlord = new Warlord();
+        characterDeck.add(warlord);
 
-        Thief thief = new Thief();
-        characterDeck.add(thief);
+        King king = new King();
+        characterDeck.add(king);
 
         //add districts to deck
         for (int i = 0; i < 11; i++) {
