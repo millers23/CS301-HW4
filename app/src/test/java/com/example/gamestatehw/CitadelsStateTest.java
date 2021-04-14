@@ -1,13 +1,13 @@
-package com.example.gamestatehw.citadels.infoMessage;
+package com.example.gamestatehw;
 
 import android.content.pm.ActivityInfo;
 
 import com.example.gamestatehw.citadels.cards.Card;
-import com.example.gamestatehw.citadels.cards.DistrictCard;
 import com.example.gamestatehw.citadels.cards.characterCards.Architect;
 import com.example.gamestatehw.citadels.cards.characterCards.Bishop;
 import com.example.gamestatehw.citadels.cards.characterCards.Merchant;
 import com.example.gamestatehw.citadels.cards.characterCards.Patrician;
+import com.example.gamestatehw.citadels.infoMessage.CitadelsState;
 import com.example.gamestatehw.citadels.cards.districtCards.BlueDistrict;
 import com.example.gamestatehw.citadels.cards.districtCards.GreenDistrict;
 import com.example.gamestatehw.citadels.cards.districtCards.RedDistrict;
@@ -43,17 +43,31 @@ public class CitadelsStateTest {
         state.setPlayers(players);
         assertEquals(state.getPlayers(), players);
     }
-
+    //Kyle created test
     @Test
-    public void getGamePhase() {
+    public void testGamePhase() {
+        CitadelsState state = new CitadelsState();
+        //testing default value of one
+        assertEquals(1,state.getGamePhase());
+        state.setGamePhase(43);
+        //testing invalid phase
+        assertEquals(1,state.getGamePhase());
+        state.setGamePhase(3);
+        //testing valid phase
+        assertEquals(3,state.getGamePhase());
     }
-
-    @Test
-    public void setGamePhase() {
-    }
-
+    //Kyle created test
     @Test
     public void getWhoseMove() {
+        CitadelsState state = new CitadelsState();
+        //testing default value
+        assertEquals(1,state.getWhoseMove());
+        state.setWhoseMove(100);
+        //testing invalid number
+        assertEquals(1,state.getWhoseMove());
+        state.setWhoseMove(3);
+        //testing valid number
+        assertEquals(3,state.getGamePhase());
     }
 
     @Test
@@ -66,7 +80,6 @@ public class CitadelsStateTest {
 
     @Test
     public void setTurnPhase() {
-        int turnPhase = 1;
     }
 
     @Test
@@ -95,7 +108,6 @@ public class CitadelsStateTest {
 
     @Test
     public void buildDistrict() {
-
     }
 
     @Test
@@ -136,7 +148,6 @@ public class CitadelsStateTest {
 
         Architect architect = new Architect();
         characterDeck.add(architect);
-
         Merchant merchant = new Merchant();
         characterDeck.add(merchant);
 
