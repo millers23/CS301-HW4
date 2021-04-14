@@ -13,7 +13,7 @@ import com.example.gamestatehw.citadels.cards.CharacterCard;
 
 import java.util.ArrayList;
 
-public class CitadelsPlayer implements GamePlayer {
+public class CitadelsPlayer {
     //instance variables
     private String name;
     private int gold;
@@ -22,6 +22,7 @@ public class CitadelsPlayer implements GamePlayer {
     private ArrayList<Card> hand;
     private ArrayList<Card> districts;
     private CharacterCard character;
+    public int selectedCard = 0;
 
     //constructor
     public CitadelsPlayer(String n) {
@@ -114,39 +115,4 @@ public class CitadelsPlayer implements GamePlayer {
     }
 
     public void setCharacter(CharacterCard character) { this.character = character; }
-
-    @Override
-    public void gameSetAsGui(GameMainActivity activity) {
-
-    }
-
-    @Override
-    public void setAsGui(GameMainActivity activity) {
-
-    }
-
-    @Override
-    public void sendInfo(GameInfo info) {
-
-    }
-
-    @Override
-    public void start() {
-
-    }
-
-    @Override
-    public boolean requiresGui() {
-        return false;
-    }
-
-    @Override
-    public boolean supportsGui() {
-        return false;
-    }
-
-    @Override
-    public GameMainActivity getActivity() {
-        return null;
-    }
 }
