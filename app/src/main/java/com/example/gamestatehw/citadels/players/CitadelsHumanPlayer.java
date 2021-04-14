@@ -20,6 +20,7 @@ import com.example.gamestatehw.GameFramework.players.GameHumanPlayer;
 import com.example.gamestatehw.GameFramework.utilities.Logger;
 import com.example.gamestatehw.R;
 import com.example.gamestatehw.citadels.cards.Card;
+import com.example.gamestatehw.citadels.cards.DistrictCard;
 import com.example.gamestatehw.citadels.infoMessage.CitadelsState;
 import com.example.gamestatehw.citadels.views.CitadelsGameView;
 
@@ -76,11 +77,11 @@ public class CitadelsHumanPlayer extends GameHumanPlayer implements View.OnClick
             game.sendAction(action);
         }
         else if (v.getId() == R.id.buildButton) {
-            Card cardToPlay = state.getPlayers().get(state.getWhoseMove()).getHand().get(selectedCard);
+            DistrictCard cardToPlay = (DistrictCard)state.getPlayers().get(state.getWhoseMove()).getHand().get(selectedCard);
             game.sendAction(new BuildDistrictAction(this, cardToPlay));
         }
         else if (v.getId() == R.id.removeButton) {
-            Card cardToPlay = state.getPlayers().get(state.getWhoseMove()).getHand().get(selectedCard);
+            DistrictCard cardToPlay = (DistrictCard)state.getPlayers().get(state.getWhoseMove()).getHand().get(selectedCard);
             game.sendAction(new RemoveDistrictAction(this, cardToPlay));
         }
         //selects a card from the deck that is available
