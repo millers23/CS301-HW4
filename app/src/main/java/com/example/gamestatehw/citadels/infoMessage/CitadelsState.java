@@ -127,9 +127,10 @@ public class CitadelsState extends GameState implements Serializable {
     public void init() {
         //add character cards to deck
 
-        // under development
-       // Architect architect = new Architect();
-      //  characterDeck.add(architect);
+        /*under development
+        Architect architect = new Architect();
+        characterDeck.add(architect);
+        */
 
         Merchant merchant = new Merchant();
         characterDeck.add(merchant);
