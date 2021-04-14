@@ -123,13 +123,17 @@ public class CitadelsStateTest {
     public void endTurn() {
     }
 
+
+    // Test By Axl Martinez
     @Test
     public void ability() {
        // CitadelsState state = new CitadelsState();
+
+        // create everything since init() is broken
         CitadelsPlayer p1 = new CitadelsPlayer("TEST1");
         ArrayList<Card> characterDeck = new ArrayList<>();
         ArrayList<Card> districtDeck = new ArrayList<>();
-
+        ArrayList<Card> districts = new ArrayList<>();
 
         for (int i = 0; i < 11; i++) {
             BlueDistrict blueDistrict = new BlueDistrict();
@@ -146,6 +150,8 @@ public class CitadelsStateTest {
             districtDeck.add(greenDistrict);
         }
 
+        // create characters
+
         Architect architect = new Architect();
         characterDeck.add(architect);
 
@@ -156,18 +162,26 @@ public class CitadelsStateTest {
         characterDeck.add(bishop);
 
         p1.setGold(100);
+
+        //test Merchant
         p1.setCharacter(merchant);
 
+        p1.addToDistrict(districts, districtDeck.get(50));
+        p1.addToDistrict(districts, districtDeck.get(49));
+        p1.addToDistrict(districts, districtDeck.get(48));
+        p1.addToDistrict(districts, districtDeck.get(47));
+        p1.addToDistrict(districts, districtDeck.get(5));
+        p1.addToDistrict(districts, districtDeck.get(7));
 
-        p1.addToDistrict(p1.getDistricts(), districtDeck.get(50));
-        p1.addToDistrict(p1.getDistricts(), districtDeck.get(49));
-        p1.addToDistrict(p1.getDistricts(), districtDeck.get(48));
-        p1.addToDistrict(p1.getDistricts(), districtDeck.get(47));
+        p1.setDistricts(districts);
 
         p1.Ability();
 
+        // Test to see if gold is updated since we have districts in there
+      assertNotEquals(100, p1.getGold());
+      assertEquals(104, p1.getGold());
 
-      //  assertNotEquals(100, p1.getGold());
+      // Must work for all since the code is similar except for what is being compared
 
     }
 }
