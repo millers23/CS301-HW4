@@ -59,6 +59,7 @@ public class CitadelsHumanPlayer extends GameHumanPlayer implements View.OnClick
     public void onClick(View v) {
         if(searchImageView(v) != -1){
             selectedCard = searchImageView(v);
+            state.getPlayers().get(state.getWhoseMove()).setSelectedCard(selectedCard);
         }
         else if (v.getId() == R.id.endButton) {
             GameAction action = new EndTurnAction(this);
