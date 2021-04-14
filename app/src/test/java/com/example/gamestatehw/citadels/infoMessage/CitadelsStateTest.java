@@ -3,9 +3,15 @@ package com.example.gamestatehw.citadels.infoMessage;
 import android.content.pm.ActivityInfo;
 
 import com.example.gamestatehw.citadels.cards.Card;
+import com.example.gamestatehw.citadels.cards.DistrictCard;
 import com.example.gamestatehw.citadels.cards.characterCards.Architect;
+import com.example.gamestatehw.citadels.cards.characterCards.Bishop;
 import com.example.gamestatehw.citadels.cards.characterCards.Merchant;
 import com.example.gamestatehw.citadels.cards.characterCards.Patrician;
+import com.example.gamestatehw.citadels.cards.districtCards.BlueDistrict;
+import com.example.gamestatehw.citadels.cards.districtCards.GreenDistrict;
+import com.example.gamestatehw.citadels.cards.districtCards.RedDistrict;
+import com.example.gamestatehw.citadels.cards.districtCards.YellowDistrict;
 import com.example.gamestatehw.citadels.players.CitadelsPlayer;
 
 import org.junit.Test;
@@ -60,6 +66,7 @@ public class CitadelsStateTest {
 
     @Test
     public void setTurnPhase() {
+        int turnPhase = 1;
     }
 
     @Test
@@ -88,6 +95,7 @@ public class CitadelsStateTest {
 
     @Test
     public void buildDistrict() {
+
     }
 
     @Test
@@ -105,21 +113,46 @@ public class CitadelsStateTest {
 
     @Test
     public void ability() {
-        CitadelsState state = new CitadelsState();
+       // CitadelsState state = new CitadelsState();
         CitadelsPlayer p1 = new CitadelsPlayer("TEST1");
         ArrayList<Card> characterDeck = new ArrayList<>();
+        ArrayList<Card> districtDeck = new ArrayList<>();
+        ArrayList<Card> districts = new ArrayList<>();
+
+        for (int i = 0; i < 11; i++) {
+            BlueDistrict blueDistrict = new BlueDistrict();
+            districtDeck.add(blueDistrict);
+            RedDistrict redDistrict = new RedDistrict();
+            districtDeck.add(redDistrict);
+        }
+        for (int i = 0; i < 12; i++) {
+            YellowDistrict yellowDistrict = new YellowDistrict();
+            districtDeck.add(yellowDistrict);
+        }
+        for (int i = 0; i < 20; i++) {
+            GreenDistrict greenDistrict = new GreenDistrict();
+            districtDeck.add(greenDistrict);
+        }
 
         Architect architect = new Architect();
         characterDeck.add(architect);
+
         Merchant merchant = new Merchant();
         characterDeck.add(merchant);
-        Patrician patrician = new Patrician();
+
+        Bishop bishop = new Bishop();
+        characterDeck.add(bishop);
 
         p1.setGold(100);
         p1.setCharacter(merchant);
-        //p1.
+        p1.addToDistrict(districts, districtDeck.get(50));
+        p1.addToDistrict(districts, districtDeck.get(49));
+        p1.addToDistrict(districts, districtDeck.get(48));
+        p1.addToDistrict(districts, districtDeck.get(47));
 
-        //ability();
+        merchant.ability();
+
+        assertNotEquals(100, p1.getGold());
 
     }
 }

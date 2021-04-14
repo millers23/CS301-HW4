@@ -27,6 +27,6 @@ public class CharacterCard extends Card {
     }
 
     public void ability() {
-        return;
+
     }
 }

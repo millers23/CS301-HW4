@@ -9,6 +9,7 @@ package com.example.gamestatehw.citadels.infoMessage;
 import com.example.gamestatehw.GameFramework.infoMessage.GameState;
 import com.example.gamestatehw.citadels.cards.UniqueDistrictCard;
 import com.example.gamestatehw.citadels.cards.characterCards.Architect;
+import com.example.gamestatehw.citadels.cards.characterCards.Bishop;
 import com.example.gamestatehw.citadels.cards.characterCards.Merchant;
 import com.example.gamestatehw.citadels.cards.characterCards.Patrician;
 import com.example.gamestatehw.citadels.cards.characterCards.Seer;
@@ -41,7 +42,7 @@ public class CitadelsState extends GameState implements Serializable {
 
     private ArrayList<Card> characterDeck;
     private ArrayList<Card> districtDeck;
-    public Card highlightedCard;
+    public DistrictCard highlightedCard;
 
     private ArrayList<CitadelsPlayer> players;
 
@@ -117,13 +118,26 @@ public class CitadelsState extends GameState implements Serializable {
         this.turnPhase = turnPhase;
     }
 
+    public void setHighlightedCard(){this.highlightedCard = highlightedCard;}
+
+    public DistrictCard getHighlightedCard(){return highlightedCard;}
+
     public void init() {
         //add character cards to deck
         Architect architect = new Architect();
         characterDeck.add(architect);
+
         Merchant merchant = new Merchant();
         characterDeck.add(merchant);
-        Patrician patrician = new Patrician();
+
+        Bishop bishop = new Bishop();
+        characterDeck.add(bishop);
+
+        Assassin assassin = new Assassin();
+        characterDeck.add(assassin);
+
+        Thief thief = new Thief();
+        characterDeck.add(thief);
 
         //add districts to deck
         for (int i = 0; i < 11; i++) {
@@ -331,11 +345,9 @@ public class CitadelsState extends GameState implements Serializable {
         CharacterCard character = p.getCharacter();
 
         if (character instanceof Architect) {
-            int X;
-            for(X = 0; X != 2 ; X++){ // loop twice to add 2 random cards
                 setTurnPhase(0); // This is to make sure it does not skip the drawing
-                drawCard(p);  //the actual drawing action like if he chose to draw
-            }
+                drawCard(p);  //the actual drawing action like if he chose to draw gives him 2 cards
+
         }
         if (character instanceof Merchant){
             for (int j = 0; j < p.getDistricts().size(); j++) {
@@ -346,7 +358,7 @@ public class CitadelsState extends GameState implements Serializable {
                 }
             }
         }
-        if ( character instanceof Patrician){
+        if ( character instanceof Bishop){
             for (int j = 0; j < p.getDistricts().size(); j++) {
                 ArrayList<Card> district = p.getDistricts();
                 Card districtCard = district.get(j);
@@ -354,6 +366,13 @@ public class CitadelsState extends GameState implements Serializable {
                     p.setGold(p.getGold() + 1);
                 }
             }
+        }
+        if (character instanceof Assassin){
+
+
+        }
+        if (character instanceof Thief){
+
         }
     }
 }
