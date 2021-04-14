@@ -38,9 +38,9 @@ public class CitadelsPlayer {
         gold = 0;
         points = 0;
         numCards = 0;
-        hand = null;
+        hand = new ArrayList<>();
         character = null;
-        districts = null;
+        districts = new ArrayList<>();
     }
 
     /**

@@ -7,6 +7,7 @@ import com.example.gamestatehw.citadels.cards.characterCards.Architect;
 import com.example.gamestatehw.citadels.cards.characterCards.Bishop;
 import com.example.gamestatehw.citadels.cards.characterCards.Merchant;
 import com.example.gamestatehw.citadels.cards.characterCards.Patrician;
+import com.example.gamestatehw.citadels.cards.characterCards.Warlord;
 import com.example.gamestatehw.citadels.infoMessage.CitadelsState;
 import com.example.gamestatehw.citadels.cards.districtCards.BlueDistrict;
 import com.example.gamestatehw.citadels.cards.districtCards.GreenDistrict;
@@ -135,9 +136,10 @@ public class CitadelsStateTest {
 
         // create everything since init() is broken
         CitadelsPlayer p1 = new CitadelsPlayer("TEST1");
+        CitadelsPlayer p2 = new CitadelsPlayer("Test2");
         ArrayList<Card> characterDeck = new ArrayList<>();
         ArrayList<Card> districtDeck = new ArrayList<>();
-        ArrayList<Card> districts = new ArrayList<>();
+
 
         for (int i = 0; i < 11; i++) {
             BlueDistrict blueDistrict = new BlueDistrict();
@@ -165,25 +167,38 @@ public class CitadelsStateTest {
         Bishop bishop = new Bishop();
         characterDeck.add(bishop);
 
+        Warlord warlord = new Warlord();
+        characterDeck.add(warlord);
+
         p1.setGold(100);
+        p2.setGold(100);
 
         //test Merchant
         p1.setCharacter(merchant);
+        p2.setCharacter(warlord);
 
-        p1.addToDistrict(districts, districtDeck.get(50));
-        p1.addToDistrict(districts, districtDeck.get(49));
-        p1.addToDistrict(districts, districtDeck.get(48));
-        p1.addToDistrict(districts, districtDeck.get(47));
-        p1.addToDistrict(districts, districtDeck.get(5));
-        p1.addToDistrict(districts, districtDeck.get(7));
+        p1.addToDistrict(p1.getDistricts(), districtDeck.get(50));
+        p1.addToDistrict(p1.getDistricts(), districtDeck.get(49));
+        p1.addToDistrict(p1.getDistricts(), districtDeck.get(48));
+        p1.addToDistrict(p1.getDistricts(), districtDeck.get(47));
+        p1.addToDistrict(p1.getDistricts(), districtDeck.get(5));
+        p1.addToDistrict(p1.getDistricts(), districtDeck.get(7));
 
-        p1.setDistricts(districts);
+        p2.addToDistrict(p2.getDistricts(), districtDeck.get(50));
+        p2.addToDistrict(p2.getDistricts(), districtDeck.get(49));
+        p2.addToDistrict(p2.getDistricts(), districtDeck.get(48));
+        p2.addToDistrict(p2.getDistricts(), districtDeck.get(47));
+        p2.addToDistrict(p2.getDistricts(), districtDeck.get(5));
+        p2.addToDistrict(p2.getDistricts(), districtDeck.get(7));
 
         p1.Ability();
+        p2.Ability();
 
         // Test to see if gold is updated since we have districts in there
-      assertNotEquals(100, p1.getGold());
+      assertNotEquals(p2.getGold(), p1.getGold());
       assertEquals(104, p1.getGold());
+
+      assertEquals(102,p2.getGold());
 
       // Must work for all since the code is similar except for what is being compared
 
