@@ -10,6 +10,14 @@ import com.example.gamestatehw.GameFramework.infoMessage.GameInfo;
 import com.example.gamestatehw.GameFramework.players.GamePlayer;
 import com.example.gamestatehw.citadels.cards.Card;
 import com.example.gamestatehw.citadels.cards.CharacterCard;
+import com.example.gamestatehw.citadels.cards.DistrictCard;
+import com.example.gamestatehw.citadels.cards.characterCards.Architect;
+import com.example.gamestatehw.citadels.cards.characterCards.Assassin;
+import com.example.gamestatehw.citadels.cards.characterCards.Bishop;
+import com.example.gamestatehw.citadels.cards.characterCards.Merchant;
+import com.example.gamestatehw.citadels.cards.characterCards.Thief;
+import com.example.gamestatehw.citadels.cards.districtCards.BlueDistrict;
+import com.example.gamestatehw.citadels.cards.districtCards.GreenDistrict;
 
 import java.util.ArrayList;
 
@@ -38,9 +46,13 @@ public class CitadelsPlayer {
     /**
      * The methods in this class are almost exclusively Getters and Setters
      */
-    public String getName() { return name; }
+    public String getName() {
+        return name;
+    }
 
-    public void setName(String name) { this.name = name; }
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public int getGold() {
         return gold;
@@ -50,9 +62,13 @@ public class CitadelsPlayer {
         this.gold = gold;
     }
 
-    public int getSelectedCard() { return selectedCard; }
+    public int getSelectedCard() {
+        return selectedCard;
+    }
 
-    public void setSelectedCard(int selectedCard) { this.selectedCard = selectedCard; }
+    public void setSelectedCard(int selectedCard) {
+        this.selectedCard = selectedCard;
+    }
 
     public int getPoints() {
         return points;
@@ -98,8 +114,8 @@ public class CitadelsPlayer {
         hand.remove(index);
     }
 
-    public void addToDistrict(ArrayList<Card> hand, Card card) {
-        hand.add(card);
+    public void addToDistrict(ArrayList<Card> x, Card card) {
+        x.add(card);
     }
 
     public void removeFromDistricts(ArrayList<Card> hand, Card card) {
@@ -118,5 +134,42 @@ public class CitadelsPlayer {
         return character;
     }
 
-    public void setCharacter(CharacterCard character) { this.character = character; }
+    public void setCharacter(CharacterCard character) {
+        this.character = character;
+    }
+
+    public void Ability() {
+        CharacterCard character = getCharacter();
+
+        if (character instanceof Architect) {
+            int i = (int) ((Math.random() * 55) + 1);
+            //addToHand(getHand(), );  //the actual drawing action like if he chose to draw gives him 2 cards
+
+        }
+        if (character instanceof Merchant) {
+            for (int j = 0; j < getDistricts().size(); j++) {
+                ArrayList<Card> district = getDistricts();
+                Card districtCard = district.get(j);
+                if (districtCard instanceof GreenDistrict) {  // for every instance of trade districts
+                    setGold(getGold() + 1);
+                }
+            }
+        }
+        if (character instanceof Bishop) {
+            for (int j = 0; j < getDistricts().size(); j++) {
+                ArrayList<Card> district = getDistricts();
+                Card districtCard = district.get(j);
+                if (districtCard instanceof BlueDistrict) {   // for every instance of religion districts
+                    setGold(getGold() + 1);
+                }
+            }
+        }
+        if (character instanceof Assassin) {
+
+
+        }
+        if (character instanceof Thief) {
+
+        }
+    }
 }
