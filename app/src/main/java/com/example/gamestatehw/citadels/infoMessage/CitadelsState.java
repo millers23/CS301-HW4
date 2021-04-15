@@ -40,7 +40,7 @@ public class CitadelsState extends GameState implements Serializable {
     //phase 0: pick card, get gold
     //phase 1: build, destroy, ability, end turn
     //phase 2: end turn
-    private int turnPhase;//make an enum
+    private int turnPhase;
 
     private ArrayList<Card> characterDeck = new ArrayList<>();
     private ArrayList<Card> districtDeck = new ArrayList<>();
@@ -326,6 +326,7 @@ public class CitadelsState extends GameState implements Serializable {
                 playerTurn++;
             } else {
                 playerTurn = 1;
+                gamePhase = 0;
             }
             return true;
         } else {
