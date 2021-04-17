@@ -124,6 +124,8 @@ public class CitadelsState extends GameState implements Serializable {
 
     public DistrictCard getHighlightedCard(){return highlightedCard;}
 
+    public ArrayList<Card> getCharacterDeck() { return characterDeck; }
+
     public void init() {
         //add character cards to deck
 
@@ -346,6 +348,4 @@ public class CitadelsState extends GameState implements Serializable {
                 ", districtDeck=" + districtDeck.toString() +
                 '}';
     }
-
-
 }
