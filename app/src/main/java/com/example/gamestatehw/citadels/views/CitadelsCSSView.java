@@ -36,9 +36,9 @@ public class CitadelsCSSView extends FlashSurfaceView implements Spinner.OnItemS
         }
         if (view.getId() == R.id.charSpinner) {
             Spinner spinner = findViewById(R.id.charSpinner);
-            ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this,
+            /*ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this,
                     android.R.layout.simple_spinner_dropdown_item, characters);
-            spinner.setAdapter(arrayAdapter);
+            spinner.setAdapter(arrayAdapter);*/
         }
     }
 

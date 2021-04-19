@@ -6,7 +6,6 @@ import com.example.gamestatehw.citadels.cards.Card;
 import com.example.gamestatehw.citadels.cards.characterCards.Architect;
 import com.example.gamestatehw.citadels.cards.characterCards.Bishop;
 import com.example.gamestatehw.citadels.cards.characterCards.Merchant;
-import com.example.gamestatehw.citadels.cards.characterCards.Patrician;
 import com.example.gamestatehw.citadels.cards.characterCards.Warlord;
 import com.example.gamestatehw.citadels.infoMessage.CitadelsState;
 import com.example.gamestatehw.citadels.cards.districtCards.BlueDistrict;
