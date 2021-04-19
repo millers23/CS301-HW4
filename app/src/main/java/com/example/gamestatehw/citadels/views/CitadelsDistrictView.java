@@ -35,7 +35,7 @@ import java.util.ArrayList;
  */
 public class CitadelsDistrictView extends FlashSurfaceView {
     //Tag for logging
-    private static final String TAG = "TTTSurfaceView";
+    private static final String TAG = "CitadelsSurfaceView";
 
     // some constants, which are percentages with respect to the minimum
     // of the height and the width. All drawing will be done in the "middle

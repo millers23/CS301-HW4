@@ -56,12 +56,48 @@
             android:layout_weight="2"
             android:layout_gravity="bottom">
 
-            <androidx.constraintlayout.helper.widget.Flow
-                android:id="@+id/builtDistricts"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                app:constraint_referenced_ids="tableLayout" />
+                android:orientation="horizontal"
+                android:layout_gravity="bottom">
+
+                <TextView
+                    android:id="@+id/redDistrict"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Military Districts:" />
+
+                <TextView
+                    android:id="@+id/blueDistrict"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Religious Districts:" />
+
+                <TextView
+                    android:id="@+id/greenDistrict"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Merchant Districts:" />
+
+                <TextView
+                    android:id="@+id/yellowDistrict"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Noble Districts:" />
+
+                <TextView
+                    android:id="@+id/purpleDistrict"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Unique Districts:" />
+            </LinearLayout>
 
             <TableLayout
                 android:id="@+id/tableLayout"

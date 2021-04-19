@@ -4,12 +4,14 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 
 import com.example.gamestatehw.GameFramework.utilities.FlashSurfaceView;
 import com.example.gamestatehw.R;
 import com.example.gamestatehw.citadels.cards.Card;
+import com.example.gamestatehw.citadels.cards.UniqueDistrictCard;
 import com.example.gamestatehw.citadels.cards.districtCards.BlueDistrict;
 import com.example.gamestatehw.citadels.cards.districtCards.GreenDistrict;
 import com.example.gamestatehw.citadels.cards.districtCards.RedDistrict;
@@ -19,7 +21,7 @@ import com.example.gamestatehw.citadels.players.CitadelsPlayer;
 
 import java.util.ArrayList;
 
-public class CitadelsDeckView extends FlashSurfaceView {
+public class CitadelsDeckView extends FlashSurfaceView implements View.OnClickListener {
 
     protected CitadelsState state;
 
@@ -29,6 +31,45 @@ public class CitadelsDeckView extends FlashSurfaceView {
 
     public CitadelsDeckView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
+    }
+
+    private void drawBuilt(CitadelsPlayer p) {
+        TextView rDist = findViewById(R.id.redDistrict);
+        TextView bDist = findViewById(R.id.blueDistrict);
+        TextView gDist = findViewById(R.id.greenDistrict);
+        TextView yDist = findViewById(R.id.yellowDistrict);
+        TextView pDist = findViewById(R.id.purpleDistrict);
+
+        int red = 0;
+        int blue = 0;
+        int green = 0;
+        int yellow = 0;
+        int unique = 0;
+        for (int j = 0; j < p.getDistricts().size(); j++) {
+            ArrayList<Card> district = p.getDistricts();
+            Card districtCard = district.get(j);
+            if (districtCard instanceof RedDistrict) {
+                red++;
+            }
+            if (districtCard instanceof BlueDistrict) {
+                blue++;
+            }
+            if (districtCard instanceof GreenDistrict) {
+                green++;
+            }
+            if (districtCard instanceof YellowDistrict) {
+                yellow++;
+            }
+            if (districtCard instanceof UniqueDistrictCard) {
+                unique++;
+            }
+        }
+
+        rDist.setText("Military Districts: "+red);
+        bDist.setText("Religious Districts: "+blue);
+        gDist.setText("Merchant Districts: "+green);
+        yDist.setText("Noble Districts: "+yellow);
+        pDist.setText("Unique Districts: "+unique);
     }
 
     public void drawDeck(CitadelsPlayer p) {
@@ -65,10 +106,17 @@ public class CitadelsDeckView extends FlashSurfaceView {
                 cards[i].setVisibility(View.INVISIBLE);
             }
         }
-        invalidate();
     }
 
     public void setState(CitadelsState state) {
         this.state = state;
+    }
+
+    @Override
+    public void onClick(View v) {
+        CitadelsPlayer p = state.getPlayers().get(state.getWhoseMove());
+        drawBuilt(p);
+        drawDeck(p);
+        invalidate();
     }
 }
