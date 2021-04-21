@@ -43,6 +43,16 @@ public class CitadelsPlayer {
         districts = new ArrayList<>();
     }
 
+    public CitadelsPlayer(CitadelsPlayer original) {
+        name = original.name;
+        gold = original.gold;
+        points = original.points;
+        numCards = original.numCards;
+        hand = original.hand;
+        character = original.character;
+        districts = original.districts;
+    }
+
     /**
      * The methods in this class are almost exclusively Getters and Setters
      */

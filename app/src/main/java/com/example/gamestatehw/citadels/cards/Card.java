@@ -22,6 +22,12 @@ public class Card {
         description = d;
     }
 
+    public Card(Card original) {
+        name = original.name;
+        type = original.type;
+        description = original.description;
+    }
+
     /**
      * The methods in this class are almost exclusively Getters and Setters
      */
