@@ -634,7 +634,7 @@ public abstract class GameMainActivity extends Activity implements
         GameConfig finalConfig = scrapeData();
         //Saving the user's inputs in case they want to restart the game later
         this.restartConfig = finalConfig;
-        return launchGame(finalConfig, getGameState());
+        return launchGame(finalConfig, null);
     }
 
     /**

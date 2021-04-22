@@ -166,7 +166,7 @@ public class CitadelsState extends GameState implements Serializable {
 
     //draws a random card from the deck
     public Card randomCard() {
-        int i = (int) ((Math.random() * 55) + 1);
+        int i = (int) ((Math.random() * districtDeck.size()) + 1);
         Card card = districtDeck.get(i);
         return card;
     }
