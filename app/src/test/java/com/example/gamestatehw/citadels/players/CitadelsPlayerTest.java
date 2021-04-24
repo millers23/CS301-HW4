@@ -97,10 +97,10 @@ public class CitadelsPlayerTest {
             districtDeck.add(greenDistrict);
         }
 
-        p.addToHand(p.getHand(), districtDeck.get(1));
-        p.addToHand(p.getHand(), districtDeck.get(2));
-        p.addToHand(p.getHand(), districtDeck.get(3));
-        p.addToHand(p.getHand(), districtDeck.get(4));
+        p.addToHand(districtDeck.get(1));
+        p.addToHand(districtDeck.get(2));
+        p.addToHand(districtDeck.get(3));
+        p.addToHand(districtDeck.get(4));
 
         p.setNumCards(p.getHand().size());
 
@@ -150,7 +150,7 @@ public class CitadelsPlayerTest {
         Card c = new Card("TEST_CARD",0,"TEST");
         ArrayList<Card> h = new ArrayList<Card>();
         h.add(c);
-        p.addToHand(p.getHand(), c);
+        p.addToHand(c);
         assertEquals(h, p.getHand());
     }
 
@@ -184,7 +184,7 @@ public class CitadelsPlayerTest {
             districtDeck.add(greenDistrict);
         }
 
-        p.addToDistrict(p.getDistricts(),districtDeck.get(49));
+        p.addToDistrict(districtDeck.get(49));
 
         assertNotEquals(new ArrayList(), p.getDistricts());
     }
@@ -218,11 +218,11 @@ public class CitadelsPlayerTest {
             districtDeck.add(greenDistrict);
         }
 
-        p1.addToHand(p1.getHand(),districtDeck.get(50));
+        p1.addToHand(districtDeck.get(50));
 
         assertNotEquals(new ArrayList(), p1.getHand());
 
-        p1.clearHand(p1.getHand());
+        p1.clearHand();
 
         assertEquals(new ArrayList(), p1.getHand());
 

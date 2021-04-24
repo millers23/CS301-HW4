@@ -65,68 +65,198 @@ public class CitadelsStateTest {
         CitadelsState state = new CitadelsState();
         //testing default value
         assertEquals(0,state.getWhoseMove());
-        state.setWhoseMove(100);
-        //testing invalid number
-        assertNotEquals(0,state.getWhoseMove());
-        state.setWhoseMove(3);
-        //testing valid number
-        assertEquals(3,state.getWhoseMove());
     }
 
+    //Created by Sebastian
     @Test
     public void setWhoseMove() {
+        CitadelsState state = new CitadelsState();
+
+        state.setWhoseMove(1);
+        assertEquals(1, state.getWhoseMove());
     }
 
+    //Created by Sebastian
     @Test
     public void getTurnPhase() {
+        CitadelsState state = new CitadelsState();
+
+        //check default value
+        assertEquals(0, state.getTurnPhase());
     }
 
+    //Created by Sebastian
     @Test
     public void setTurnPhase() {
+        CitadelsState state = new CitadelsState();
+
+        //different value from default
+        state.setTurnPhase(1);
+        assertEquals(1, state.getTurnPhase());
     }
 
+    //Created by Sebastian
     @Test
     public void init() {
+        CitadelsState state1 = new CitadelsState();
+        CitadelsState state2 = new CitadelsState();
 
+        //test that district and character decks are setup the same
+        assertEquals(state1.getCharacterDeck().get(0).getName(),
+                state2.getCharacterDeck().get(0).getName());
+        assertEquals(state1.getDistrictDeck().get(0).getName(),
+                state2.getDistrictDeck().get(0).getName());
     }
 
+    //Created by Sebastian
     @Test
     public void randomCard() {
+        CitadelsState state = new CitadelsState();
+
+        //get two random cards
+        Card c1 = state.randomCard();
+        Card c2 = state.randomCard();
+
+        //make sure they're not the same
+        assertNotEquals(c1, c2);
     }
 
+    //Created by Sebastian
     @Test
     public void calcScore() {
+        CitadelsState state = new CitadelsState();
+        CitadelsPlayer p1 = new CitadelsPlayer("TEST1");
+        CitadelsPlayer p2 = new CitadelsPlayer("TEST2");
+
+        ArrayList<CitadelsPlayer> players = new ArrayList<CitadelsPlayer>();
+        players.add(p1);
+        players.add(p2);
+
+        p1.addToHand(new YellowDistrict());
+        p1.addToHand(new GreenDistrict());
+        p1.addToHand(new RedDistrict());
+        p1.addToHand(new BlueDistrict());
+
+        p2.addToHand(new YellowDistrict());
+
+        state.calcScore(players);
+
+        assertNotEquals(players.get(0).getPoints(), players.get(1).getPoints());
     }
 
+    //Created by Sebastian
     @Test
     public void drawGold() {
+        CitadelsState state = new CitadelsState();
+        CitadelsPlayer p = new CitadelsPlayer("TEST");
+
+        //should be able to draw gold because the default turn phase is 0
+        assertEquals(true, state.drawGold(p));
+        assertEquals(2, p.getGold());
+
+        //change turn phase
+        state.setTurnPhase(1);
+
+        //can't draw gold unless it's the start of your turn
+        assertEquals(false, state.drawGold(p));
     }
 
     @Test
     public void drawCard() {
+        CitadelsState state = new CitadelsState();
+        CitadelsPlayer p = new CitadelsPlayer("TEST");
+
+        //should be able to draw gold because the default turn phase is 0
+        assertEquals(true, state.drawCard(p));
+        assertEquals(2, p.getHand().size());
+
+        //change turn phase
+        state.setTurnPhase(1);
+
+        //can't draw gold unless it's the start of your turn
+        assertEquals(false, state.drawCard(p));
     }
 
     @Test
     public void removeCard() {
+        CitadelsState state = new CitadelsState();
+        CitadelsPlayer p = new CitadelsPlayer("TEST");
+        Card c = new Card("TEST",0,"NULL");
+
+        assertEquals(false, state.removeCard(p, c));
+
+        state.drawCard(p);
+        Card cT = p.getHand().get(0);
+        state.removeCard(p, cT);
+
+        assertEquals(1, p.getHand().size());
+
+        /*
+        //testing remove by object
+        p.addToHand(c);
+        assertEquals(c, p.getHand().get(0));
+        p.removeFromHand(c);
+        assertEquals(false, p.getHand().contains(c));
+
+        //testing remove by index
+        p.addToHand(c);
+        assertEquals(c, p.getHand().get(0));
+        p.removeFromHand(0);
+        assertEquals(false, p.getHand().contains(c));
+        */
     }
 
     @Test
     public void buildDistrict() {
+        CitadelsState state = new CitadelsState();
+        CitadelsPlayer p = new CitadelsPlayer("TEST");
+
+        //can't build because the turn phase isn't right
+        assertEquals(false, state.buildDistrict(p, new RedDistrict()));
+
+        //can't build because there isn't enough gold or a card in the hand
+        state.setTurnPhase(1);
+        assertEquals(false, state.buildDistrict(p, new RedDistrict()));
+
+        //can't build because there isn't enough gold
+        p.addToHand(new RedDistrict());
+        assertEquals(false, state.buildDistrict(p, new RedDistrict()));
+
+        //build successful
+        p.setGold(1);
+        assertEquals(true, state.buildDistrict(p, new RedDistrict()));
     }
 
     @Test
     public void removeDistrict() {
-    }
+        CitadelsState state = new CitadelsState();
+        CitadelsPlayer p = new CitadelsPlayer("TEST");
 
-    @Test
-    public void useAbility() {
+        //can't remove because the turn phase isn't right
+        assertEquals(false, state.removeDistrict(p, new RedDistrict()));
 
+        //can't remove because there isn't a card to remove
+        state.setTurnPhase(1);
+        assertEquals(false, state.buildDistrict(p, new RedDistrict()));
+
+        //can remove
+        p.addToHand(new RedDistrict());
+        assertEquals(false, state.buildDistrict(p, new RedDistrict()));
     }
 
     @Test
     public void endTurn() {
-    }
+        CitadelsState state = new CitadelsState();
 
+        state.setTurnPhase(1);
+        assertEquals(true, state.endTurn());
+        assertEquals(0, state.getTurnPhase());
+        assertEquals(0, state.getWhoseMove());
+        assertEquals(0, state.getGamePhase());
+
+        state.setTurnPhase(0);
+        assertEquals(false, state.endTurn());
+    }
 
     // Test By Axl Martinez
     @Test
@@ -176,19 +306,19 @@ public class CitadelsStateTest {
         p1.setCharacter(merchant);
         p2.setCharacter(warlord);
 
-        p1.addToDistrict(p1.getDistricts(), districtDeck.get(50));
-        p1.addToDistrict(p1.getDistricts(), districtDeck.get(49));
-        p1.addToDistrict(p1.getDistricts(), districtDeck.get(48));
-        p1.addToDistrict(p1.getDistricts(), districtDeck.get(47));
-        p1.addToDistrict(p1.getDistricts(), districtDeck.get(5));
-        p1.addToDistrict(p1.getDistricts(), districtDeck.get(7));
+        p1.addToDistrict(districtDeck.get(50));
+        p1.addToDistrict(districtDeck.get(49));
+        p1.addToDistrict(districtDeck.get(48));
+        p1.addToDistrict(districtDeck.get(47));
+        p1.addToDistrict(districtDeck.get(5));
+        p1.addToDistrict(districtDeck.get(7));
 
-        p2.addToDistrict(p2.getDistricts(), districtDeck.get(50));
-        p2.addToDistrict(p2.getDistricts(), districtDeck.get(49));
-        p2.addToDistrict(p2.getDistricts(), districtDeck.get(48));
-        p2.addToDistrict(p2.getDistricts(), districtDeck.get(47));
-        p2.addToDistrict(p2.getDistricts(), districtDeck.get(5));
-        p2.addToDistrict(p2.getDistricts(), districtDeck.get(7));
+        p2.addToDistrict(districtDeck.get(50));
+        p2.addToDistrict(districtDeck.get(49));
+        p2.addToDistrict(districtDeck.get(48));
+        p2.addToDistrict(districtDeck.get(47));
+        p2.addToDistrict(districtDeck.get(5));
+        p2.addToDistrict(districtDeck.get(7));
 
         p1.Ability();
         p2.Ability();

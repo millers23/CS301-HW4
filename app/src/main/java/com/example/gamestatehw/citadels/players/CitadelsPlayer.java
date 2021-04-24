@@ -72,6 +72,10 @@ public class CitadelsPlayer {
         this.gold = gold;
     }
 
+    public void addGold(int gold) { this.gold += gold; }
+
+    public void subtractGold(int gold) { this.gold -= gold; }
+
     public int getSelectedCard() {
         return selectedCard;
     }
@@ -112,31 +116,31 @@ public class CitadelsPlayer {
         this.districts = hand;
     }
 
-    public void addToHand(ArrayList<Card> hand, Card card) {
+    public void addToHand(Card card) {
         hand.add(card);
     }
 
-    public void removeFromHand(ArrayList<Card> hand, Card card) {
+    public void removeFromHand(Card card) {
         hand.remove(card);
     }
 
-    public void removeFromHand(ArrayList<Card> hand, int index) {
+    public void removeFromHand(int index) {
         hand.remove(index);
     }
 
-    public void addToDistrict(ArrayList<Card> hand, Card card) {
+    public void addToDistrict(Card card) {
         hand.add(card);
     }
 
-    public void removeFromDistricts(ArrayList<Card> hand, Card card) {
+    public void removeFromDistricts(Card card) {
         hand.remove(card);
     }
 
-    public void removeFromDistricts(ArrayList<Card> hand, int index) {
+    public void removeFromDistricts(int index) {
         hand.remove(index);
     }
 
-    public void clearHand(ArrayList<Card> hand) {
+    public void clearHand() {
         hand.clear();
     }
 

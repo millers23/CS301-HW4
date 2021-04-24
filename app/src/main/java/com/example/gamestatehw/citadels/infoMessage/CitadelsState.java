@@ -126,6 +126,8 @@ public class CitadelsState extends GameState implements Serializable {
 
     public ArrayList<Card> getCharacterDeck() { return characterDeck; }
 
+    public ArrayList<Card> getDistrictDeck() { return districtDeck; }
+
     public void init() {
         //add character cards to deck
 
@@ -166,7 +168,7 @@ public class CitadelsState extends GameState implements Serializable {
 
     //draws a random card from the deck
     public Card randomCard() {
-        int i = (int) ((Math.random() * districtDeck.size()) + 1);
+        int i = (int) ((Math.random() * districtDeck.size()));
         Card card = districtDeck.get(i);
         return card;
     }
@@ -226,7 +228,7 @@ public class CitadelsState extends GameState implements Serializable {
     //adds gold to the player's inventory
     public boolean drawGold(CitadelsPlayer p) {
         if (turnPhase == 0) {
-            p.setGold(p.getGold() + 2);
+            p.addGold(2);
             turnPhase++;
             return true;
         } else {
@@ -237,8 +239,8 @@ public class CitadelsState extends GameState implements Serializable {
     //adds two random cards to the player's inventory
     public boolean drawCard(CitadelsPlayer p) {
         if (turnPhase == 0) {
-            p.addToHand(p.getHand(), randomCard());
-            p.addToHand(p.getHand(), randomCard());
+            p.addToHand(randomCard());
+            p.addToHand(randomCard());
             turnPhase++;
             return true;
         } else {
@@ -261,8 +263,8 @@ public class CitadelsState extends GameState implements Serializable {
     public boolean buildDistrict(CitadelsPlayer p, DistrictCard c) {
         if (turnPhase == 1) {
             if (p.getGold() >= c.getCost()) {
-                p.removeFromHand(p.getHand(), c);
-                p.addToDistrict(p.getDistricts(), c);
+                p.removeFromHand(c);
+                p.addToDistrict(c);
                 p.setGold(p.getGold() - c.getCost());
                 turnPhase++;
                 return true;
@@ -277,7 +279,7 @@ public class CitadelsState extends GameState implements Serializable {
     //removes a district if the player is able to
     public boolean removeDistrict(CitadelsPlayer p, DistrictCard c) {
         if (turnPhase == 1) {
-            p.removeFromDistricts(p.getDistricts(), c);
+            p.removeFromDistricts(c);
             turnPhase++;
             return true;
         } else {
@@ -327,7 +329,7 @@ public class CitadelsState extends GameState implements Serializable {
             if (playerTurn < numPlayers) {
                 playerTurn++;
             } else {
-                playerTurn = 1;
+                playerTurn = 0;
                 gamePhase = 0;
             }
             return true;
