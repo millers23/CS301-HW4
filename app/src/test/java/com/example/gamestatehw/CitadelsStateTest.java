@@ -61,7 +61,7 @@ public class CitadelsStateTest {
     }
     //Kyle created test edited by Axl
     @Test
-    public void getWhoseMove() {
+    public void testWhoseMove() {
         CitadelsState state = new CitadelsState();
         //testing default value
         assertEquals(0,state.getWhoseMove());
@@ -73,17 +73,21 @@ public class CitadelsStateTest {
         assertEquals(3,state.getWhoseMove());
     }
 
-    @Test
-    public void setWhoseMove() {
-    }
 
     @Test
-    public void getTurnPhase() {
+    public void testTurnPhase() {
+        CitadelsState state = new CitadelsState();
+        //testing default value
+        assertEquals(0,state.getTurnPhase());
+        state.setWhoseMove(100);
+        //testing invalid number
+        assertNotEquals(0,state.getTurnPhase());
+        state.setWhoseMove(2);
+        //testing valid number
+        assertEquals(2,state.getTurnPhase());
     }
 
-    @Test
-    public void setTurnPhase() {
-    }
+
 
     @Test
     public void init() {

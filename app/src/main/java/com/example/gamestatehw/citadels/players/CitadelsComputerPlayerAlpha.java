@@ -13,6 +13,7 @@ public class CitadelsComputerPlayerAlpha extends GameComputerPlayer {
         super(name);
     }
 
+
     @Override
     protected void receiveInfo(GameInfo info) {
         //do some computations

@@ -12,6 +12,7 @@ import com.example.gamestatehw.GameFramework.utilities.Logger;
 //import com.example.gamestatehw.GameFramework.utilities.Saving;
 import com.example.gamestatehw.R;
 import com.example.gamestatehw.citadels.infoMessage.CitadelsState;
+import com.example.gamestatehw.citadels.players.CitadelsComputerPlayerAlpha;
 import com.example.gamestatehw.citadels.players.CitadelsHumanPlayer;
 
 import java.util.ArrayList;
@@ -39,21 +40,21 @@ public class CitadelsMainActivity extends GameMainActivity {
             }
         });
 
-        /*
+
         // dumb computer player
         playerTypes.add(new GamePlayerType("Computer Player (dumb)") {
             public GamePlayer createPlayer(String name) {
-                return new CitadelsComputerPlayer1(name);
+                return new CitadelsComputerPlayerAlpha(name);
             }
         });
 
         // smarter computer player
         playerTypes.add(new GamePlayerType("Computer Player (smart)") {
             public GamePlayer createPlayer(String name) {
-                return new CitadelsComputerPlayer2(name);
+                return new CitadelsComputerPlayerAlpha(name);
             }
         });
-        */
+
 
         // Create a game configuration class for Tic-tac-toe
         GameConfig defaultConfig = new GameConfig(playerTypes, 1,3, "Citadels", PORT_NUMBER);
