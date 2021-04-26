@@ -181,6 +181,16 @@ public class CitadelsHumanPlayer extends GameHumanPlayer implements View.OnClick
         myActivity = activity;
         myActivity.setContentView(layoutId);
         //this method is the onCreate so add listeners here
+        Button cardButton = myActivity.findViewById(R.id.cardButton);
+        cardButton.setOnClickListener(this);
+        Button goldButton = myActivity.findViewById(R.id.goldButton);
+        goldButton.setOnClickListener(this);
+        Button buildButton = myActivity.findViewById(R.id.buildButton);
+        buildButton.setOnClickListener(this);
+        Button removeButton = myActivity.findViewById(R.id.removeButton);
+        removeButton.setOnClickListener(this);
+        Button abilityButton = myActivity.findViewById(R.id.abilityButton);
+        abilityButton.setOnClickListener(this);
         Button endButton = myActivity.findViewById(R.id.endButton);
         endButton.setOnClickListener(this);
         ImageView imageView = myActivity.findViewById(R.id.hand1);
