@@ -19,7 +19,6 @@ import com.example.gamestatehw.GameFramework.infoMessage.NotYourTurnInfo;
 import com.example.gamestatehw.GameFramework.players.GameHumanPlayer;
 import com.example.gamestatehw.GameFramework.utilities.Logger;
 import com.example.gamestatehw.R;
-import com.example.gamestatehw.citadels.cards.Card;
 import com.example.gamestatehw.citadels.cards.DistrictCard;
 import com.example.gamestatehw.citadels.infoMessage.CitadelsState;
 import com.example.gamestatehw.citadels.views.CitadelsGameView;

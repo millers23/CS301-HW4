@@ -34,7 +34,7 @@ public class CitadelsMainActivity extends GameMainActivity {
 
 
         // yellow-on-blue GUI
-        playerTypes.add(new GamePlayerType("Local Human Player (blue-yellow)") {
+        playerTypes.add(new GamePlayerType("Local Human Player") {
             public GamePlayer createPlayer(String name) {
                 return new CitadelsHumanPlayer(name, R.layout.cit_player_view);
             }
