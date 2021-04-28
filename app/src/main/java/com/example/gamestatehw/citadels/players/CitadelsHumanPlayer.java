@@ -4,6 +4,7 @@ import android.graphics.Color;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.example.gamestatehw.GameFramework.actionMessage.BuildDistrictAction;
 import com.example.gamestatehw.GameFramework.actionMessage.DrawCardAction;
@@ -71,6 +72,7 @@ public class CitadelsHumanPlayer extends GameHumanPlayer implements View.OnClick
         else if (v.getId() == R.id.cardButton) {
             GameAction action = new DrawCardAction(this);
             game.sendAction(action);
+            Toast.makeText(v.getContext(), "You drew a card", Toast.LENGTH_SHORT).show();
         }
         else if (v.getId() == R.id.abilityButton) {
             GameAction action = new UseAbilityAction(this);

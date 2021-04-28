@@ -1,5 +1,6 @@
 package com.example.gamestatehw.citadels.views;
 
+import android.app.Activity;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
@@ -27,12 +28,19 @@ public class CitadelsDeckView extends FlashSurfaceView implements View.OnClickLi
 
     public CitadelsDeckView(Context context) {
         super(context);
+        //this.setContentView(R.layout.cit_player_view);
     }
 
     public CitadelsDeckView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
+        //this.setContentView(R.layout.cit_player_view);
     }
 
+    /**
+     * Displays how many of each district the player has made
+     *
+     * @param p - CitadelsPlayer whose current turn it is
+     */
     private void drawBuilt(CitadelsPlayer p) {
         TextView rDist = findViewById(R.id.redDistrict);
         TextView bDist = findViewById(R.id.blueDistrict);
@@ -72,6 +80,11 @@ public class CitadelsDeckView extends FlashSurfaceView implements View.OnClickLi
         pDist.setText("Unique Districts: "+unique);
     }
 
+    /**
+     * Draws the cards in the players' deck
+     *
+     * @param p - CitadelsPlayer whose current turn it is
+     */
     public void drawDeck(CitadelsPlayer p) {
         ImageView card1 = findViewById(R.id.hand1);
         ImageView card2 = findViewById(R.id.hand2);
@@ -108,15 +121,25 @@ public class CitadelsDeckView extends FlashSurfaceView implements View.OnClickLi
         }
     }
 
+    /**
+     * Basic setter for the GameState
+     *
+     * @param state - a copy of the current gamestate
+     */
     public void setState(CitadelsState state) {
         this.state = state;
     }
 
+    /**
+     * Updates the drawn deck, built cards, and invalidates the view when a button is clicked
+     *
+     * @param v - the view that has been clicked
+     */
     @Override
     public void onClick(View v) {
         CitadelsPlayer p = state.getPlayers().get(state.getWhoseMove());
         drawBuilt(p);
         drawDeck(p);
-        invalidate();
+        v.invalidate();
     }
 }
