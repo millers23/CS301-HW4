@@ -22,6 +22,7 @@ import com.example.gamestatehw.GameFramework.utilities.Logger;
 import com.example.gamestatehw.R;
 import com.example.gamestatehw.citadels.cards.DistrictCard;
 import com.example.gamestatehw.citadels.infoMessage.CitadelsState;
+import com.example.gamestatehw.citadels.views.CitadelsDeckView;
 import com.example.gamestatehw.citadels.views.CitadelsGameView;
 
 public class CitadelsHumanPlayer extends GameHumanPlayer implements View.OnClickListener {
@@ -29,7 +30,7 @@ public class CitadelsHumanPlayer extends GameHumanPlayer implements View.OnClick
     private static final String TAG = "CitadelsHumanPlayer";
 
     // the surface view
-    private CitadelsGameView view;
+    private CitadelsDeckView view;
 
     private int selectedCard;
 
@@ -37,6 +38,7 @@ public class CitadelsHumanPlayer extends GameHumanPlayer implements View.OnClick
     private int layoutId;
 
     private CitadelsState state;
+
     /**
      * constructor
      *
@@ -47,13 +49,11 @@ public class CitadelsHumanPlayer extends GameHumanPlayer implements View.OnClick
         this.layoutId = layoutID;
     }
 
-    public int getSelectedCard() {
-        return selectedCard;
-    }
-
-    public void setSelectedCard(int selectedCard) {
-        this.selectedCard = selectedCard;
-    }
+    /**
+     * Getters and setters for SelectedCard
+     */
+    public int getSelectedCard() { return selectedCard; }
+    public void setSelectedCard(int selectedCard) { this.selectedCard = selectedCard; }
 
     @Override
     public void onClick(View v) {
@@ -72,30 +72,42 @@ public class CitadelsHumanPlayer extends GameHumanPlayer implements View.OnClick
         else if (v.getId() == R.id.cardButton) {
             GameAction action = new DrawCardAction(this);
             game.sendAction(action);
-            Toast.makeText(v.getContext(), "You drew a card", Toast.LENGTH_SHORT).show();
         }
         else if (v.getId() == R.id.abilityButton) {
             GameAction action = new UseAbilityAction(this);
             game.sendAction(action);
         }
         else if (v.getId() == R.id.buildButton) {
-            DistrictCard cardToPlay = (DistrictCard)state.getPlayers().get(state.getWhoseMove()).getHand().get(selectedCard);
-            game.sendAction(new BuildDistrictAction(this, cardToPlay));
+            DistrictCard cardToPlay = (DistrictCard) state.getPlayers().get(state.getWhoseMove()).getHand().get(selectedCard);
+            if (cardToPlay != null) {
+                game.sendAction(new BuildDistrictAction(this, cardToPlay));
+            }
+            else {
+                game.sendAction(null);
+            }
         }
         else if (v.getId() == R.id.removeButton) {
-            DistrictCard cardToPlay = (DistrictCard)state.getPlayers().get(state.getWhoseMove()).getHand().get(selectedCard);
-            game.sendAction(new RemoveDistrictAction(this, cardToPlay));
+            DistrictCard cardToPlay = (DistrictCard) state.getPlayers().get(state.getWhoseMove()).getHand().get(selectedCard);
+            if (cardToPlay != null) {
+                game.sendAction(new RemoveDistrictAction(this, cardToPlay));
+            }
+            else {
+                game.sendAction(null);
+            }
         }
         //selects a card from the deck that is available
         //selectedCard = searchImageView(v);
 
         //returns the correct game action for what button is pressed
         //game.sendAction(searchGameAction(v));
-
-        //resets the view
-        v.invalidate();
     }
 
+    /**
+     * Helper function, detects which card has been selected
+     *
+     * @param v - the view in question
+     * @return - the index of the selected card
+     */
     private int searchImageView(View v) {
         ImageView imageView = null;
         if (v.getId() == R.id.hand1) {
@@ -177,6 +189,11 @@ public class CitadelsHumanPlayer extends GameHumanPlayer implements View.OnClick
         }
     }
 
+    /**
+     * Sets the OnClickListeners for all the necessary buttons
+     *
+     * @param activity - cit_player_view
+     */
     @Override
     public void setAsGui(GameMainActivity activity) {
         myActivity = activity;
