@@ -2,7 +2,13 @@ package com.example.gamestatehw.citadels.cards.characterCards;
 
 import android.util.Log;
 
+import com.example.gamestatehw.citadels.cards.Card;
 import com.example.gamestatehw.citadels.cards.CharacterCard;
+import com.example.gamestatehw.citadels.cards.districtCards.RedDistrict;
+import com.example.gamestatehw.citadels.infoMessage.CitadelsState;
+import com.example.gamestatehw.citadels.players.CitadelsPlayer;
+
+import java.util.ArrayList;
 
 public class Warlord extends CharacterCard {
     public Warlord() {
@@ -21,10 +27,16 @@ public class Warlord extends CharacterCard {
     }
 
     @Override
-    public void ability() {
+    public void ability(CitadelsState state, CitadelsPlayer p) {
+        ArrayList<Card> districts = p.getDistricts();
 
-        Log.d("Warlord","Override works");
-
-
+        for (int j = 0; j < districts.size(); j++) {
+            for (int i = 0; i < districts.size(); i++) {
+                Card districtCard = districts.get(j);
+                if (districtCard instanceof RedDistrict) {   // for every instance of military districts
+                    p.setGold(p.getGold() + 1);
+                }
+            }
+        }
     }
 }

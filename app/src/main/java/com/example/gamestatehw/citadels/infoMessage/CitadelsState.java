@@ -48,7 +48,9 @@ public class CitadelsState extends GameState implements Serializable {
 
     private ArrayList<CitadelsPlayer> players = new ArrayList<>();
 
-    //constructor
+    /**
+     * The Citadels class constructor. It all starts here.
+     */
     public CitadelsState() {
         init();
         //leave special ability district cards for later
@@ -57,7 +59,10 @@ public class CitadelsState extends GameState implements Serializable {
         turnPhase = 0;
     }
 
-    //copy constructor
+    /**
+     * Copy constructor for CitadelsState
+     * @param original - the original GameState that the new one will be a copy of
+     */
     public CitadelsState(CitadelsState original) {
         for (int i = 0; i < original.characterDeck.size(); i++) {
             characterDeck.add(original.characterDeck.get(i));
@@ -72,12 +77,10 @@ public class CitadelsState extends GameState implements Serializable {
     }
 
     /**
-     * Getters and Setters
+     * Methods to add or remove players
+     * @param p
+     * @return
      */
-    public ArrayList<CitadelsPlayer> getPlayers() { return players; }
-
-    public void setPlayers(ArrayList<CitadelsPlayer> players) { this.players = players; }
-
     public boolean addPlayer(CitadelsPlayer p) {
         if (players.contains(p) == true) {
             return false;
@@ -98,36 +101,35 @@ public class CitadelsState extends GameState implements Serializable {
         }
     }
 
+    /**
+     * Getters and Setters
+     */
+    public ArrayList<CitadelsPlayer> getPlayers() { return players; }
+    public void setPlayers(ArrayList<CitadelsPlayer> players) { this.players = players; }
     public int getGamePhase() {
         return gamePhase;
     }
-
     public void setGamePhase(int gamePhase) {
         this.gamePhase = gamePhase;
     }
-
     public int getWhoseMove() { return playerTurn; }
-
     public void setWhoseMove(int playerTurn) {
         this.playerTurn = playerTurn;
     }
-
     public int getTurnPhase() {
         return turnPhase;
     }
-
     public void setTurnPhase(int turnPhase) {
         this.turnPhase = turnPhase;
     }
-
     public void setHighlightedCard(){this.highlightedCard = highlightedCard;}
-
     public DistrictCard getHighlightedCard(){return highlightedCard;}
-
     public ArrayList<Card> getCharacterDeck() { return characterDeck; }
-
     public ArrayList<Card> getDistrictDeck() { return districtDeck; }
 
+    /**
+     * Init function for the constructor
+     */
     public void init() {
         //add character cards to deck
 
@@ -166,15 +168,20 @@ public class CitadelsState extends GameState implements Serializable {
         //unique districts go here
     }
 
-    //draws a random card from the deck
+    /**
+     * Draws a random card from the deck
+     * @return - the drawn card
+     */
     public Card randomCard() {
         int i = (int) ((Math.random() * districtDeck.size()));
         Card card = districtDeck.get(i);
         return card;
     }
 
-    //tallies the score of a given player with the needed extra parameters
-    public void calcScore(ArrayList<CitadelsPlayer> players) {
+    /**
+     * Calculates the score for every player in the game
+     */
+    public void calcScore() {
         for (int i = 0; i < players.size(); i++) {
             int score = 0;
             int red = 0;
@@ -225,7 +232,11 @@ public class CitadelsState extends GameState implements Serializable {
         }
     }
 
-    //adds gold to the player's inventory
+    /**
+     * Adds gold to the player's coffers
+     * @param p - the player in question
+     * @return - success or failure depending on what phase of the turn it is
+     */
     public boolean drawGold(CitadelsPlayer p) {
         if (turnPhase == 0) {
             p.addGold(2);
@@ -236,7 +247,11 @@ public class CitadelsState extends GameState implements Serializable {
         }
     }
 
-    //adds two random cards to the player's inventory
+    /**
+     * Adds two cards to the player's inventory
+     * @param p - the player in question
+     * @return - success or failure depending on what phase of the turn it is
+     */
     public boolean drawCard(CitadelsPlayer p) {
         if (turnPhase == 0) {
             p.addToHand(randomCard());
@@ -248,7 +263,12 @@ public class CitadelsState extends GameState implements Serializable {
         }
     }
 
-    //removes a card from the player's deck
+    /**
+     * Removes a card from the player's deck
+     * @param p - the player
+     * @param c - the card to be removed
+     * @return - success or failure depending on what phase of the turn it is
+     */
     public boolean removeCard(CitadelsPlayer p, Card c) {
         ArrayList<Card> d = p.getHand();
         if (d.contains(c)) {
@@ -259,7 +279,13 @@ public class CitadelsState extends GameState implements Serializable {
         }
     }
 
-    //builds a district if the player is able to
+    /**
+     * "Builds" a district if the given conditions allow it
+     * @param p - the player
+     * @param c - the district card to be "built"
+     * @return - success or failure depending on what phase of the turn it is or if the player has
+     * enough gold to make the district
+     */
     public boolean buildDistrict(CitadelsPlayer p, DistrictCard c) {
         if (turnPhase == 1) {
             if (p.getGold() >= c.getCost()) {
@@ -276,7 +302,12 @@ public class CitadelsState extends GameState implements Serializable {
         }
     }
 
-    //removes a district if the player is able to
+    /**
+     * Removes a "built" district
+     * @param p - the player
+     * @param c - the card to be removed
+     * @return - success or failure depending on what phase of the turn it is
+     */
     public boolean removeDistrict(CitadelsPlayer p, DistrictCard c) {
         if (turnPhase == 1) {
             p.removeFromDistricts(c);
@@ -287,50 +318,86 @@ public class CitadelsState extends GameState implements Serializable {
         }
     }
 
-    //uses player character's ability
+    /**
+     * Uses the player character's ability. Currently they are all able to be used at any time.
+     * @param p - the player (their character is stored here)
+     * @return - success or failure depending on what phase of the turn it is
+     */
     public boolean useAbility(CitadelsPlayer p) {
         //each character has their own ability
         //there are 18 of them
         //oh boy
-        CharacterCard character = p.getCharacter();
-        if (turnPhase == 0) {
-            if (character instanceof Assassin) {
-                character.ability();
-                turnPhase++;
-                return true;
-            } else {
-                return false;
-            }
-        } else if (turnPhase == 1) {
-            if (character instanceof Assassin) {
-                character.ability();
-                turnPhase++;
-                return true;
-            } else {
-                return false;
-            }
-        } else if (turnPhase == 2) {
-            if (character instanceof Assassin) {
-                character.ability();
-                turnPhase++;
-                return true;
-            } else {
-                return false;
-            }
-        } else {
-            return false;
+        /*CharacterCard character = p.getCharacter();
+        ArrayList<Card> districts = p.getDistricts();
+
+        if (character instanceof Architect) {
+            p.addToHand(randomCard());
+            p.addToHand(randomCard());
+            return true;
         }
+        if (character instanceof Merchant) {
+            for (int j = 0; j < districts.size(); j++) {
+                for (int i = 0; i < districts.size(); i++) {
+                    Card districtCard = districts.get(j);
+                    if (districtCard instanceof GreenDistrict) {  // for every instance of trade districts
+                        p.setGold(p.getGold() + 1);
+                    }
+                }
+            }
+            return true;
+        }
+        if (character instanceof Bishop) {
+            for (int j = 0; j < districts.size(); j++) {
+                for (int i = 0; i < districts.size(); i++) {
+                    Card districtCard = districts.get(j);
+                    if (districtCard instanceof BlueDistrict) {   // for every instance of religion districts
+                        p.setGold(p.getGold() + 1);
+                    }
+                }
+            }
+            return true;
+        }
+        if (character instanceof Warlord) {
+            for (int j = 0; j < districts.size(); j++) {
+                for (int i = 0; i < districts.size(); i++) {
+                    Card districtCard = districts.get(j);
+                    if (districtCard instanceof RedDistrict) {   // for every instance of military districts
+                        p.setGold(p.getGold() + 1);
+                    }
+                }
+            }
+            return true;
+        }
+        if (character instanceof King) {
+            for (int j = 0; j < districts.size(); j++) {
+                for (int i = 0; i < districts.size(); i++) {
+                    Card districtCard = districts.get(j);
+                    if (districtCard instanceof YellowDistrict) {   // for every instance of noble districts
+                        p.setGold(p.getGold() + 1);
+                    }
+                }
+            }
+            return true;
+        }
+        return false;*/
+        p.getCharacter().ability(this, p);
+        return true;
     }
 
-    //ends the player's turn
+    /**
+     * Ends the player's turn and advances the game.
+     * @return - success or failure depending on what phase of the turn it is
+     */
     public boolean endTurn() {
         if (turnPhase == 1 || turnPhase == 2) {
             turnPhase = 0;
             if (playerTurn < numPlayers) {
                 playerTurn++;
+                //trigger ready screen
             } else {
                 playerTurn = 0;
                 gamePhase = 0;
+                //trigger the character select
             }
             return true;
         } else {
@@ -338,16 +405,23 @@ public class CitadelsState extends GameState implements Serializable {
         }
     }
 
-    //toString method
+    /**
+     * Basic toString method
+     * @return - the values of all the instance variables
+     */
     @Override
     public String toString() {
-        return "GameState{" +
+        return "CitadelsState{" +
                 "numPlayers=" + numPlayers +
                 ", gamePhase=" + gamePhase +
                 ", playerTurn=" + playerTurn +
                 ", turnPhase=" + turnPhase +
-                ", characterDeck=" + characterDeck.toString() +
-                ", districtDeck=" + districtDeck.toString() +
+                ", characterDeck=" + characterDeck +
+                ", districtDeck=" + districtDeck +
+                ", highlightedCard=" + highlightedCard +
+                ", players=" + players +
+                ", (GameState) numSetupTurns=" + numSetupTurns +
+                ", (GameState) currentSetupTurn=" + currentSetupTurn +
                 '}';
     }
 }

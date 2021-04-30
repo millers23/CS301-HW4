@@ -1,5 +1,8 @@
 package com.example.gamestatehw.citadels.cards;
 
+import com.example.gamestatehw.citadels.infoMessage.CitadelsState;
+import com.example.gamestatehw.citadels.players.CitadelsPlayer;
+
 public class CharacterCard extends Card {
     int usablePhase;
     int number;
@@ -26,7 +29,7 @@ public class CharacterCard extends Card {
         this.number = number;
     }
 
-    public void ability() {
-
+    public void ability(CitadelsState state, CitadelsPlayer p) {
+        //override me
     }
 }

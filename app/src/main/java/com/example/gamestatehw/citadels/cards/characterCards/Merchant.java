@@ -9,6 +9,7 @@ import com.example.gamestatehw.citadels.cards.districtCards.BlueDistrict;
 import com.example.gamestatehw.citadels.cards.districtCards.GreenDistrict;
 import com.example.gamestatehw.citadels.cards.districtCards.RedDistrict;
 import com.example.gamestatehw.citadels.cards.districtCards.YellowDistrict;
+import com.example.gamestatehw.citadels.infoMessage.CitadelsState;
 import com.example.gamestatehw.citadels.players.CitadelsPlayer;
 
 import java.util.ArrayList;
@@ -24,12 +25,15 @@ public class Merchant extends CharacterCard /* Implements CitadelsState*/ {
                 6);
     }
 
-    public void ability(CitadelsPlayer p) {
-        for (int j = 0; j < p.getDistricts().size(); j++) {
-            ArrayList<Card> district = p.getDistricts();
-            Card districtCard = district.get(j);
-            if (districtCard instanceof GreenDistrict) {  // for every instance of trade districts
-                p.setGold(p.getGold() + 1);
+    public void ability(CitadelsState state, CitadelsPlayer p) {
+        ArrayList<Card> districts = p.getDistricts();
+
+        for (int j = 0; j < districts.size(); j++) {
+            for (int i = 0; i < districts.size(); i++) {
+                Card districtCard = districts.get(j);
+                if (districtCard instanceof GreenDistrict) {  // for every instance of trade districts
+                    p.setGold(p.getGold() + 1);
+                }
             }
         }
     }
