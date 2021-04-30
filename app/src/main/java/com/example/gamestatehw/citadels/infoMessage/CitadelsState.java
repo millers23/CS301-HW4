@@ -30,7 +30,6 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 public class CitadelsState extends GameState implements Serializable {
-    private int numPlayers;
     //phase 0: picking the character
     //phase 1: player turns
     //phase 2: get points
@@ -391,7 +390,7 @@ public class CitadelsState extends GameState implements Serializable {
     public boolean endTurn() {
         if (turnPhase == 1 || turnPhase == 2) {
             turnPhase = 0;
-            if (playerTurn < numPlayers) {
+            if (playerTurn < players.size()) {
                 playerTurn++;
                 //trigger ready screen
             } else {
@@ -412,7 +411,6 @@ public class CitadelsState extends GameState implements Serializable {
     @Override
     public String toString() {
         return "CitadelsState{" +
-                "numPlayers=" + numPlayers +
                 ", gamePhase=" + gamePhase +
                 ", playerTurn=" + playerTurn +
                 ", turnPhase=" + turnPhase +
