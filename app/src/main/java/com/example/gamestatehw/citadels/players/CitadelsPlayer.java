@@ -32,7 +32,10 @@ public class CitadelsPlayer {
     private CharacterCard character;
     public int selectedCard = 0;
 
-    //constructor
+    /**
+     * CitadelsPlayer constructor, holds all the player-specific data
+     * @param n - the name of the player
+     */
     public CitadelsPlayer(String n) {
         name = n;
         gold = 0;
@@ -43,6 +46,10 @@ public class CitadelsPlayer {
         districts = new ArrayList<>();
     }
 
+    /**
+     * CitadelsPlayer copy constructor
+     * @param original - the original player to copy
+     */
     public CitadelsPlayer(CitadelsPlayer original) {
         name = original.name;
         gold = original.gold;
