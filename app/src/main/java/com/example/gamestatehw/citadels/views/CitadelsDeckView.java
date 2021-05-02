@@ -26,11 +26,20 @@ public class CitadelsDeckView extends FlashSurfaceView implements View.OnClickLi
 
     protected CitadelsState state;
 
+    /**
+     * Constructor for CitadelsDeckView, inherits from FlashSurfaceView
+     * @param context
+     */
     public CitadelsDeckView(Context context) {
         super(context);
         //this.setContentView(R.layout.cit_player_view);
     }
 
+    /**
+     * Constructor for CitadelsDeckView, inherits from FlashSurfaceView
+     * @param context
+     * @param attrs
+     */
     public CitadelsDeckView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         //this.setContentView(R.layout.cit_player_view);
@@ -38,7 +47,6 @@ public class CitadelsDeckView extends FlashSurfaceView implements View.OnClickLi
 
     /**
      * Displays how many of each district the player has made
-     *
      * @param p - CitadelsPlayer whose current turn it is
      */
     private void drawBuilt(CitadelsPlayer p) {
@@ -82,7 +90,6 @@ public class CitadelsDeckView extends FlashSurfaceView implements View.OnClickLi
 
     /**
      * Draws the cards in the players' deck
-     *
      * @param p - CitadelsPlayer whose current turn it is
      */
     public void drawDeck(CitadelsPlayer p) {
@@ -123,7 +130,6 @@ public class CitadelsDeckView extends FlashSurfaceView implements View.OnClickLi
 
     /**
      * Basic setter for the GameState
-     *
      * @param state - a copy of the current gamestate
      */
     public void setState(CitadelsState state) {
@@ -132,7 +138,6 @@ public class CitadelsDeckView extends FlashSurfaceView implements View.OnClickLi
 
     /**
      * Updates the drawn deck, built cards, and invalidates the view when a button is clicked
-     *
      * @param v - the view that has been clicked
      */
     @Override

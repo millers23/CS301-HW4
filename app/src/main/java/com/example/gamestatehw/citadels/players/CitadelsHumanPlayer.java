@@ -55,6 +55,10 @@ public class CitadelsHumanPlayer extends GameHumanPlayer implements View.OnClick
     public int getSelectedCard() { return selectedCard; }
     public void setSelectedCard(int selectedCard) { this.selectedCard = selectedCard; }
 
+    /**
+     * OnClick method for the human player
+     * @param v - the view needed to perform operations on
+     */
     @Override
     public void onClick(View v) {
         if(searchImageView(v) != -1){
@@ -162,11 +166,19 @@ public class CitadelsHumanPlayer extends GameHumanPlayer implements View.OnClick
         return -1;
     }
 
+    /**
+     * Carry-over from GameState
+     * @return - the view
+     */
     @Override
     public View getTopView() {
         return myActivity.findViewById(R.id.top_gui_layout);
     }
 
+    /**
+     * Carry-over from GameState
+     * @param info
+     */
     @Override
     public void receiveInfo(GameInfo info) {
         if (view == null) return;
