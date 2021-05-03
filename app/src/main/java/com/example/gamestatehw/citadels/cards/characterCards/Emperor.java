@@ -27,7 +27,6 @@ public class Emperor extends CharacterCard {
                 4);
     }
 
-    @Override
     public void ability() {
         Log.d("Emperor","Override works");
     }

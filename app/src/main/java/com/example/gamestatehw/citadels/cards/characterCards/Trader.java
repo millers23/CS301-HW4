@@ -16,9 +16,5 @@ public class Trader extends CharacterCard {
                 6);
     }
 
-    @Override
-    public void ability() {
-
-        Log.d("Trader","Override works");
-    }
+    public void ability() { Log.d("Trader","Override works"); }
 }

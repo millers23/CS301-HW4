@@ -21,7 +21,6 @@ public class Spy extends CharacterCard {
                 2);
     }
 
-    @Override
     public void ability() {
         Log.d("Spy","Override works");
     }

@@ -19,7 +19,6 @@ public class Wizard extends CharacterCard {
                 3);
     }
 
-    @Override
     public void ability() {
         Log.d("Wizard","Override works");
     }

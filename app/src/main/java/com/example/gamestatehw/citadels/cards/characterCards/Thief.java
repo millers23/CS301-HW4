@@ -17,9 +17,5 @@ public class Thief extends CharacterCard {
                 2);
     }
 
-    @Override
-    public void ability() {
-
-        Log.d("Thief","Override works");
-    }
+    public void ability() { Log.d("Thief","Override works"); }
 }

@@ -18,7 +18,6 @@ public class Architect extends CharacterCard  /*implements CitadelsState*/ {
                 7);
     }
 
-    @Override
     public void ability(CitadelsState state, CitadelsPlayer p) {
         p.addToHand(state.randomCard());
         p.addToHand(state.randomCard());

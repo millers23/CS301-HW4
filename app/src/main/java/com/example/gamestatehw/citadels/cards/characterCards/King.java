@@ -24,9 +24,5 @@ public class King extends CharacterCard {
                 4);
     }
 
-    @Override
-    public void ability() {
-
-        Log.d("King","Override works");
-    }
+    public void ability() { Log.d("King","Override works"); }
 }

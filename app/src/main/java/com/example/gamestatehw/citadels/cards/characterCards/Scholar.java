@@ -16,7 +16,6 @@ public class Scholar extends CharacterCard {
                 7);
     }
 
-    @Override
     public void ability() {
         Log.d("Scholar","Override works");
     }

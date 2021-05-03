@@ -17,7 +17,6 @@ public class Alchemist extends CharacterCard {
                 6);
     }
 
-    @Override
     public void ability() {
         Log.d("Alchemist","Override works");
     }

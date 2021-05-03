@@ -31,7 +31,6 @@ public class Bishop extends CharacterCard {
                 4);
     }
 
-    @Override
     public void ability(CitadelsState state, CitadelsPlayer p) {
         ArrayList<Card> districts = p.getDistricts();
 

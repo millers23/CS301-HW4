@@ -19,7 +19,6 @@ public class Artist extends CharacterCard {
                 9);
     }
 
-    @Override
     public void ability() {
         Log.d("Artist","Override works");
     }

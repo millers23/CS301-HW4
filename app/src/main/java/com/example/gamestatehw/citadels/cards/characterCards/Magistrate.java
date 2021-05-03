@@ -27,7 +27,6 @@ public class Magistrate extends CharacterCard {
                 1);
     }
 
-    @Override
     public void ability() {
         Log.d("Magistrate","Override works");
     }

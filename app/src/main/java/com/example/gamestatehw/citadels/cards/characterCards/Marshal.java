@@ -18,7 +18,6 @@ public class Marshal extends CharacterCard {
                 8);
     }
 
-    @Override
     public void ability() {
         Log.d("Marshal","Override works");
     }

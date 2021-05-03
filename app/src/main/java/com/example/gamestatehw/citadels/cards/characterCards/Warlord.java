@@ -26,7 +26,6 @@ public class Warlord extends CharacterCard {
                 8);
     }
 
-    @Override
     public void ability(CitadelsState state, CitadelsPlayer p) {
         ArrayList<Card> districts = p.getDistricts();
 

@@ -38,7 +38,6 @@ public class Witch extends CharacterCard {
                 1);
     }
 
-    @Override
     public void ability() {
         Log.d("Witch","Override works");
     }

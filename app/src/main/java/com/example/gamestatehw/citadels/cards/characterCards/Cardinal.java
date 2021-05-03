@@ -19,7 +19,6 @@ public class Cardinal extends CharacterCard {
                 5);
     }
 
-    @Override
     public void ability() {
         Log.d("Cardinal","Override works");
     }

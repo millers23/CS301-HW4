@@ -16,7 +16,6 @@ public class Assassin extends CharacterCard {
                 1);
     }
 
-    @Override
     public void ability() {
         Log.d("Assassin","Override works");
     }

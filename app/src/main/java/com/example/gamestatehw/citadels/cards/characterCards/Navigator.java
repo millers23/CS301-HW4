@@ -16,7 +16,6 @@ public class Navigator extends CharacterCard {
                 7);
     }
 
-    @Override
     public void ability() {
         Log.d("Navigator","Override works");
     }

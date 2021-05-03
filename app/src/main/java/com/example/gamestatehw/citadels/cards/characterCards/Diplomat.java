@@ -24,7 +24,6 @@ public class Diplomat extends CharacterCard {
                 8);
     }
 
-    @Override
     public void ability() {
         Log.d("Diplomat","Override works");
     }

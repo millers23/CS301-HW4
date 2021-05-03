@@ -33,7 +33,6 @@ public class TaxCollector extends CharacterCard {
                 9);
     }
 
-    @Override
     public void ability() {
         Log.d("TaxCollector","Override works");
     }

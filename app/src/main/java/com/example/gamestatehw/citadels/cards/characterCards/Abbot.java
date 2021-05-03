@@ -24,7 +24,6 @@ public class Abbot extends CharacterCard {
                 5);
     }
 
-    @Override
     public void ability() {
         Log.d("Abbot","Override works");
     }

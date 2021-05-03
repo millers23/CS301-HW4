@@ -32,7 +32,6 @@ public class Blackmailer extends CharacterCard {
                 2);
     }
 
-    @Override
     public void ability() {
         Log.d("Blackmailer","Override works");
     }

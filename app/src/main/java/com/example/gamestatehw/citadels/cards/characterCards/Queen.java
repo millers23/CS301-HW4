@@ -19,7 +19,6 @@ public class Queen extends CharacterCard {
                 9);
     }
 
-    @Override
     public void ability() {
         Log.d("Queen","Override works");
     }
