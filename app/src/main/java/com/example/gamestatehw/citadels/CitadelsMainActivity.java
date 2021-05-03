@@ -13,6 +13,7 @@ import com.example.gamestatehw.GameFramework.utilities.Logger;
 import com.example.gamestatehw.R;
 import com.example.gamestatehw.citadels.infoMessage.CitadelsState;
 import com.example.gamestatehw.citadels.players.CitadelsComputerPlayerAlpha;
+import com.example.gamestatehw.citadels.players.CitadelsComputerPlayerBeta;
 import com.example.gamestatehw.citadels.players.CitadelsHumanPlayer;
 
 import java.util.ArrayList;
@@ -49,9 +50,9 @@ public class CitadelsMainActivity extends GameMainActivity {
         });
 
         // smarter computer player
-        playerTypes.add(new GamePlayerType("Computer Player (smart)") {
+        playerTypes.add(new GamePlayerType("Computer Player (less dumb)") {
             public GamePlayer createPlayer(String name) {
-                return new CitadelsComputerPlayerAlpha(name);
+                return new CitadelsComputerPlayerBeta(name);
             }
         });
 
